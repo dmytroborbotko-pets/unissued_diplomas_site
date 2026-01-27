@@ -1,29 +1,23 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-
-const LanguageContext = createContext();
-
-const SUPPORTED_LANGUAGES = [
-  { code: 'en', name: 'English' },
-  { code: 'uk', name: 'Українська' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'it', name: 'Italiano' },
-  { code: 'ja', name: '日本語' },
-  { code: 'es', name: 'Español' },
-];
+import { SUPPORTED_LANGUAGES } from '../constants/languages';
+import { LanguageContext } from './Language.context';
 
 export const LanguageProvider = ({ children }) => {
   const { i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState('en');
-
-  useEffect(() => {
-    // Load saved language from localStorage
+  const [currentLanguage, setCurrentLanguage] = useState(() => {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && SUPPORTED_LANGUAGES.find(lang => lang.code === savedLanguage)) {
-      setCurrentLanguage(savedLanguage);
-      i18n.changeLanguage(savedLanguage);
+      return savedLanguage;
     }
-  }, [i18n]);
+    return 'en';
+  });
+
+  useEffect(() => {
+    if (currentLanguage && i18n.language !== currentLanguage) {
+      i18n.changeLanguage(currentLanguage);
+    }
+  }, [currentLanguage, i18n]);
 
   const changeLanguage = (languageCode) => {
     setCurrentLanguage(languageCode);
@@ -42,12 +36,4 @@ export const LanguageProvider = ({ children }) => {
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within LanguageProvider');
-  }
-  return context;
 };

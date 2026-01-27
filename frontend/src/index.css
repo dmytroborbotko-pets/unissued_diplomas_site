@@ -1,10 +1,9 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
+@import "tailwindcss/preflight";
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply text-white antialiased;
+    @apply bg-gray-600 text-white antialiased;
   }
 }
