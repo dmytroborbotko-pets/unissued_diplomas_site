@@ -1,5 +1,6 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { Main } from "../components/Main";
 
 export default function Home() {
   return (
@@ -7,17 +8,8 @@ export default function Home() {
       <Header />
 
       <main className="flex-1 pt-16 tablet:pt-20">
-        {/* Hero Section - Placeholder */}
-        <section className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl tablet:text-6xl desktop:text-7xl font-bold mb-4">
-              UNISSUED DIPLOMAS
-            </h1>
-            <p className="text-gray-400 text-lg tablet:text-xl">
-              When your classroom turns into a battlefield, your major becomes in every.
-            </p>
-          </div>
-        </section>
+        {/* Top Section */}
+        <Main />
 
         {/* More sections will be added here */}
         <section className="py-20 text-center">

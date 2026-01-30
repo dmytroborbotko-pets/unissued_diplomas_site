@@ -1,9 +1,70 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@tailwind utilities;
+
+/* KyivType Sans Font Family */
+@font-face {
+  font-family: "KyivType Sans";
+  src: url("/font/KyivType-Sans--Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KyivType Sans";
+  src: url("/font/KyivType-Sans--Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KyivType Sans";
+  src:
+    url("/font/KyivType-Sans--Bold.woff2") format("woff2"),
+    url("/font/KyivType-Sans--Bold2.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KyivType Sans";
+  src: url("/font/KyivType-Sans--Heavy.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Color variables - change these to update colors throughout the app */
+  --color-theme-bg: #171717;
+  --color-theme-bg-dark: #1a1a1a;
+  --color-theme-primary: #a83232;
+  --color-theme-primary-dark: #b10000;
+  --color-theme-accent: #f5f5f5;
+  --color-theme-border: #ffffff;
+  --color-theme-text: #ffffff;
+  --color-theme-text-muted: #e5e5e5;
+
+  /* Font family variables - change these to update fonts throughout the app */
+  --font-heading: "KyivType Sans", system-ui, sans-serif;
+  --font-body: "KyivType Sans", system-ui, sans-serif;
+
+  /* Screen breakpoints */
+  --breakpoint-mobile-xs: 342px;
+  --breakpoint-mobile-sm: 480px;
+  --breakpoint-mobile-lg: 481px;
+  --breakpoint-tablet: 769px;
+  --breakpoint-tablet-md: 905px;
+  --breakpoint-desktop: 1280px;
+}
 
 @layer base {
   body {
-    @apply bg-gray-600 text-white antialiased;
+    background-color: var(--color-theme-bg);
+    color: var(--color-theme-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
