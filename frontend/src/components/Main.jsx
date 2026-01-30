@@ -1,10 +1,12 @@
 import { ActionBlock } from "../shared/ActionBlock";
 import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
+import { Achievements } from "./Achievements";
+import { HallOfDiplomas } from "./HallOfDiplomas";
 
 export const Main = () => {
   return (
-    <section className="bg-theme-bg text-theme-text mt-4 ">
-      <main className="min-h-screen p-4 tablet:p-0 max-w-[1080px] mx-auto">
+    <section className="bg-theme-bg text-theme-text mt-4 min-h-screen">
+      <main className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
         <div className="tablet:px-4 mobile-xs:px-1 tablet:hidden my-[30px]">
           <p className="flex flex-col font-normal tablet:text-[70px] mobile-sm:text-[58px] mobile-lg:text-[60px] mobile-xs:text-[48px] leading-none relative">
             <span>UNISSUED</span>
@@ -95,6 +97,8 @@ export const Main = () => {
           </div>
         </div>
       </main>
+      <Achievements />
+      <HallOfDiplomas />
     </section>
   );
 };
