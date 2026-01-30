@@ -62,6 +62,38 @@ export const Main = () => {
             href="/donate"
           />
         </div>
+
+        {/* What's the Project About Section */}
+        <div className="tablet:px-4 mobile-xs:px-1 mt-20 tablet:mt-28">
+          <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
+            {/* Left: Heading */}
+            <div>
+              <h2 className=" max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
+                WHAT'S <br /> THE PROJECT <br /> ABOUT?
+              </h2>
+            </div>
+
+            {/* Right: Content */}
+            <div className="mt-10 tablet:mt-0 space-y-6">
+              <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
+                We created this exhibition to remind the world about the ongoing
+                war and the price Ukrainians pay daily in their fight for
+                freedom. "Unissued Diplomas" honours the memory of Ukrainian
+                students who will never graduate because their lives were taken
+                by the russian invasion.
+              </p>
+              <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
+                <span className="text-[#ff6868] font-[500] max-tablet:text-[20px] tablet:text-[16px]">
+                  The "Unissued Diplomas" exhibition uncovers the stories of 40
+                  Ukrainian students killed in the war.
+                </span>{" "}
+                In 2024, it will be held in different institutions worldwide on
+                February 24, which marks the anniversary of the day all Ukraine
+                woke up from explosions.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
     </section>
   );
