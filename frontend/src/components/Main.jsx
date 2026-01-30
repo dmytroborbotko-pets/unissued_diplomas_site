@@ -6,9 +6,14 @@ export const Main = () => {
     <section className="bg-theme-bg text-theme-text mt-4 ">
       <main className="min-h-screen p-4 tablet:p-0 max-w-[1080px] mx-auto">
         <div className="tablet:px-4 mobile-xs:px-1 tablet:hidden my-[30px]">
-          <p className="flex flex-col font-normal tablet:text-[70px] mobile-sm:text-[58px] mobile-lg:text-[60px] mobile-xs:text-[48px] leading-none">
+          <p className="flex flex-col font-normal tablet:text-[70px] mobile-sm:text-[58px] mobile-lg:text-[60px] mobile-xs:text-[48px] leading-none relative">
             <span>UNISSUED</span>
             <span>DIPLOMAS</span>
+            <img
+              src={HomeVyshyvankaIcon}
+              alt={""}
+              className="absolute top-[1.1em] left-[2.96em] -translate-y-1/2 w-[1.11em] h-[1.11em] object-contain"
+            />
           </p>
           <p className="font-normal mt-[20px] text-[17px] max-w-[75%]">
             When your classroom turns into a battlefield, your major becomes
