@@ -1,3 +1,5 @@
+import { DiplomaViewer } from './DiplomaViewer';
+
 export const HallOfDiplomas = () => {
   return (
     <div className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
@@ -47,6 +49,9 @@ export const HallOfDiplomas = () => {
             ></iframe>
           </div>
         </div>
+
+        {/* Diploma Viewer */}
+        <DiplomaViewer />
       </div>
     </div>
   );
