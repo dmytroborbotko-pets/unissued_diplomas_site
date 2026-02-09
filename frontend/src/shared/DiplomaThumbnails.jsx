@@ -1,4 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
+import { cn } from '../utils/utils';
 
 export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
   const scrollContainerRef = useRef(null);
@@ -29,7 +30,7 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
     }
   }, [currentIndex]);
 
-  const scroll = (direction) => {
+  const scroll = useCallback((direction) => {
     if (scrollContainerRef.current) {
       const scrollAmount = 300;
       scrollContainerRef.current.scrollBy({
@@ -37,7 +38,7 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
         behavior: 'smooth',
       });
     }
-  };
+  }, []);
 
   return (
     <div className="relative w-full">
@@ -65,7 +66,7 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
       {/* Thumbnail container */}
       <div
         ref={scrollContainerRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide px-12"
+        className="flex gap-4 overflow-x-auto px-12 [&::-webkit-scrollbar]:hidden"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -76,11 +77,12 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
             key={diploma.name}
             ref={(el) => (thumbnailRefs.current[index] = el)}
             onClick={() => onSelect(index)}
-            className={`flex-shrink-0 transition-all duration-200 ${
+            className={cn(
+              'flex-shrink-0 transition-all duration-200',
               index === currentIndex
-                ? 'ring-4 ring-[#b10000] scale-105'
-                : 'ring-2 ring-gray-600 hover:ring-gray-400'
-            }`}
+                ? 'ring-4 ring-theme-primary-dark scale-105'
+                : 'ring-2 ring-gray-600 hover:ring-gray-400',
+            )}
             aria-label={`View diploma ${index + 1}`}
           >
             <img
@@ -113,12 +115,6 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
           />
         </svg>
       </button>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </div>
   );
 };
