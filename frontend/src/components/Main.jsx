@@ -4,6 +4,7 @@ import { Achievements } from "./Achievements";
 import { HallOfDiplomas } from "./HallOfDiplomas";
 import { ExhibitionMap } from "./ExhibitionMap";
 import { DonateSection } from "./DonateSection";
+import { MissionSection } from "./MissionSection";
 
 export const Main = () => {
   return (
@@ -103,6 +104,7 @@ export const Main = () => {
       <HallOfDiplomas />
       <ExhibitionMap />
       <DonateSection />
+      <MissionSection />
     </section>
   );
 };
