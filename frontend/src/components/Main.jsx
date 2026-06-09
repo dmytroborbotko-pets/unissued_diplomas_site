@@ -5,6 +5,7 @@ import { HallOfDiplomas } from "./HallOfDiplomas";
 import { ExhibitionMap } from "./ExhibitionMap";
 import { DonateSection } from "./DonateSection";
 import { MissionSection } from "./MissionSection";
+import { StoriesSection } from "./StoriesSection";
 import { SponsorsSection } from "./SponsorsSection";
 import { PartnersSection } from "./PartnersSection";
 
@@ -107,6 +108,7 @@ export const Main = () => {
       <ExhibitionMap />
       <DonateSection />
       <MissionSection />
+      <StoriesSection />
       <SponsorsSection />
       <PartnersSection />
     </section>
