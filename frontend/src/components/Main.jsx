@@ -8,6 +8,7 @@ import { MissionSection } from "./MissionSection";
 import { StoriesSection } from "./StoriesSection";
 import { SponsorsSection } from "./SponsorsSection";
 import { PartnersSection } from "./PartnersSection";
+import { FAQSection } from "./FAQSection";
 
 export const Main = () => {
   return (
@@ -111,6 +112,7 @@ export const Main = () => {
       <StoriesSection />
       <SponsorsSection />
       <PartnersSection />
+      <FAQSection />
     </section>
   );
 };
