@@ -5,6 +5,7 @@ import { HallOfDiplomas } from "./HallOfDiplomas";
 import { ExhibitionMap } from "./ExhibitionMap";
 import { DonateSection } from "./DonateSection";
 import { MissionSection } from "./MissionSection";
+import { SponsorsSection } from "./SponsorsSection";
 
 export const Main = () => {
   return (
@@ -105,6 +106,7 @@ export const Main = () => {
       <ExhibitionMap />
       <DonateSection />
       <MissionSection />
+      <SponsorsSection />
     </section>
   );
 };

@@ -2,7 +2,7 @@ import missionPhoto from "../assets/ud_missuin_part_photo.png";
 
 export const MissionSection = () => {
   return (
-    <section className="w-full relative bg-theme-bg text-theme-text border-t-2 border-theme-primary">
+    <section className="w-full relative bg-theme-bg text-theme-text">
       {/* Blurred background photo — all mobile sizes (< 769px) */}
       <div className="block tablet:hidden absolute inset-0 overflow-hidden">
         <img
