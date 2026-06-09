@@ -45,6 +45,7 @@
   --color-theme-border: #ffffff;
   --color-theme-text: #ffffff;
   --color-theme-text-muted: #e5e5e5;
+  --color-theme-donate-bg: #8c0000; /* deep crimson used as the dark anchor for the donate section gradient */
 
   /* Font family variables - change these to update fonts throughout the app */
   --font-heading: "KyivType Sans", system-ui, sans-serif;

@@ -3,6 +3,7 @@ import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
 import { Achievements } from "./Achievements";
 import { HallOfDiplomas } from "./HallOfDiplomas";
 import { ExhibitionMap } from "./ExhibitionMap";
+import { DonateSection } from "./DonateSection";
 
 export const Main = () => {
   return (
@@ -101,6 +102,7 @@ export const Main = () => {
       <Achievements />
       <HallOfDiplomas />
       <ExhibitionMap />
+      <DonateSection />
     </section>
   );
 };
