@@ -2,6 +2,7 @@ import { ActionBlock } from "../shared/ActionBlock";
 import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
 import { Achievements } from "./Achievements";
 import { HallOfDiplomas } from "./HallOfDiplomas";
+import { ExhibitionMap } from "./ExhibitionMap";
 
 export const Main = () => {
   return (
@@ -99,6 +100,7 @@ export const Main = () => {
       </main>
       <Achievements />
       <HallOfDiplomas />
+      <ExhibitionMap />
     </section>
   );
 };
