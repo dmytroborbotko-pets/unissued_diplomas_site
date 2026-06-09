@@ -6,6 +6,7 @@ import { ExhibitionMap } from "./ExhibitionMap";
 import { DonateSection } from "./DonateSection";
 import { MissionSection } from "./MissionSection";
 import { SponsorsSection } from "./SponsorsSection";
+import { PartnersSection } from "./PartnersSection";
 
 export const Main = () => {
   return (
@@ -107,6 +108,7 @@ export const Main = () => {
       <DonateSection />
       <MissionSection />
       <SponsorsSection />
+      <PartnersSection />
     </section>
   );
 };

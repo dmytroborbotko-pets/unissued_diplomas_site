@@ -39,6 +39,7 @@
   /* Color variables - change these to update colors throughout the app */
   --color-theme-bg: #171717;
   --color-theme-bg-dark: #1a1a1a;
+  --color-theme-bg-grey: #262623; /* grey background used for Partners section */
   --color-theme-primary: #a83232;
   --color-theme-primary-dark: #b10000;
   --color-theme-accent: #f5f5f5;
