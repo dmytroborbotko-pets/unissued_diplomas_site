@@ -4,7 +4,7 @@ export const HallOfDiplomas = () => {
   return (
     <div className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
       {/* Hall of Diplomas Section */}
-      <div className="tablet:px-4 mobile-xs:px-1 mt-20 tablet:mt-28">
+      <div className="tablet:px-4 mobile-xs:px-1 my-20 tablet:mt-28">
         <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
           {/* Left: Heading */}
           <div>

@@ -18,7 +18,7 @@ export const ExhibitionMap = () => {
   );
 
   return (
-    <section className="bg-theme-bg text-theme-text">
+    <section className="bg-black text-theme-text">
       <div className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3 py-20 tablet:py-28">
         {/* Header: two-column layout matching "What's the Project About?" */}
         <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8 mb-12 tablet:mb-16">
