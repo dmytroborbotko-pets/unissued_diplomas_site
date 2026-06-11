@@ -10,6 +10,7 @@ export function ActionBlock({
   variant = "dark",
   titleFont,
   titleSize,
+  titleLineHeight = "1.25em",
   descriptionFont,
   hasBorder = false,
   href = "#",
@@ -113,7 +114,7 @@ export function ActionBlock({
                 ? "tablet:text-[70px]"
                 : "text-[41px]",
           )}
-          style={!Array.isArray(title) ? { lineHeight: "1.3" } : undefined}
+          style={{ lineHeight: titleLineHeight }}
         >
           {renderTitle()}
         </h2>

@@ -9,8 +9,16 @@ import { StoriesSection } from "./StoriesSection";
 import { SponsorsSection } from "./SponsorsSection";
 import { PartnersSection } from "./PartnersSection";
 import { FAQSection } from "./FAQSection";
+import { useLanguage } from "../hooks/useLanguage";
+import { ACTION_BLOCK_TITLES } from "../config/actionBlockTitles";
 
 export const Main = () => {
+  const { currentLanguage } = useLanguage();
+  const lang = currentLanguage ?? "en";
+  const b2 = ACTION_BLOCK_TITLES.block2[lang] ?? ACTION_BLOCK_TITLES.block2.en;
+  const b3 = ACTION_BLOCK_TITLES.block3[lang] ?? ACTION_BLOCK_TITLES.block3.en;
+  const b4 = ACTION_BLOCK_TITLES.block4[lang] ?? ACTION_BLOCK_TITLES.block4.en;
+
   return (
     <section className="bg-theme-bg text-theme-text mt-4 min-h-screen">
       <main className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
@@ -24,7 +32,7 @@ export const Main = () => {
               className="absolute top-[1.1em] left-[2.96em] -translate-y-1/2 w-[1.11em] h-[1.11em] object-contain"
             />
           </p>
-          <p className="font-normal mt-[20px] text-[17px] max-w-[75%]">
+          <p className="font-normal mt-[20px] text-[15px] max-w-[75%] letter-spacing-[0.05em]">
             When your classroom turns into a battlefield, your major becomes
             bravery.
           </p>
@@ -42,13 +50,15 @@ export const Main = () => {
             variant="dark"
             titleFont="font-normal"
             titleSize="tablet:text-[60px] tablet-md:text-[70px]"
+            titleLineHeight="1"
             descriptionFont="font-normal"
             href="/unissued-diplomas"
           />
 
           {/* Block 2: Dark with border */}
           <ActionBlock
-            title="VISIT AN EXHIBITION"
+            title={b2.title}
+            mobileTitle={b2.mobileTitle}
             variant="dark"
             titleFont="font-[800]"
             hasBorder
@@ -57,7 +67,8 @@ export const Main = () => {
 
           {/* Block 3: Red */}
           <ActionBlock
-            title="HOLD AN EXHIBITION IN YOUR CITY"
+            title={b3.title}
+            mobileTitle={b3.mobileTitle}
             variant="red"
             titleFont="font-[800]"
             href="/host-exhibition"
@@ -65,7 +76,8 @@ export const Main = () => {
 
           {/* Block 4: White */}
           <ActionBlock
-            title="DONATE TO HONOR STUDENTS' LEGACY"
+            title={b4.title}
+            mobileTitle={b4.mobileTitle}
             variant="white"
             titleFont="font-[800]"
             href="/donate"

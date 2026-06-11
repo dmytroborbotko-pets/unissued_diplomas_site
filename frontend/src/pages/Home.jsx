@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1 pt-16 tablet:pt-20">
+      <main className="flex-1 pt-16 tablet-md:pt-20">
         {/* Top Section */}
         <Main />
       </main>
