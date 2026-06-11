@@ -56,7 +56,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden tablet-md:flex items-center space-x-4">
+          <nav className="hidden tablet-md:flex items-center space-x-12">
             <a href="#about" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
               About the Project
             </a>
