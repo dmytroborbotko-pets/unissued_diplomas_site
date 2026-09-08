@@ -85,38 +85,55 @@ export const Main = () => {
         </div>
 
         {/* What's the Project About Section */}
-        <div className="tablet:px-4 mobile-xs:px-1 mt-20 tablet:mt-28">
+        <div className="tablet:px-4 mobile-xs:px-1 mt-26 tablet:mt-34">
           <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
             {/* Left: Heading */}
             <div>
-              <h2 className=" max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
+              <h2 className="text-[#ebebeb] max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
                 WHAT'S <br /> THE PROJECT <br /> ABOUT?
               </h2>
             </div>
 
             {/* Right: Content */}
             <div className="mt-10 tablet:mt-0 space-y-6">
-              <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-                We created this exhibition to remind the world about the ongoing
-                war and the price Ukrainians pay daily in their fight for
-                freedom. "Unissued Diplomas" honours the memory of Ukrainian
-                students who will never graduate because their lives were taken
+              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
+                The "Unissued Diplomas" international exhibitions honor{" "}
+                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
+                  Ukrainian students who will never graduate because their lives
+                  were taken
+                </span>{" "}
                 by the russian invasion.
               </p>
-              <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-                <span className="text-[#ff6868] font-[500] max-tablet:text-[20px] tablet:text-[16px]">
-                  The "Unissued Diplomas" exhibition uncovers the stories of 40
-                  Ukrainian students killed in the war.
+              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
+                The project shares the stories of{" "}
+                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
+                  40 students
                 </span>{" "}
-                In 2024, it will be held in different institutions worldwide on
-                February 24, which marks the anniversary of the day all Ukraine
-                woke up from explosions.
+                — civilians and military service members, young men and women —
+                whose futures were cut short by the war. Through their stories,
+                we commemorate their lives, their contributions, and the impact
+                they had on their communities.
+              </p>
+              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
+                Over{" "}
+                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
+                  100 people
+                </span>{" "}
+                have been involved in bringing the project to life. All united
+                in one mission: to preserve their memory and remind the world
+                that the full-scale war continues to take innocent lives. We
+                operate on a{" "}
+                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
+                  franchise-based model
+                </span>{" "}
+                by providing end-to-end support to local organizers for global
+                scalability and impact.
               </p>
             </div>
           </div>
         </div>
       </main>
-      <Achievements />
+      <Achievements /> 
       <HallOfDiplomas />
       <ExhibitionMap />
       <DonateSection />

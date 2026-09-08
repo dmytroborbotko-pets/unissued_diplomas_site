@@ -178,10 +178,10 @@ export const DiplomaViewer = () => {
         onSelect={selectDiploma}
       />
 
-      {/* Donate button */}
+      {/* Donate button
       <button className="w-full py-2 mt-10 bg-theme-primary-dark text-white text-base tracking-widest uppercase rounded hover:bg-theme-primary transition-colors">
         Donate
-      </button>
+      </button> */}
 
       {/* Fullscreen modal */}
       <DiplomaModal

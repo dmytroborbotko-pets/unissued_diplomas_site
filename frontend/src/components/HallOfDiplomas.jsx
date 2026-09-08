@@ -1,17 +1,15 @@
-import { DiplomaViewer } from './DiplomaViewer';
+import { DiplomaViewer } from "./DiplomaViewer";
 
 export const HallOfDiplomas = () => {
   return (
     <div className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
       {/* Hall of Diplomas Section */}
       <div className="tablet:px-4 mobile-xs:px-1 my-20 tablet:mt-28">
-        <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
+        {/* Diploma Viewer */}
+        <DiplomaViewer />
+
+        <div className="flex flex-col tablet:gap-8 mt-12 tablet:mt-20">
           {/* Left: Heading */}
-          <div>
-            <h2 className=" max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
-              HALL OF <br /> DIPLOMAS
-            </h2>
-          </div>
 
           {/* Right: Content */}
           <div className="mt-10 tablet:mt-0 space-y-6">
@@ -49,9 +47,6 @@ export const HallOfDiplomas = () => {
             ></iframe>
           </div>
         </div>
-
-        {/* Diploma Viewer */}
-        <DiplomaViewer />
       </div>
     </div>
   );

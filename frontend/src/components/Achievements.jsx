@@ -36,8 +36,9 @@ export const Achievements = () => {
   const imageTransform = `translateY(${-50 + scrollProgress * 50}%)`;
   return (
     <>
+      {/* прибрав блок, бо у фігмі відсутній */}
       {/* Achievements Button */}
-      <div className="tablet:px-4 mobile-xs:px-1 tablet:mt-20 max-tablet:mt-12 pb-8 bg-[#262623] w-full">
+      {/* <div className="tablet:px-4 mobile-xs:px-1 tablet:mt-20 max-tablet:mt-12 pb-8 bg-[#262623] w-full">
         <p className="max-w-[1080px] mx-auto pt-[42px] pb-[30px] px-[14px] text-[16px] max-tablet:text-[16.8px]">
           The Unissued diplomas initiative was started in 2023, when 110
           exhibitions were held in 24 countries. While this page focuses on
@@ -55,11 +56,11 @@ export const Achievements = () => {
             <RightArrowLongIcon className="w-20 h-12 transition-colors" />
           </a>
         </div>
-      </div>
+      </div> */}
       {/* Parallax Window Section - Tablet and up */}
       <div
         ref={parallaxRef}
-        className="relative w-full h-[400px] tablet:h-[320px] overflow-hidden max-[481px]:hidden"
+        className="tablet:mt-20 max-tablet:mt-12 relative w-full h-[400px] tablet:h-[320px] overflow-hidden max-[481px]:hidden"
       >
         {/* Large image that moves upward as you scroll down */}
         <div
