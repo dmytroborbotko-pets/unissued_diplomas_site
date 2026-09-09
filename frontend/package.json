@@ -12,6 +12,8 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "@vnedyalk0v/react19-simple-maps": "^2.0.2",
+    "@wix/data": "^1.0.519",
+    "@wix/sdk": "^1.21.16",
     "axios": "^1.13.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.29.2",
