@@ -14,9 +14,7 @@
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "db:up": "docker compose -f docker-compose.db.yml up -d --wait",
-    "db:down": "docker compose -f docker-compose.db.yml down",
-    "import": "node scripts/import.mjs",
-    "test": "node --test \"scripts/*.test.mjs\""
+    "db:down": "docker compose -f docker-compose.db.yml down"
   },
   "dependencies": {
     "@strapi/database": "5.54.0",

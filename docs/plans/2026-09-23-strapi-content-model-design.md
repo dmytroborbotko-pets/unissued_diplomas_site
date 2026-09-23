@@ -4,7 +4,8 @@ Date: 2026-09-23
 Status: implemented (plan: `2026-09-23-strapi-static-content.md`). Deviations found during implementation:
 - `node --test` needs a glob (`"scripts/*.test.mjs"`) on Node 24, not a directory.
 - Empty `xMobileTitle` falls back to the same-locale `xTitle` before English (otherwise German phones showed English block titles).
-- The one-off import still reads `frontend/src/constants/exhibitions.js` and `config/actionBlockTitles.js`, so those stay until the import is retired.
+- The one-off import (`backend/scripts/import.mjs`) ran once and was removed afterwards, together with the hardcoded
+  sources it read; it is in git history (commit ed54f0d). Production gets its data via `strapi transfer`.
 
 ## Goal
 

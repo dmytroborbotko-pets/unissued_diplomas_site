@@ -14,7 +14,6 @@ Design: `docs/plans/2026-09-23-strapi-content-model-design.md`
 # backend/ — Strapi 5 (TypeScript) on the host, MySQL 8 in Docker (127.0.0.1:3307)
 npm run db:up        # start MySQL (docker-compose.db.yml); db:down stops it
 npm run develop      # Strapi with admin at http://localhost:1337/admin
-npm test             # node:test for scripts/
 
 # frontend/
 npm run content      # pull content from Strapi → src/content/<locale>.json + public/uploads/
