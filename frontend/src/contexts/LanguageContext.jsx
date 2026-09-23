@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../constants/languages';
 import { LanguageContext } from './Language.context';
@@ -20,7 +20,8 @@ export const LanguageProvider = ({ children }) => {
   }, [currentLanguage, i18n]);
 
   const changeLanguage = (languageCode) => {
-    setCurrentLanguage(languageCode);
+    // Transition: keep the current language on screen while the new locale's content chunk loads
+    startTransition(() => setCurrentLanguage(languageCode));
     i18n.changeLanguage(languageCode);
     localStorage.setItem('language', languageCode);
   };

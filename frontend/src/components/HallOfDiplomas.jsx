@@ -1,6 +1,13 @@
 import { DiplomaViewer } from "./DiplomaViewer";
+import { useContent } from "../hooks/useContent";
+import { RichText } from "../shared/RichText";
+
+const soundcloudPlayer = (url) =>
+  `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`;
 
 export const HallOfDiplomas = () => {
+  const { home } = useContent();
+
   return (
     <div className="px-4 tablet:px-0 max-w-[1080px] mx-auto">
       {/* Hall of Diplomas Section */}
@@ -8,44 +15,25 @@ export const HallOfDiplomas = () => {
         {/* Diploma Viewer */}
         <DiplomaViewer />
 
-        <div className="flex flex-col tablet:gap-8 mt-12 tablet:mt-20">
-          {/* Left: Heading */}
-
-          {/* Right: Content */}
-          <div className="mt-10 tablet:mt-0 space-y-6">
-            <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-              They used to spend their days in study halls. They had favourite
-              classes and those they dreaded weekly. And how scary it was for
-              them to even think of failing a midterm.
-            </p>
-            <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-              But
-              <span className="text-[#ff6868] font-[500] max-tablet:text-[20px] tablet:text-[16px]">
-                after February 24, 2022, everything changed for Ukrainian
-                students.
-              </span>{" "}
-              Classrooms turned into bomb shelters and battlefields. Fear
-              changed its course, and bravery took control.
-            </p>
-            <p className="mb-14">
-              {" "}
-              <span className="text-[#ff6868] font-[500] max-tablet:text-[20px] tablet:text-[16px]">
-                Now, diplomas of some will never be issued.
-              </span>{" "}
-              Because russia took the lives of their to-be owners in its attempt
-              to take Ukraine's freedom.
-            </p>
-            {/* SoundCloud Embedding */}
+        <div className="mt-12 tablet:mt-20 space-y-6">
+          <RichText
+            blocks={home.hallText}
+            className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6"
+            strongClassName="text-[#ff6868] font-[500] max-tablet:text-[20px] tablet:text-[16px]"
+          />
+          {/* SoundCloud Embedding */}
+          {home.soundcloudUrl && (
             <iframe
               width="100%"
               height="120"
               scrolling="no"
               frameBorder="no"
               allow="autoplay"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-418708485/unissued-diplomas-audiotour-1&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              src={soundcloudPlayer(home.soundcloudUrl)}
               title="Unissued Diplomas Audio Tour"
+              className="!mt-14"
             ></iframe>
-          </div>
+          )}
         </div>
       </div>
     </div>

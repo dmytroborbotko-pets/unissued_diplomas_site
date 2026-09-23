@@ -1,29 +1,11 @@
-import { useCallback, useMemo, useRef } from "react";
-
-const CAPTIONS = [
-  "Kyiv, 2023",
-  "Lviv, 2023",
-  "Warsaw, 2024",
-  "Berlin, 2024",
-  "Toronto, 2024",
-  "Vienna, 2025",
-];
+import { useCallback, useRef } from "react";
+import { useContent } from "../hooks/useContent";
+import { mediaUrl } from "../utils/media";
 
 export const ExhibitionsSlider = () => {
   const scrollRef = useRef(null);
-
-  const photos = useMemo(() => {
-    const images = import.meta.glob("/src/assets/photo-slider/*.png", {
-      eager: true,
-    });
-
-    return Object.entries(images)
-      .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-      .map(([, module], index) => ({
-        src: module.default,
-        caption: CAPTIONS[index] ?? `Exhibition ${index + 1}`,
-      }));
-  }, []);
+  const { home, exhibitionPhotos } = useContent();
+  const photos = exhibitionPhotos.map((p) => ({ src: mediaUrl(p.image, "medium"), caption: p.caption }));
 
   const scroll = useCallback((direction) => {
     if (!scrollRef.current) return;
@@ -37,7 +19,7 @@ export const ExhibitionsSlider = () => {
     <div className="px-4 tablet:px-0 max-w-[1080px] mx-auto">
       <div className="tablet:px-4 mobile-xs:px-1 py-(--section-space)">
         <h2 className="font-heading font-normal uppercase leading-tight text-center text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px] mb-8 tablet:mb-12">
-          Exhibitions Throughout the Years
+          {home.photosHeading}
         </h2>
 
         <div className="relative left-1/2 w-screen -translate-x-1/2 px-5">

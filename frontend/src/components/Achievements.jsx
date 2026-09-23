@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import ParralaxQuotImage from "../assets/ParralaxQuotImage.avif";
 import { RightArrowLongIcon } from "../assets/RightArrowLongIcon";
+import { useContent } from "../hooks/useContent";
 
 export const Achievements = () => {
+  const { home } = useContent();
   const parallaxRef = useRef(null);
   const imageRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -69,17 +70,15 @@ export const Achievements = () => {
           className="absolute top-0 left-0 w-full h-[300%] transition-transform duration-0"
         >
           <img
-            src={ParralaxQuotImage}
-            alt="Never Graduated, Eternally Honored"
+            src={home.quoteImage?.url}
+            alt={home.quoteText}
             className="w-full h-full object-cover object-center"
           />
         </div>
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <h2 className="mobile-xs:text-[34px] max-tablet:text-[41px] tablet:text-[41px] font-normal uppercase leading-tight text-white text-center px-4">
-            NEVER GRADUATED,
-            <br />
-            ETERNALLY HONORED
+          <h2 className="mobile-xs:text-[34px] max-tablet:text-[41px] tablet:text-[41px] font-normal uppercase leading-tight text-white text-center px-4 whitespace-pre-line">
+            {home.quoteText}
           </h2>
         </div>
       </div>
@@ -87,16 +86,14 @@ export const Achievements = () => {
       {/* Static Image Section - Small Mobile only (<=481px) */}
       <div className="mt-(--section-space) relative w-full h-[280px] overflow-hidden tablet:hidden min-[482px]:hidden">
         <img
-          src={ParralaxQuotImage}
-          alt="Never Graduated, Eternally Honored"
+          src={home.quoteImage?.url}
+          alt={home.quoteText}
           className="w-full h-full object-cover object-center"
         />
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <h2 className="text-[24px] font-normal uppercase leading-tight text-white text-center px-4">
-            NEVER GRADUATED,
-            <br />
-            ETERNALLY HONORED
+          <h2 className="text-[24px] font-normal uppercase leading-tight text-white text-center px-4 whitespace-pre-line">
+            {home.quoteText}
           </h2>
         </div>
       </div>

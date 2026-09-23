@@ -86,7 +86,7 @@ export const DiplomaThumbnails = ({ diplomas, currentIndex, onSelect }) => {
             aria-label={`View diploma ${index + 1}`}
           >
             <img
-              src={diploma.src}
+              src={diploma.thumb ?? diploma.src}
               alt={diploma.name}
               className="w-32 h-auto object-cover"
               loading="lazy"

@@ -8,18 +8,14 @@ import { AchievementsGrid } from "./AchievementsGrid";
 import { DonateSection } from "./DonateSection";
 import { MissionSection } from "./MissionSection";
 import { StoriesSection } from "./StoriesSection";
-import { SponsorsSection } from "./SponsorsSection";
-import { PartnersSection } from "./PartnersSection";
+import { LogoSection } from "../shared/LogoSection";
 import { FAQSection } from "./FAQSection";
-import { useLanguage } from "../hooks/useLanguage";
-import { ACTION_BLOCK_TITLES } from "../config/actionBlockTitles";
+import { useContent } from "../hooks/useContent";
+import { RichText } from "../shared/RichText";
+import { lines } from "../utils/media";
 
 export const Main = () => {
-  const { currentLanguage } = useLanguage();
-  const lang = currentLanguage ?? "en";
-  const b2 = ACTION_BLOCK_TITLES.block2[lang] ?? ACTION_BLOCK_TITLES.block2.en;
-  const b3 = ACTION_BLOCK_TITLES.block3[lang] ?? ACTION_BLOCK_TITLES.block3.en;
-  const b4 = ACTION_BLOCK_TITLES.block4[lang] ?? ACTION_BLOCK_TITLES.block4.en;
+  const { home, global, sponsors, partners } = useContent();
 
   return (
     <section className="bg-theme-bg text-theme-text mt-4 min-h-screen">
@@ -35,8 +31,7 @@ export const Main = () => {
             />
           </p>
           <p className="font-normal mt-[20px] text-[15px] max-w-[75%] letter-spacing-[0.05em]">
-            When your classroom turns into a battlefield, your major becomes
-            bravery.
+            {home.heroTagline}
           </p>
         </div>
         <div className="flex flex-col mobile-xs:gap-5 tablet:grid tablet:grid-cols-2 tablet:gap-4 tablet:px-4 mobile-xs:px-1 tablet:mt-16">
@@ -48,7 +43,7 @@ export const Main = () => {
               alt: "Vyshyvanka",
             }}
             mobileTitle="ABOUT THE PROJECT"
-            description="When your classroom turns into a battlefield, your major becomes bravery."
+            description={home.heroTagline}
             variant="dark"
             titleFont="font-normal"
             titleSize="tablet:text-[60px] tablet-md:text-[70px]"
@@ -59,8 +54,8 @@ export const Main = () => {
 
           {/* Block 2: Dark with border */}
           <ActionBlock
-            title={b2.title}
-            mobileTitle={b2.mobileTitle}
+            title={lines(home.exhibitionsBlockTitle)}
+            mobileTitle={lines(home.exhibitionsBlockMobileTitle)}
             variant="dark"
             titleFont="font-[800]"
             hasBorder
@@ -69,17 +64,17 @@ export const Main = () => {
 
           {/* Block 3: Red */}
           <ActionBlock
-            title={b3.title}
-            mobileTitle={b3.mobileTitle}
+            title={lines(home.hostBlockTitle)}
+            mobileTitle={lines(home.hostBlockMobileTitle)}
             variant="red"
             titleFont="font-[800]"
-            href="/host-exhibition"
+            href={global.hostExhibitionUrl || "#"}
           />
 
           {/* Block 4: White */}
           <ActionBlock
-            title={b4.title}
-            mobileTitle={b4.mobileTitle}
+            title={lines(home.donateBlockTitle)}
+            mobileTitle={lines(home.donateBlockMobileTitle)}
             variant="white"
             titleFont="font-[800]"
             href="/donate"
@@ -91,51 +86,23 @@ export const Main = () => {
           <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
             {/* Left: Heading */}
             <div>
-              <h2 className="text-[#ebebeb] max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
-                WHAT'S <br /> THE PROJECT <br /> ABOUT?
+              <h2 className="text-[#ebebeb] max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none whitespace-pre-line">
+                {home.aboutHeading}
               </h2>
             </div>
 
             {/* Right: Content */}
             <div className="mt-8 tablet:mt-0 space-y-6">
-              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-                The "Unissued Diplomas" international exhibitions honor{" "}
-                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
-                  Ukrainian students who will never graduate because their lives
-                  were taken
-                </span>{" "}
-                by the russian invasion.
-              </p>
-              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-                The project shares the stories of{" "}
-                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
-                  40 students
-                </span>{" "}
-                — civilians and military service members, young men and women —
-                whose futures were cut short by the war. Through their stories,
-                we commemorate their lives, their contributions, and the impact
-                they had on their communities.
-              </p>
-              <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
-                Over{" "}
-                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
-                  100 people
-                </span>{" "}
-                have been involved in bringing the project to life. All united
-                in one mission: to preserve their memory and remind the world
-                that the full-scale war continues to take innocent lives. We
-                operate on a{" "}
-                <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
-                  franchise-based model
-                </span>{" "}
-                by providing end-to-end support to local organizers for global
-                scalability and impact.
-              </p>
+              <RichText
+                blocks={home.aboutText}
+                className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6"
+                strongClassName="font-[600] max-tablet:text-[20px] tablet:text-[16px]"
+              />
             </div>
           </div>
         </div>
       </main>
-      <Achievements /> 
+      <Achievements />
       <HallOfDiplomas />
       <ExhibitionsSlider />
       <ExhibitionMap />
@@ -143,8 +110,8 @@ export const Main = () => {
       <DonateSection />
       {/* <MissionSection /> */}
       <StoriesSection />
-      <SponsorsSection />
-      <PartnersSection />
+      <LogoSection heading={home.sponsorsHeading} items={sponsors} variant="sponsors" className="bg-theme-bg" />
+      <LogoSection heading={home.partnersHeading} items={partners} variant="partners" className="bg-theme-bg-grey" />
       <FAQSection />
     </section>
   );

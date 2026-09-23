@@ -1,30 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
+import { useContent } from "../hooks/useContent";
+import { RichText } from "../shared/RichText";
 
-const FAQ_ITEMS = [
-  {
-    id: 1,
-    question: "Were only 40 students killed?",
-    answer:
-      "No, the full-scale russian invasion has taken more student lives, as, in total, more than 6000 civilians and 13 000 soldiers have been reported killed since February 24, 2022. The exact number of students among them is unknown, considering that losses keep increasing every day.",
-  },
-  {
-    id: 2,
-    question: "Are exhibitions free to attend?",
-    answer:
-      "Yes, exhibitions are free of charge. However, you are welcome to donate, as we want to support financially Ukrainian students who stay in Ukraine and sacrifice their time and education to work for Ukraine's freedom.",
-  },
-  {
-    id: 3,
-    question: "Where can I learn more about other events?",
-    answer:
-      "You can find more information on our social media, the links to which are just below the FAQ section. We would also highly appreciate you sharing the events with those who might be interested, as we hope for this project to reach as many people as possible.",
-  },
-];
 
 export const FAQSection = () => {
-  const [openId, setOpenId] = useState(1);
+  const { home, faqs } = useContent();
+  const [openId, setOpenId] = useState(faqs[0]?.documentId);
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
@@ -40,9 +23,9 @@ export const FAQSection = () => {
               className="flex flex-col font-heading font-normal uppercase leading-none relative
                 text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]"
             >
-              <span>FREQUENTLY</span>
-              <span>ASKED</span>
-              <span>QUESTIONS</span>
+              {home.faqHeading?.split("\n").map((line) => (
+                <span key={line}>{line}</span>
+              ))}
               <img
                 src={HomeVyshyvankaIcon}
                 alt=""
@@ -52,21 +35,21 @@ export const FAQSection = () => {
           </div>
 
           <div>
-            {FAQ_ITEMS.map((item) => (
-              <div key={item.id}>
+            {faqs.map((item) => (
+              <div key={item.documentId}>
                 <button
                   className="w-full flex items-start justify-between gap-4 py-5 tablet:py-6 text-left"
-                  onClick={() => toggle(item.id)}
+                  onClick={() => toggle(item.documentId)}
                 >
                   <span className="text-[15px] tablet:text-[17px] font-normal leading-snug">
                     {item.question}
                   </span>
                   <span className="flex-shrink-0 text-[22px] leading-none">
-                    {openId === item.id ? "−" : "+"}
+                    {openId === item.documentId ? "−" : "+"}
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
-                  {openId === item.id && (
+                  {openId === item.documentId && (
                     <motion.div
                       key="content"
                       initial={{ height: 0, opacity: 0 }}
@@ -75,9 +58,10 @@ export const FAQSection = () => {
                       transition={{ duration: 0.28, ease: "easeInOut" }}
                       style={{ overflow: "hidden" }}
                     >
-                      <p className="pb-5 tablet:pb-6 text-[13px] tablet:text-[15px] leading-relaxed text-theme-text-muted">
-                        {item.answer}
-                      </p>
+                      <RichText
+                        blocks={item.answer}
+                        className="pb-5 tablet:pb-6 text-[13px] tablet:text-[15px] leading-relaxed text-theme-text-muted"
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -2,15 +2,8 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { DiplomaThumbnails } from "../shared/DiplomaThumbnails";
 import { DiplomaModal } from "../shared/DiplomaModal";
 import { cn } from "../utils/utils";
-
-const DIPLOMA_LANGUAGES = [
-  "English",
-  "Deutsch",
-  "Italiano",
-  "Español",
-  "Français",
-  "日本語",
-];
+import { useContent } from "../hooks/useContent";
+import { mediaUrl } from "../utils/media";
 
 const ChevronDownIcon = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,7 +19,9 @@ const ChevronDownIcon = ({ className }) => (
 export const DiplomaViewer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [language, setLanguage] = useState("English");
+  const { diplomas, diplomaLanguages } = useContent();
+  const [languageId, setLanguageId] = useState(diplomaLanguages[0]?.documentId);
+  const language = diplomaLanguages.find((l) => l.documentId === languageId) ?? diplomaLanguages[0];
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -40,25 +35,22 @@ export const DiplomaViewer = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Load all diploma images dynamically
-  const diplomaImages = useMemo(() => {
-    const images = import.meta.glob("/src/assets/diplomas_en_version/*.jpg", {
-      eager: true,
-    });
-
-    // Convert to array and sort by number in filename
-    return Object.entries(images)
-      .sort(([a], [b]) => {
-        // Extract number from filename (e.g., "10d" -> 10)
-        const numA = parseInt(a.match(/(\d+)d/)?.[1] || "0");
-        const numB = parseInt(b.match(/(\d+)d/)?.[1] || "0");
-        return numA - numB;
-      })
-      .map(([path, module]) => ({
-        src: module.default,
-        name: path.split("/").pop().replace("_HD.jpg", ""),
-      }));
-  }, []);
+  // Students that have a version in the selected language, in diploma order
+  const diplomaImages = useMemo(
+    () =>
+      diplomas.flatMap(({ studentName, versions }) => {
+        const version = versions.find((v) => v.language?.documentId === language?.documentId);
+        return version
+          ? [{
+              name: studentName,
+              src: mediaUrl(version.image, "large"),
+              thumb: mediaUrl(version.image, "thumbnail"),
+              full: version.image.url,
+            }]
+          : [];
+      }),
+    [diplomas, language],
+  );
 
   const nextDiploma = useCallback(() => {
     setCurrentIndex((prev) =>
@@ -80,7 +72,8 @@ export const DiplomaViewer = () => {
     setIsFullscreen(false);
   }, []);
 
-  const currentDiploma = diplomaImages[currentIndex];
+  // A language can have fewer diplomas than the previously selected one
+  const currentDiploma = diplomaImages[Math.min(currentIndex, diplomaImages.length - 1)];
 
   return (
     <div>
@@ -98,7 +91,7 @@ export const DiplomaViewer = () => {
               aria-expanded={isDropdownOpen}
               aria-label="Select diploma language"
             >
-              <span className="text-base">{language}</span>
+              <span className="text-base">{language?.name}</span>
               <ChevronDownIcon
                 className={cn(
                   "w-5 h-5 text-white transition-transform duration-200",
@@ -112,21 +105,21 @@ export const DiplomaViewer = () => {
                 role="listbox"
                 className="absolute z-50 top-full left-0 w-full bg-theme-bg-dark border-l-2 border-l-gray-400 border border-gray-700 max-h-80 overflow-y-auto"
               >
-                {DIPLOMA_LANGUAGES.map((lang) => (
-                  <li key={lang}>
+                {diplomaLanguages.map((lang) => (
+                  <li key={lang.documentId}>
                     <button
                       role="option"
-                      aria-selected={language === lang}
+                      aria-selected={lang.documentId === language?.documentId}
                       onClick={() => {
-                        setLanguage(lang);
+                        setLanguageId(lang.documentId);
                         setIsDropdownOpen(false);
                       }}
                       className={cn(
                         "w-full text-left px-5 py-3 text-base transition-colors hover:bg-gray-800",
-                        language === lang ? "text-white" : "text-gray-300",
+                        lang.documentId === language?.documentId ? "text-white" : "text-gray-300",
                       )}
                     >
-                      {lang}
+                      {lang.name}
                     </button>
                   </li>
                 ))}

@@ -1,4 +1,9 @@
+import { useContent } from "../hooks/useContent";
+import { RichText } from "../shared/RichText";
+
 export const StoriesSection = () => {
+  const { home } = useContent();
+
   return (
     <section className="w-full bg-theme-bg-grey text-theme-text">
       <div
@@ -7,11 +12,11 @@ export const StoriesSection = () => {
           flex flex-col items-center text-center"
       >
         <h2
-          className="font-heading font-normal uppercase leading-tight
+          className="font-heading font-normal uppercase leading-tight whitespace-pre-line
              text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]
             max-w-[900px] mb-8 tablet:mb-12"
         >
-          The Stories Behind the Diplomas
+          {home.storiesHeading}
         </h2>
 
         <div
@@ -19,19 +24,11 @@ export const StoriesSection = () => {
             leading-7 tablet:leading-[1.75] text-theme-text-muted
             max-w-[620px] mb-4 tablet:mb-12"
         >
-          <p>
-            We contacted relatives, universities, and the platform Memorial to
-            collect the stories and turn them into Unissued Diplomas.
-          </p>
-          <p>
-            With the consent of parents and families, our team created each
-            story in memory of the students whose lives were taken by the war,
-            honoring their contributions and the future they were building.
-          </p>
+          <RichText blocks={home.storiesText} />
         </div>
 
         <a
-          href="https://memorial.ua"
+          href={home.storiesLinkUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-5 mobile-sm:px-12 py-2 bg-theme-primary-dark text-white font-[500] tracking-widest rounded hover:bg-theme-primary transition-colors"

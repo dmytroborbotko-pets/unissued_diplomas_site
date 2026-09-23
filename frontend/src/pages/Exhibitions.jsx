@@ -4,6 +4,7 @@ import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useExhibitions } from "../hooks/useExhibitions";
+import { useContent } from "../hooks/useContent";
 import { useLanguage } from "../hooks/useLanguage";
 import { MapSkeleton } from "../shared/MapSkeleton";
 import { cn } from "../utils/utils";
@@ -171,6 +172,7 @@ const ScrollArrow = ({ direction, onClick }) => (
 
 export default function Exhibitions() {
   const { exhibitionsByCountry, isLoading } = useExhibitions();
+  const { exhibitionsPage } = useContent();
   const { currentLanguage } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = searchParams.get("country")?.toUpperCase() ?? null;
@@ -222,10 +224,10 @@ export default function Exhibitions() {
         <div className="max-w-[1080px] mx-auto px-4 pt-16 tablet:pt-24">
           <div className="flex flex-col items-center text-center mb-12 tablet:mb-16">
             <h1 className="max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
-              Exhibitions
+              {exhibitionsPage.heading}
             </h1>
             <p className="mt-6 text-[16px] tablet:text-[18px] text-theme-text-muted">
-              Supported by the Ministry of Education and Science of Ukraine
+              {exhibitionsPage.subtitle}
             </p>
             <p className="mt-4 text-[14px] tablet:text-[16px] uppercase tracking-[0.12em] text-theme-text-muted">
               {isLoading ? (

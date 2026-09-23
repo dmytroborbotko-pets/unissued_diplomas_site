@@ -150,7 +150,7 @@ export const DiplomaModal = ({ isOpen, onClose, diploma, onNext, onPrev }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={diploma?.src}
+              src={diploma?.full ?? diploma?.src}
               alt={diploma?.name}
               className="w-full h-full object-contain"
             />
