@@ -1,7 +1,10 @@
 # Strapi content model & static delivery — design
 
 Date: 2026-09-23
-Status: validated in brainstorming, ready for implementation plan
+Status: implemented (plan: `2026-09-23-strapi-static-content.md`). Deviations found during implementation:
+- `node --test` needs a glob (`"scripts/*.test.mjs"`) on Node 24, not a directory.
+- Empty `xMobileTitle` falls back to the same-locale `xTitle` before English (otherwise German phones showed English block titles).
+- The one-off import still reads `frontend/src/constants/exhibitions.js` and `config/actionBlockTitles.js`, so those stay until the import is retired.
 
 ## Goal
 

@@ -1,20 +1,22 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
+
+// Site UI locales besides the default `en` (must match frontend/src/constants/languages.js)
+const LOCALES = [
+  ['uk', 'Ukrainian (uk)'],
+  ['de', 'German (de)'],
+  ['it', 'Italian (it)'],
+  ['ja', 'Japanese (ja)'],
+  ['es', 'Spanish (es)'],
+];
 
 export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register() {},
 
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    const locales = strapi.plugin('i18n').service('locales');
+    const existing = new Set((await locales.find()).map((locale: { code: string }) => locale.code));
+    for (const [code, name] of LOCALES) {
+      if (!existing.has(code)) await locales.create({ code, name });
+    }
+  },
 };

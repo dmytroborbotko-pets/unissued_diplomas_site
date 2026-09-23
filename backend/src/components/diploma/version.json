@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_diploma_versions",
+  "info": { "displayName": "Version", "description": "One language version of a diploma image" },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::diploma-language.diploma-language"
+    },
+    "image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] }
+  }
+}
