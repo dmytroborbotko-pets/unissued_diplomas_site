@@ -44,10 +44,10 @@ export const PartnersSection = () => {
     <section className="w-full bg-theme-bg-grey text-theme-text">
       <div
         className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3 tablet:px-4
-          py-[30px] tablet:py-16"
+          py-(--section-space)"
       >
         <h2
-          className="font-heading font-normal uppercase leading-none mb-10 tablet:mb-14
+          className="font-heading font-normal uppercase leading-none mb-8 tablet:mb-12
             text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]"
         >
           Partners

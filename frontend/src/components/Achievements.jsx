@@ -60,7 +60,7 @@ export const Achievements = () => {
       {/* Parallax Window Section - Tablet and up */}
       <div
         ref={parallaxRef}
-        className="tablet:mt-20 max-tablet:mt-12 relative w-full h-[400px] tablet:h-[320px] overflow-hidden max-[481px]:hidden"
+        className="mt-(--section-space) relative w-full h-[400px] tablet:h-[320px] overflow-hidden max-[481px]:hidden"
       >
         {/* Large image that moves upward as you scroll down */}
         <div
@@ -85,7 +85,7 @@ export const Achievements = () => {
       </div>
 
       {/* Static Image Section - Small Mobile only (<=481px) */}
-      <div className="relative w-full h-[280px] overflow-hidden tablet:hidden min-[482px]:hidden">
+      <div className="mt-(--section-space) relative w-full h-[280px] overflow-hidden tablet:hidden min-[482px]:hidden">
         <img
           src={ParralaxQuotImage}
           alt="Never Graduated, Eternally Honored"

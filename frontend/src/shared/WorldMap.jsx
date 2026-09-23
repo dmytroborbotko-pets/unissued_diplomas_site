@@ -9,6 +9,7 @@ import { geoMercator } from "d3-geo";
 import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 import { useNavigate } from "react-router-dom";
 import { MapTooltip } from "./MapTooltip";
+import { MapSkeleton } from "./MapSkeleton";
 
 const ANTARCTICA_ID = "010";
 const UKRAINE_ID = "804";
@@ -264,7 +265,7 @@ export const WorldMap = ({ exhibitionsByCountry }) => {
     return () => clearHideTimeout();
   }, [clearHideTimeout]);
 
-  if (!geoData) return null;
+  if (!geoData) return <MapSkeleton />;
 
   return (
       <div ref={containerRef} className="relative w-full" onClickCapture={handleContainerClickCapture}>

@@ -2,7 +2,9 @@ import { ActionBlock } from "../shared/ActionBlock";
 import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
 import { Achievements } from "./Achievements";
 import { HallOfDiplomas } from "./HallOfDiplomas";
+import { ExhibitionsSlider } from "./ExhibitionsSlider";
 import { ExhibitionMap } from "./ExhibitionMap";
+import { AchievementsGrid } from "./AchievementsGrid";
 import { DonateSection } from "./DonateSection";
 import { MissionSection } from "./MissionSection";
 import { StoriesSection } from "./StoriesSection";
@@ -85,7 +87,7 @@ export const Main = () => {
         </div>
 
         {/* What's the Project About Section */}
-        <div className="tablet:px-4 mobile-xs:px-1 mt-26 tablet:mt-34">
+        <div id="about" className="scroll-mt-24 tablet:px-4 mobile-xs:px-1 pt-(--section-space)">
           <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
             {/* Left: Heading */}
             <div>
@@ -95,7 +97,7 @@ export const Main = () => {
             </div>
 
             {/* Right: Content */}
-            <div className="mt-10 tablet:mt-0 space-y-6">
+            <div className="mt-8 tablet:mt-0 space-y-6">
               <p className="text-[#ebebeb] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6">
                 The "Unissued Diplomas" international exhibitions honor{" "}
                 <span className="font-[600] max-tablet:text-[20px] tablet:text-[16px]">
@@ -135,9 +137,11 @@ export const Main = () => {
       </main>
       <Achievements /> 
       <HallOfDiplomas />
+      <ExhibitionsSlider />
       <ExhibitionMap />
+      <AchievementsGrid />
       <DonateSection />
-      <MissionSection />
+      {/* <MissionSection /> */}
       <StoriesSection />
       <SponsorsSection />
       <PartnersSection />

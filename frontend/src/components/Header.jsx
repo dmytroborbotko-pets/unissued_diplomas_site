@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 import { useScroll, useMotionValueEvent, AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 
+const NAV_LINKS = [
+  { to: '/#about', label: 'About the Project' },
+  { to: '/exhibitions', label: 'All Exhibitions' },
+  { to: '/#donate', label: 'Donations' },
+  { to: '/#faq', label: 'FAQ' },
+  { to: '/#contacts', label: 'Contacts' },
+];
+
 export default function Header() {
   const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,21 +65,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden tablet-md:flex items-center space-x-12">
-            <a href="#about" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
-              About the Project
-            </a>
-            <a href="#exhibitions" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
-              All Exhibitions
-            </a>
-            <a href="#donate" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
-              Donations
-            </a>
-            <a href="#faq" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
-              FAQ
-            </a>
-            <a href="#contacts" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
-              Contacts
-            </a>
+            {NAV_LINKS.map(({ to, label }) => (
+              <Link key={to} to={to} className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
+                {label}
+              </Link>
+            ))}
           </nav>
 
           {/* Language Dropdown (both mobile & desktop) */}
@@ -126,21 +124,11 @@ export default function Header() {
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
             <nav className="flex flex-col space-y-6">
-              <a href="#about" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
-                About the Project
-              </a>
-              <a href="#exhibitions" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
-                All Exhibitions
-              </a>
-              <a href="#donate" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
-                Donations
-              </a>
-              <a href="#faq" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
-                FAQ
-              </a>
-              <a href="#contacts" className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
-                Contacts
-              </a>
+              {NAV_LINKS.map(({ to, label }) => (
+                <Link key={to} to={to} className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em]" onClick={() => setIsMenuOpen(false)}>
+                  {label}
+                </Link>
+              ))}
             </nav>
           </motion.div>
         )}

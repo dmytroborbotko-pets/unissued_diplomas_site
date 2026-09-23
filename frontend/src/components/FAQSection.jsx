@@ -29,13 +29,13 @@ export const FAQSection = () => {
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section className="w-full bg-theme-bg text-theme-text">
+    <section id="faq" className="w-full bg-theme-bg text-theme-text scroll-mt-20">
       <div
         className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3 tablet:px-4
-          py-6 mobile-sm:py-8 tablet:py-12"
+          py-(--section-space)"
       >
         <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-16 tablet-md:gap-20">
-          <div className="mb-10 tablet:mb-0">
+          <div className="mb-8 tablet:mb-0">
             <p
               className="flex flex-col font-heading font-normal uppercase leading-none relative
                 text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]"

@@ -13,7 +13,7 @@ export const CountryCard = ({ data }) => {
         <p className="text-theme-text text-[14px] font-[500] truncate">
           {data.name}
         </p>
-        <p className="text-theme-text-muted text-[12px]">
+        <p className="text-theme-text-muted text-[12px] truncate">
           {data.count} exhibition{data.count !== 1 ? "s" : ""}
         </p>
       </div>

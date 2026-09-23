@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black">
+    <footer id="contacts" className="bg-brand-black">
       <div className="container mx-auto px-4 tablet:px-8 py-8 tablet:py-12">
         <div className="grid grid-cols-1 tablet:grid-cols-3 gap-8 items-start">
           {/* Logo + mobile Donate row */}
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="flex flex-col items-start tablet:items-center space-y-4">
             <a
               href="mailto:unissueddiplomas@gmail.com"
-              className="text-white hover:text-brand-red transition-colors"
+              className="text-white hover:text-brand-red transition-colors break-words"
             >
               UNISSUEDDIPLOMAS@GMAIL.COM
             </a>
@@ -99,7 +99,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 text-left text-gray-400 text-sm">
-          <p>Unissued Diplomas ©2024</p>
+          <p>Unissued Diplomas ©2026</p>
         </div>
       </div>
     </footer>

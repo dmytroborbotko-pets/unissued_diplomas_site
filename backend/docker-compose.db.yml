@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: unissued-diplomas-db
+    restart: "no"
+    mem_limit: 1g
+    memswap_limit: 1g
+    environment:
+      MYSQL_DATABASE: ${DATABASE_NAME:-unissued_diplomas}
+      MYSQL_USER: ${DATABASE_USERNAME:-strapi}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD must be set in .env}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    ports:
+      - "127.0.0.1:${DATABASE_PORT:-3307}:3306"
+    volumes:
+      - unissued-diplomas-db-data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "127.0.0.1",
+          "-u",
+          "${DATABASE_USERNAME:-strapi}",
+          "-p${DATABASE_PASSWORD}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  unissued-diplomas-db-data:
+    name: unissued-diplomas-db-data

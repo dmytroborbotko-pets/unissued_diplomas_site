@@ -16,7 +16,7 @@ export const MissionSection = () => {
 
       <div
         className="relative z-10 max-w-[1080px] mx-auto px-4 mobile-xs:px-3 tablet:px-4
-          py-[30px] tablet:py-16"
+          py-(--section-space)"
       >
         <div className="flex flex-col tablet:flex-row tablet:gap-12 tablet-md:gap-16 desktop:gap-20">
           {/* Column photo — tablet+ only (769px+) */}

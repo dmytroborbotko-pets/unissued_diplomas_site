@@ -3,13 +3,13 @@ export const StoriesSection = () => {
     <section className="w-full bg-theme-bg-grey text-theme-text">
       <div
         className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3
-          py-12 mobile-sm:py-14 tablet:py-22 desktop:py-26
+          py-(--section-space)
           flex flex-col items-center text-center"
       >
         <h2
           className="font-heading font-normal uppercase leading-tight
              text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]
-            max-w-[900px] mb-6 tablet:mb-10"
+            max-w-[900px] mb-8 tablet:mb-12"
         >
           The Stories Behind the Diplomas
         </h2>

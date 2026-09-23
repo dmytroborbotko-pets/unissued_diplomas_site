@@ -1,13 +1,10 @@
 import { lazy, Suspense } from "react";
 import { useExhibitions } from "../hooks/useExhibitions";
 import { CountryCard } from "../shared/CountryCard";
+import { MapSkeleton } from "../shared/MapSkeleton";
 
 const WorldMap = lazy(() =>
   import("../shared/WorldMap").then((m) => ({ default: m.WorldMap }))
-);
-
-const MapSkeleton = () => (
-  <div className="w-full aspect-[800/420] rounded-lg bg-white/5 animate-pulse" />
 );
 
 export const ExhibitionMap = () => {
@@ -19,21 +16,18 @@ export const ExhibitionMap = () => {
 
   return (
     <section className="bg-black text-theme-text">
-      <div className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3 py-20 tablet:py-28">
-        {/* Header: two-column layout matching "What's the Project About?" */}
-        <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8 mb-12 tablet:mb-16">
-          <div>
-            <h2 className="max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
-              EXHIBITIONS <br /> AROUND <br /> THE WORLD
-            </h2>
-          </div>
-          <div className="mt-6 tablet:mt-0 flex items-end">
-            <p className="max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6 text-theme-text-muted">
-              "Unissued Diplomas" has been exhibited across the globe, bringing
-              awareness about Ukrainian students whose lives were cut short by
-              the war. Each exhibition carries their stories to new audiences.
-            </p>
-          </div>
+      <div className="max-w-[1080px] mx-auto px-4 mobile-xs:px-3 py-(--section-space)">
+        {/* Header: stacked, centered */}
+        <div className="flex flex-col items-center text-center mb-8 tablet:mb-12">
+          <h2 className="max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none">
+            GLOBAL IMPACT, ONE EXHIBITION <br /> AT A TIME
+          </h2>
+          <p className="mt-6 max-w-[640px] max-tablet:text-[19px] tablet:text-[16px] leading-7 tablet:leading-6 text-theme-text-muted">
+            &quot;Unissued Diplomas&quot; operates on a franchise-based model.
+            Our core team prepares all print-ready materials and provides
+            full support to local organizers, ensuring the exhibition can be
+            easily adapted and scaled worldwide.
+          </p>
         </div>
 
         {/* Map: visible on tablet+ */}
@@ -49,6 +43,13 @@ export const ExhibitionMap = () => {
             <CountryCard key={country.isoAlpha2} data={country} />
           ))}
         </div>
+
+        <button
+          type="button"
+          className="w-full mt-8 py-4 text-center uppercase font-medium bg-theme-accent text-theme-bg-dark"
+        >
+          GET EXHIBITION ORGANIZER'S GUIDE
+        </button>
       </div>
     </section>
   );

@@ -83,7 +83,7 @@ export const DiplomaViewer = () => {
   const currentDiploma = diplomaImages[currentIndex];
 
   return (
-    <div className="mt-12 tablet:mt-20">
+    <div>
       {/* Top controls bar */}
       <div className="flex items-start justify-between mb-6">
         {/* Left: Language selector and Fullscreen toggle */}
