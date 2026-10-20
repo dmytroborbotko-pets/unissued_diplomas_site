@@ -1,0 +1,437 @@
+{
+  "metaTitle": "発行されなかった卒業証書 | Unissued Diplomas",
+  "metaDescription": "\"教室が戦場に変わるとき、あなたの専攻は勇気になる\" Unissued Diplomas は、ロシアによるウクライナ侵攻の犠牲となった学生を追悼することを目的としたウクライナのチャリティー・プロジェクトです。",
+  "nav": [
+    {
+      "label": "プロジェクトについて",
+      "to": "/jp#about"
+    },
+    {
+      "label": "追悼の教室",
+      "to": "/jp#classroom"
+    },
+    {
+      "label": "よくある質問",
+      "to": "/jp#faq"
+    }
+  ],
+  "donate": {
+    "label": "基金へ寄付",
+    "href": "https://kyivmohylafoundationofamerica.humanitru.com/donate?page=donate-to-unissued-diplomas-scholarships&amount=100&options=1000%2C500%2C250%2C100%2C50%2C25&tribute=true&address=optional&locale=en"
+  },
+  "hero": {
+    "title": "発行されなかった\n卒業証書展",
+    "tagline": "教室が戦場に変わるとき、勇敢が君の専攻になる。"
+  },
+  "about": {
+    "heading": "発行されなかった\n卒業証書とは？",
+    "text": "Unissued Diplomas展―発行されなかった卒業証書展―は、現在世界中で開催されている展示会です。この展示会は、ロシアとの戦争で命を落としたウクライナ人学生が受け取ることの出来なかった卒業証書を通じて、ウクライナの独立のために戦う人々が日々どれだけの代償を払っているかを世界に伝えるために企画されました。\n\n「発行されなかった卒業証書展」は、戦争で殺された36名のウクライナ人学生の記憶を語ります。ロシアによるウクライナ侵略記念日の2月24日から世界中の45以上の大学で開催されます。"
+  },
+  "banner": "卒業叶わずに帰らぬ学生の\n名誉を永遠に讃えて",
+  "classroom": {
+    "heading": "追悼の教室",
+    "text": "どこにでもいる普通の学生のように、彼らも学生生活を毎日教室で過ごしました。大好きな授業もあれば、毎週ビクビクしながら受けた苦手な授業がありました。期末試験に向けて一生懸命勉強して、それでも落単しないか心配になりました。\n\nしかし**2月24日を境にウクライナの学生たちの生活は一変します。**教室は防空壕や戦場に変わり、恐怖は次第に立ち向かう勇気に姿を変えました。\n\nそして今、**何十人もの学生に授与されるはずであった卒業証書はもう決して発行されることはありません。**ウクライナの独立を奪おうとしたロシアと戦い、学生たちは卒業することなく、志半ばで命を落としたからです。\n\n彼らを称え、私たちの記憶に留めるために、**日本と世界中の16国で「発行されなかった卒業証書展」が開催されます。**日本では以下の展示会場で皆さまのお越しをお待ちしています。"
+  },
+  "gallery": {
+    "heading": "フォトギャラリー",
+    "hint": "画像をクリックすると、拡大します",
+    "diplomaLanguage": "日本語",
+    "donate": "寄付",
+    "students": [
+      "Zheldak",
+      "Yevtushenko",
+      "Yakymchuk",
+      "Vasylyshyn",
+      "Yevdokymov",
+      "Stakhiv",
+      "Shmahlii",
+      "Shapovalov",
+      "Prokopenko",
+      "Pokidko",
+      "Perebyinis",
+      "Osipenko",
+      "Obodzinska",
+      "Oblomei",
+      "Lisniak",
+      "Levchuk",
+      "Kushnerenko",
+      "Levchenko",
+      "Krylova",
+      "Kozhemiak",
+      "Kotlubei",
+      "Kotsukon",
+      "Hladkyi",
+      "Kazmirchuk",
+      "Ivashchenko"
+    ]
+  },
+  "venues": {
+    "heading": "日本での展示会場",
+    "items": [
+      {
+        "city": "福島",
+        "name": "福島県立ふたば未来学園中等学校・高等学校\n双葉みらいラボ",
+        "dates": "6月17日ー6月24日",
+        "hours": "入場可能時間:\n　6/17 16:00〜19:30\n　6/18 17:00〜19:30\n　6/19 15:00〜19:30\n　6/20 16:00〜19:30 (講演あり)\n　6/21 16:00〜19:30\n　6/24 16:00〜19:30\n※ 上記時間帯であれば双葉みらいラボ学校外の方でも入場可能",
+        "map": "福島県立ふたば未来学園中学校・高等学校",
+        "layout": {
+          "name": 242,
+          "box": [
+            354,
+            240,
+            53
+          ],
+          "date": [
+            368,
+            223
+          ],
+          "hours": 450
+        }
+      },
+      {
+        "city": "東京",
+        "name": "東京外国語大学研究講義棟1階ガレリア",
+        "dates": "7月3日ー7月17日",
+        "hours": "入場可能時間:\n　平日：09:00-17:00\n※ 学外の方でも入場可能",
+        "map": "東京外国語大学 研究講義棟",
+        "layout": {
+          "name": 774,
+          "box": [
+            852,
+            223,
+            53
+          ],
+          "date": [
+            866,
+            196
+          ],
+          "hours": 930
+        }
+      },
+      {
+        "city": "東京",
+        "name": "東京大学本郷キャンパス総合図書館",
+        "dates": "4月15日ー4月26日",
+        "hours": "開館時間:\n　平日: 09:00~22:30\n　土日: 09:00~19:00\n休館日: 4月25日(木)\n※ 東京大学以外の方は、東京大学関係者の同伴が必要です",
+        "map": "東京大学 総合図書館",
+        "layout": {
+          "name": 1129,
+          "box": [
+            1182,
+            240,
+            53
+          ],
+          "date": [
+            1196,
+            223
+          ],
+          "hours": 1260
+        }
+      },
+      {
+        "city": "東京",
+        "name": "東京大学駒場図書館, 1F展示コーナー",
+        "dates": "2月19日ー3月11日",
+        "hours": "開館時間:\n　学内者: 08:30~20:00\n　学外者: 学外者:平日(開館日)9:00~17:00、\n　入館に際しては公的な身分証明書 (健康保険証・\n　運転免許証など) を提示\n休館日: 2月23日(金)~2月26日(月)、\n　3月2日(土)~3月3日(日)\n入場料: 無料",
+        "map": "東京大学 駒場図書館",
+        "layout": {
+          "name": 1499,
+          "box": [
+            1552,
+            229,
+            78
+          ],
+          "date": [
+            1566,
+            190
+          ],
+          "hours": 1663
+        }
+      },
+      {
+        "city": "東京",
+        "name": "テンプル大学学生ラウンジ「The Parliament」",
+        "dates": "2月22日",
+        "map": "テンプル大学ジャパンキャンパス",
+        "layout": {
+          "name": 1893,
+          "box": [
+            1971,
+            128,
+            53
+          ],
+          "date": [
+            1985,
+            101
+          ]
+        }
+      }
+    ],
+    "cities": {
+      "福島": 136,
+      "東京": 668
+    }
+  },
+  "fund": {
+    "heading": "学生の遺産を称えるための寄付",
+    "text": "今年、Unissued Diplomasイニシアチブは、全世界で75,000米ドルの資金を集め、**The Unissued Diplomas Endowment Fund**の設立を目指します。私たちは、キーウ・モヒラ・アメリカ財団と提携し、この資金をもとに持続可能な基金を設立し、年間1人の学生の授業料を全額カバーするとともに、奨学金やプロジェクトへの助成金を提供する予定です。\n\nこの奨学金は、ロシアの侵攻によって奪われた学生たちの命の記念となります。この基金を設立することで、私たちは教育の未来とウクライナの次世代の可能性に投資することで、彼らの遺業を称えることを約束します。",
+    "button": "基金に寄付をする",
+    "href": "https://www.kmafoundation.ca/unissued-diplomas-scholarship-canada"
+  },
+  "photoCredit": "@johnwithlensesによる写真",
+  "purpose": {
+    "heading": "目的",
+    "text": "ロシアの侵攻がなければ、まだここにいたであろう勇気ある学生たちの人生の物語を広めることは、私たちの名誉です。\n\n母国の自由が危機に瀕しているとき、私たちは行動を起こすことを信じています。"
+  },
+  "team": {
+    "heading": "プロジェクト\nチーム",
+    "text": "プロジェクトチームの中心となった50人のウクライナ人の若者は性別や住むところもさまざまです。学生もいれば卒業生もいます。**私たちは、この戦争で命を落としたウクライナ人学生を追悼し、現在も尊い犠牲を払い続けているウクライナ人学生を支援するという目標で力を合わせました。**戦争はいまだ続いており、毎日学生だけではなく、子供も大人もお年寄りも殺されている現状を世界に伝え、支援を求めるためにこのプロジェクトを始めました。"
+  },
+  "sponsors": {
+    "heading": "後援者",
+    "logos": [
+      {
+        "name": "Meest",
+        "src": "/legacy/sponsors/d730fd74cba34676b934a65e2adc01a5.png",
+        "href": "https://ca.meest.com/uk",
+        "x": -35,
+        "y": 235,
+        "w": 135,
+        "h": 36
+      },
+      {
+        "name": "Ukrainian Credit Union",
+        "src": "/legacy/sponsors/9fcf079e3ce147c8b6445dff48bec2a1.png",
+        "href": "https://www.ukrainiancu.com/",
+        "x": 183,
+        "y": 228,
+        "w": 150,
+        "h": 50
+      },
+      {
+        "name": "UCC",
+        "src": "/legacy/sponsors/b608b3039f1b4ac59bc74b94d9bfedff.png",
+        "href": "https://ucctoronto.ca/",
+        "x": 416,
+        "y": 214,
+        "w": 78,
+        "h": 78
+      },
+      {
+        "name": "BCU Foundation",
+        "src": "/legacy/sponsors/90d089b2934f401889f82a66a26d93d6.png",
+        "href": "https://bcufoundation.com/",
+        "x": 577,
+        "y": 200,
+        "w": 178,
+        "h": 106
+      },
+      {
+        "name": "Starsky Fine Foods",
+        "src": "/legacy/sponsors/1aef25e0980a43928bbb700f466b94cd.png",
+        "href": "https://starskycanada.com/",
+        "x": 839,
+        "y": 222,
+        "w": 180,
+        "h": 62
+      },
+      {
+        "name": "Canadian Institute of Ukrainian Studies",
+        "src": "/legacy/sponsors/45456369a59a4d23b97833aab7ac7aae.png",
+        "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/index.html",
+        "x": -54,
+        "y": 345,
+        "w": 233,
+        "h": 78
+      },
+      {
+        "name": "Koota Ooma",
+        "src": "/legacy/sponsors/8e55a756744a4396904294b825ad89e6.png",
+        "href": "https://kootaooma.com/",
+        "x": 264,
+        "y": 369,
+        "w": 173,
+        "h": 29
+      },
+      {
+        "name": "Disrupted Ukrainian Scholars & Students Initiative",
+        "src": "/legacy/sponsors/7e3c4de3ca6b49b28db5139f38dc8f77.png",
+        "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/stand-with-ukraine/index.html",
+        "x": 523,
+        "y": 340,
+        "w": 99,
+        "h": 87
+      },
+      {
+        "name": "DROM Taverna",
+        "src": "/legacy/sponsors/1a197192c82a47c4858cf5e4c4381606.png",
+        "href": "https://www.dromtaberna.com/",
+        "x": 708,
+        "y": 353,
+        "w": 147,
+        "h": 62
+      },
+      {
+        "name": "USC",
+        "src": "/legacy/sponsors/9f6084ebc1544684ad4e2504bd6e5c90.png",
+        "href": "https://www.instagram.com/uscuoft/",
+        "x": 940,
+        "y": 345,
+        "w": 78,
+        "h": 78
+      },
+      {
+        "name": "St. Volodymyr Institute",
+        "src": "/legacy/sponsors/2585c542c7a84995b65aa294e9e286e7.png",
+        "href": "https://stvolodymyr.org/",
+        "x": -40,
+        "y": 503,
+        "w": 283,
+        "h": 36
+      },
+      {
+        "name": "The Ukrainian Canadian Research & Documentation Centre",
+        "src": "/legacy/sponsors/28bda378936e4b938b4ebe8df78aed06.png",
+        "href": "http://www.ucrdc.org/",
+        "x": 354,
+        "y": 470,
+        "w": 78,
+        "h": 78
+      },
+      {
+        "name": "LAVA",
+        "src": "/legacy/sponsors/98b816a475ca4f6db98580d9fad36282.png",
+        "href": "https://lavalink.com/",
+        "x": 557,
+        "y": 474,
+        "w": 93,
+        "h": 93
+      },
+      {
+        "name": "Canada-Ukraine Foundation",
+        "src": "/legacy/sponsors/c74932ade1864f40a7bfd4801b028919.png",
+        "href": "https://cufoundation.ca/",
+        "x": 749,
+        "y": 487,
+        "w": 276,
+        "h": 68
+      },
+      {
+        "name": "Boosters team",
+        "src": "/legacy/sponsors/be097e99e2ad47248418f84ad2df70a2.png",
+        "href": null,
+        "x": -37,
+        "y": 608,
+        "w": 175,
+        "h": 78
+      }
+    ],
+    "texts": [
+      {
+        "text": "The Ukrainian Canadian Research\n& Documentation Centre",
+        "x": 307,
+        "y": 557,
+        "w": 177,
+        "size": 10
+      },
+      {
+        "text": "The Dubczak Family",
+        "x": 219,
+        "y": 637,
+        "w": 164,
+        "size": 16
+      },
+      {
+        "text": "Peter Galadza",
+        "x": 466,
+        "y": 637,
+        "w": 117,
+        "size": 16
+      }
+    ]
+  },
+  "partners": {
+    "heading": "パートナー",
+    "logos": [
+      {
+        "name": "Kyiv-Mohyla Foundation of Canada",
+        "src": "/legacy/partners/52606dc7233c441fb2554df2dad41012.png",
+        "href": "https://kmafoundation.ca/",
+        "x": -37,
+        "y": 239,
+        "w": 280,
+        "h": 60
+      },
+      {
+        "name": "Ukrainian Canadian Students Union",
+        "src": "/legacy/partners/7667557f44204651a6829d4eddcf228f.png",
+        "href": null,
+        "x": 383,
+        "y": 226,
+        "w": 301,
+        "h": 82
+      },
+      {
+        "name": "Franko Family Foundation",
+        "src": "/legacy/partners/franko-family-foundation.svg",
+        "href": null,
+        "x": -32,
+        "y": 350,
+        "w": 347,
+        "h": 93
+      },
+      {
+        "name": "Trident Associates Printing",
+        "src": "/legacy/partners/e1064d4b63f841baa361770bb8f8ba69.png",
+        "href": "https://trident-printing.com/",
+        "x": 377,
+        "y": 339,
+        "w": 287,
+        "h": 115
+      },
+      {
+        "name": "Ukrainian Canadian Art Foundation",
+        "src": "/legacy/partners/af7be2a0d51b492282c861ad5a50b5d7.png",
+        "href": "https://kumfgallery.com/",
+        "x": 771,
+        "y": 351,
+        "w": 246,
+        "h": 91
+      }
+    ],
+    "texts": [
+      {
+        "text": "KMA Global\nCampus",
+        "x": 820,
+        "y": 237,
+        "w": 146,
+        "size": 24
+      }
+    ]
+  },
+  "faq": {
+    "heading": "よくある質問",
+    "items": [
+      {
+        "question": "展示会は無料ですか？",
+        "answer": "はい、展示会は無料です。 会場ではウクライナの危険地域に残る学生を支援するための寄付を募っています。是非ご協力下さい。"
+      },
+      {
+        "question": "通貨がカナダドルでない場合、カードで寄付はできますか?",
+        "answer": "はい、できます！通貨が異なる場合、銀行が当該通貨の為替レートに従い寄付された金額をカナダドルに自動的に変換します。"
+      },
+      {
+        "question": "なぜカナダドル（CAD）のみで募金を受け付けるのですか?",
+        "answer": "このプロジェクトに寄せられた募金は、公式に登録されたカナダの非営利団体である Second Front Ukraine 基金に送られます。当基金は銀行口座がカナダで登録されているため、カナダドル（CAD） 以外の通貨を取り扱うことが出来ません。"
+      },
+      {
+        "question": "殺された学生は36人だけですか？",
+        "answer": "いいえ、ロシアの侵略によって命を奪われた学生の数はもっと多いです。2022 年 2 月 24 日以降、合計で 6,000 人以上の民間人と 13,000 人の兵士が殺害されたと報告されています。犠牲者の数は毎日増加し続けているため、その中に含まれる学生の数は不明です。"
+      },
+      {
+        "question": "他のイベントの情報はどこで調べられますか?",
+        "answer": "「よくある質問」の下記プロジェクトのSNSを確認してください。[ウクライナ大使館もFacebook](https://www.facebook.com/ukr.embassy.japan/)でイベントのお知らせを出しています。"
+      }
+    ]
+  }
+}

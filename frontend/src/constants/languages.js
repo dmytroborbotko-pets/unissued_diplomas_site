@@ -6,3 +6,6 @@ export const SUPPORTED_LANGUAGES = [
   { code: "ja", name: "日本語" },
   { code: "es", name: "Español" },
 ];
+
+// Japanese is not a translation of the main site: it is the standalone /jp page
+export const JAPAN_PATH = '/jp';

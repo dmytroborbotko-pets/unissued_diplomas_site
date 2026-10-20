@@ -16,11 +16,13 @@ const ChevronDownIcon = ({ className }) => (
   </svg>
 );
 
-export const DiplomaViewer = () => {
+// `languageName`: show only this diploma language, without the language dropdown (/jp, translated Home pages)
+export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const { diplomas, diplomaLanguages, global } = useContent();
-  const [languageId, setLanguageId] = useState(diplomaLanguages[0]?.documentId);
+  const { diplomas, diplomaLanguages } = useContent();
+  const fixedLanguage = languageName && diplomaLanguages.find((l) => l.name === languageName);
+  const [languageId, setLanguageId] = useState((fixedLanguage ?? diplomaLanguages[0])?.documentId);
   const language = diplomaLanguages.find((l) => l.documentId === languageId) ?? diplomaLanguages[0];
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -82,8 +84,8 @@ export const DiplomaViewer = () => {
         {/* Left: Language selector and Fullscreen toggle */}
         <div className="flex items-start gap-3">
           {/* Language dropdown */}
-          <div ref={dropdownRef} className="relative">
-            <p className="text-gray-200 text-sm mb-2">{global.diplomaLanguageLabel}</p>
+          <div ref={dropdownRef} className={cn("relative", fixedLanguage && "hidden")}>
+            <p className="text-gray-200 text-sm mb-2">{languageLabel}</p>
             <button
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               className="flex items-center justify-between w-full min-w-[280px] tablet:min-w-[304px] bg-transparent text-white px-5 py-2 border border-gray-500 hover:border-gray-400 transition-colors cursor-pointer focus:outline-none"
@@ -144,7 +146,7 @@ export const DiplomaViewer = () => {
             />
           </svg>
           <span className="hidden tablet:inline">
-            {global.diplomaZoomHint}
+            {zoomHint}
           </span>
         </div>
       </div>

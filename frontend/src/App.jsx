@@ -1,22 +1,27 @@
-import { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { JAPAN_PATH } from './constants/languages';
 import Home from './pages/Home';
-import Exhibitions from './pages/Exhibitions';
+
+const JapanPage = lazy(() => import('./pages/JapanPage'));
 
 function App() {
   return (
-    <LanguageProvider>
-      <Router>
+    <Router>
+      {/* Inside the Router: the language follows the route (/jp is always Japanese) */}
+      <LanguageProvider>
         {/* useContent() suspends until the locale's content chunk has loaded */}
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/exhibitions" element={<Exhibitions />} />
+            {/* The old exhibitions page is replaced by the 2023 results page */}
+            <Route path="/exhibitions" element={<Navigate to="/2023-achievements" replace />} />
+            <Route path={JAPAN_PATH} element={<JapanPage />} />
           </Routes>
         </Suspense>
-      </Router>
-    </LanguageProvider>
+      </LanguageProvider>
+    </Router>
   );
 }
 

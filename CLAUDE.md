@@ -21,13 +21,14 @@ npm run dev          # runs `content --allow-stale` first (keeps old content if 
 npm run build        # runs `content` first (fails if Strapi is unreachable)
 npm run preview      # preview production build
 npm run lint         # ESLint (flat config, JS/JSX only)
-npm test             # node:test for scripts/
+npm test             # node:test for scripts/ and src/**/*.test.mjs
 ```
 
 ## Architecture
 
 - **React 19 + Vite + Tailwind CSS v4** — no TypeScript, plain JSX
-- **Routing**: React Router v7 with BrowserRouter. Two routes: `/` (Home) and `/exhibitions`
+- **Routing**: React Router v7 with BrowserRouter. Routes: `/` (Home), `/exhibitions`, `/jp` (lazy `JapanPage`)
+- **/jp**: standalone Japanese page (1:1 copy of the old Wix /jp), not a translation of Home. Texts in `src/texts/jp.json` (`**red**`/`[link](url)` markup → `toBlocks()` in `utils/markup.js`), images in `public/legacy/jp/`; only diplomas come from Strapi. `LanguageProvider` sits inside the Router: on `/jp` the language is always `ja`, choosing JA anywhere navigates to `/jp`, another language on `/jp` goes to `/`.
 - **State/Context**: `LanguageProvider` wraps the app, providing `currentLanguage`, `changeLanguage`, and `supportedLanguages` via React Context. Access with `useLanguage()` hook. Language switches run in a transition so the old locale stays visible while the new content chunk loads.
 - **i18n**: 6 site languages (en, uk, de, it, ja, es). Content translations come from Strapi i18n; missing translations fall back to English at build time. UI labels (nav, buttons, site name, map/exhibitions labels) are localized fields on the Global single type, not i18next resources; i18next (`src/i18n/config.js`) is initialized but unused for labels.
 - **Content (no runtime API)**: `scripts/fetch-content.mjs` calls Strapi's `GET /api/site-content?locale=xx` (custom endpoint in `backend/src/api/site-content/`), merges English fallback (`scripts/content-lib.mjs`), adds `mapId`/`coordinates` to exhibitions, writes `src/content/<locale>.json` and downloads uploads to `public/uploads/` (both gitignored). Components read it with `useContent()` (`src/hooks/useContent.js`, React `use()` + one lazy chunk per locale; `<Suspense>` in `App.jsx`).

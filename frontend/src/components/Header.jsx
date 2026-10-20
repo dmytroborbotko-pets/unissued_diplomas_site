@@ -5,16 +5,15 @@ import { useScroll, useMotionValueEvent, AnimatePresence, motion } from 'framer-
 import { useLanguage } from '../hooks/useLanguage';
 import { useContent } from '../hooks/useContent';
 
-export default function Header() {
+// The logo also works as "back to top" when it links to the current page (/jp with Japanese saved redirects back)
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// `links` and `cta` (donate button) let the /jp page reuse the header with its own nav
+export default function Header({ links, cta }) {
   const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
-  const { global } = useContent();
-  const NAV_LINKS = [
-    { to: '/#about', label: global.navAbout },
-    { to: '/exhibitions', label: global.navExhibitions },
-    { to: '/#donate', label: global.navDonations },
-    { to: '/#faq', label: global.navFaq },
-    { to: '/#contacts', label: global.navContacts },
-  ];
+  const { nav } = useContent();
+  // Same menu as the old site: about, exhibition list, 2023 results, FAQ, contacts
+  const NAV_LINKS = links ?? ['/#about', '/#exhibitions', '/2023-achievements', '/#faq', '/#contacts'].map((to, i) => ({ to, label: nav[i] }));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const headerRef = useRef(null);
@@ -54,23 +53,28 @@ export default function Header() {
                 transition={{ duration: 0.125, ease: 'easeInOut' }}
               />
             </button>
-            <Link to="/" className="hidden tablet-md:block">
+            <Link to="/" onClick={scrollToTop} className="hidden tablet-md:block">
               <img src={smallLogo} alt="Unissued Diplomas" className="h-8 w-auto" />
             </Link>
           </div>
 
           {/* Mobile: centered logo */}
-          <Link to="/" className="absolute left-1/2 -translate-x-1/2 tablet-md:hidden">
+          <Link to="/" onClick={scrollToTop} className="absolute left-1/2 -translate-x-1/2 tablet-md:hidden">
             <img src={smallLogo} alt="Unissued Diplomas" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden tablet-md:flex items-center space-x-12">
             {NAV_LINKS.map(({ to, label }) => (
-              <Link key={to} to={to} className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-nowrap">
+              <Link key={to} to={to} className="text-white hover:text-brand-red transition-colors uppercase text-[14px] tracking-[0.03em] whitespace-pre text-center leading-tight">
                 {label}
               </Link>
             ))}
+            {cta && (
+              <a href={cta.href} target="_blank" rel="noopener noreferrer" className="bg-theme-primary-dark hover:bg-theme-primary transition-colors text-white text-[14px] tracking-[0.03em] whitespace-nowrap px-8 py-2">
+                {cta.label}
+              </a>
+            )}
           </nav>
 
           {/* Language Dropdown (both mobile & desktop) */}

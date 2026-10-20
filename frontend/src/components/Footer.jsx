@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContent } from "../hooks/useContent";
 
-// Keys match the social-link `platform` enum in Strapi
 const SOCIAL_ICONS = {
   instagram: {
     label: "Instagram",
@@ -25,8 +24,17 @@ const SOCIAL_ICONS = {
   },
 };
 
+// Links of the old site's footer
+const SOCIAL_LINKS = [
+  ["instagram", "https://instagram.com/unissued_diplomas"],
+  ["facebook", "https://www.facebook.com/profile.php?id=100090022783304"],
+  ["linkedin", "https://www.linkedin.com/company/unissueddiplomas/"],
+  ["tiktok", "https://www.tiktok.com/@unissueddiplomas"],
+  ["x", "https://x.com/unissuedd"],
+];
+
 export default function Footer() {
-  const { global } = useContent();
+  const { footer } = useContent();
 
   return (
     <footer id="contacts" className="bg-brand-black">
@@ -34,28 +42,28 @@ export default function Footer() {
         <div className="grid grid-cols-1 tablet:grid-cols-3 gap-8 items-start">
           {/* Logo + mobile Donate row */}
           <div className="flex items-start justify-between tablet:block">
-            <Link to="/" className="text-white font-bold text-lg">
-              {global.siteName?.replace(/\n/g, ' ')}
+            <Link to="/">
+              <img src="/legacy/logo-white.png" alt="Unissued Diplomas" className="h-10 w-auto" />
             </Link>
             <a
               href="#donate"
               className="tablet:hidden bg-red-700 text-white px-6 py-3 hover:bg-white transition-colors font-[500] uppercase"
             >
-              {global.donateLabel}
+              {footer.donate}
             </a>
           </div>
 
           {/* Contact & Social */}
           <div className="flex flex-col items-start tablet:items-center space-y-4">
             <a
-              href={`mailto:${global.contactEmail}`}
+              href={`mailto:${footer.email}`}
               className="text-white hover:text-brand-red transition-colors break-words"
             >
-              {global.contactEmail?.toUpperCase()}
+              {footer.email}
             </a>
 
             <div className="flex space-x-4 tablet:space-x-8 mt-6">
-              {global.socialLinks?.map(({ platform, url }) => (
+              {SOCIAL_LINKS.map(([platform, url]) => (
                 <a
                   key={platform}
                   href={url}
@@ -78,14 +86,14 @@ export default function Footer() {
               href="#donate"
               className="bg-red-700 text-white px-28 py-2 hover:bg-white hover:text-black transition-colors font-[500] uppercase"
             >
-              {global.donateLabel}
+              {footer.donate}
             </a>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="mt-8 pt-8 text-left text-gray-400 text-sm">
-          <p>{global.copyright}</p>
+          <p>{footer.copyright}</p>
         </div>
       </div>
     </footer>

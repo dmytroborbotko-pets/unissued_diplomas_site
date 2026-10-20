@@ -1,0 +1,1402 @@
+{
+  "nav": [
+    "IL PROGETTO",
+    "ELENCO DELLE ESPOSIZIONI",
+    "RISULTATI 2023",
+    "FAQ",
+    "CONTATTI"
+  ],
+  "hero": {
+    "title": "DIPLOMI NON RILASCIATI",
+    "tagline": "Quando la tua classe si trasforma in un campo di battaglia, la tua specializzazione diventa coraggio.",
+    "visit": "VISITARE UNA MOSTRA",
+    "host": "ORGANIZZA UNA MOSTRA NELLA\nTUA CITTÀ",
+    "donate": "DONA ALL'UCRAINA"
+  },
+  "about": {
+    "heading": "CHE COSA IL PROGETTO?",
+    "text": "Abbiamo creato questa mostra per ricordare al mondo la guerra in corso e il prezzo che gli ucraini pagano quotidianamente nella loro lotta per la libertà. \"Diplomi non consegnati\" onora la memoria degli studenti ucraini che non si laureeranno mai perché le loro vite sono state portate via dall'invasione russa. \n\n\n\n**La mostra \"Diplomi non consegnati\" racconta le storie di 40 studenti ucraini uccisi in guerra.** Nel 2024, si terrà in diverse istituzioni in tutto il mondo il 24 febbraio, che segna l’anniversario del giorno in cui tutta l’Ucraina si è svegliata dalle esplosioni."
+  },
+  "results2023": {
+    "text": "L’iniziativa \"Diplomi non consegnati\" è stata avviata nel 2023, quando si sono svolte 110 mostre in 24 paesi. Sebbene questa pagina si concentri sulle attività attuali del progetto, puoi leggere di più su ciò che abbiamo realizzato nel 2023 su una pagina dedicata.",
+    "button": "ESPLORA I NOSTRI TRAGUARDI 2023"
+  },
+  "banner": "MAI LAUREATO, ETERNAMENTE ONORATO",
+  "hall": {
+    "heading": "SALA DEI DIPLOMI",
+    "text": "Trascorrevano le giornate nelle aule studio. Avevano le lezioni preferite e quelle che temevano settimanalmente. E quanto era spaventoso per loro anche solo pensare di fallire un semestre.\n\n**Ma dopo il 24 febbraio 2022 tutto è cambiato per gli studenti ucraini.** Le aule si trasformarono in rifugi antiaerei e campi di battaglia. La paura ha cambiato il suo corso e il coraggio ha preso il sopravvento.",
+    "donate": "DONARE",
+    "diplomaLanguage": "Italiano",
+    "languageLabel": "Language of diplomas",
+    "zoomHint": "Click on the diploma to zoom in"
+  },
+  "attend": {
+    "heading": "PARTECIPA ALLE MOSTRE DEL 2024 IN TUTTO IL MONDO",
+    "countries": [
+      {
+        "code": "AU",
+        "name": "AUSTRALIA",
+        "exhibitions": [
+          {
+            "name": "Sydney, UNSW Sydney, Anita B. Lawrence Building",
+            "href": "https://www.events.unsw.edu.au/event/unissued-diplomas",
+            "when": "(Feb 12 - 15; 9AM-5PM)"
+          }
+        ]
+      },
+      {
+        "code": "DE",
+        "name": "GERMANY",
+        "exhibitions": [
+          {
+            "name": "Hannover, Ernst-August-Platz",
+            "href": "https://maps.app.goo.gl/1uYjqJc5ziDP1myt9",
+            "when": "(Feb 25; 12AM-5PM)"
+          },
+          {
+            "name": "Hannover, New City Hall",
+            "href": "https://maps.app.goo.gl/FXfpgBxrF8D42LDY9",
+            "when": "(Feb 26; 8AM-12AM)"
+          },
+          {
+            "name": "Hannover, State Parliament of Lower Saxony",
+            "href": "https://maps.app.goo.gl/PEHm7caABaYG2zBW9",
+            "when": "(Feb 26; 12:30AM-5PM)"
+          }
+        ]
+      },
+      {
+        "code": "CA",
+        "name": "CANADA",
+        "exhibitions": [
+          {
+            "name": "Waterloo, University of Waterloo",
+            "href": "https://maps.app.goo.gl/t37UKYio2SCNjG1x5",
+            "when": "(Mar 15; 9AM-5PM)"
+          },
+          {
+            "name": "Toronto, Hart House, University of Toronto",
+            "href": "https://maps.app.goo.gl/s1mAt61PttpkGte99",
+            "when": "(Feb 24 - Mar 22)"
+          },
+          {
+            "name": "Ottawa, University of Ottawa",
+            "href": "https://maps.app.goo.gl/s1mAt61PttpkGte99",
+            "when": "(Feb 26 - 27)"
+          },
+          {
+            "name": "Vancouver, Kwantlen Politechnic University",
+            "href": "https://maps.app.goo.gl/34vXP6hSht4aTJHi8",
+            "when": "(Feb 28 - 29)"
+          },
+          {
+            "name": "London, The University of Western Ontario",
+            "href": "https://maps.app.goo.gl/fy66bR5oaCrw1EyaA",
+            "when": "(Feb 26 - Mar 11)"
+          },
+          {
+            "name": "Montréal, Université de Montréal",
+            "href": "https://maps.app.goo.gl/nFAUG76ZrgYe9rft7",
+            "when": "(Feb 28 - Mar 5)"
+          },
+          {
+            "name": "Edmonton, University of Alberta",
+            "href": "https://maps.app.goo.gl/Yh2dniCiQWtAx3hv6",
+            "when": "(Feb 26 - mid-Mar)"
+          },
+          {
+            "name": "Toronto, University of Toronto",
+            "href": "https://maps.app.goo.gl/zgPy4HQPjR6Ax26HA",
+            "when": "(Mar 4 - 11)"
+          }
+        ]
+      },
+      {
+        "code": "FI",
+        "name": "FINLAND",
+        "exhibitions": [
+          {
+            "name": "Helsinki, University of Helsinki",
+            "href": null,
+            "when": "(Feb 24)"
+          }
+        ]
+      },
+      {
+        "code": "SE",
+        "name": "SWEDEN",
+        "exhibitions": [
+          {
+            "name": "Stockholm, Nansen academy",
+            "href": null,
+            "when": "(Feb 22 - 26)"
+          }
+        ]
+      },
+      {
+        "code": "BE",
+        "name": "BELGIUM",
+        "exhibitions": [
+          {
+            "name": "Brussels, Station Europe (EU Parlament)",
+            "href": "https://maps.app.goo.gl/EpeeuYBX3RFvcfXKA?g_st=it",
+            "when": "(Feb 23 - Mar 1)"
+          },
+          {
+            "name": "Brussels, ELF",
+            "href": null,
+            "when": "(Mar 11 - 13)"
+          },
+          {
+            "name": "Brugge, College de Europa",
+            "href": "https://maps.app.goo.gl/xRuAzxMq6HxbmvCM9?g_st=it",
+            "when": "(Mar 13 - 16)"
+          }
+        ]
+      },
+      {
+        "code": "FR",
+        "name": "FRANCE",
+        "exhibitions": [
+          {
+            "name": "Paris, Maison Internationale, Cité Internationale Universitaire de Paris (+10 locations)",
+            "href": "https://www.citescope.fr/evenement/unissued-diplomas-mariupol-2022-ville-martyre/",
+            "when": "(Feb 14 - Mar 3; Mon-Sun 7AM-10PM)"
+          },
+          {
+            "name": "Menton, Sciences Po Paris Menton campus",
+            "href": "https://maps.app.goo.gl/AUZrnQpgwEsd7YQdA",
+            "when": "(Feb 27 ~)"
+          }
+        ]
+      },
+      {
+        "code": "JP",
+        "name": "JAPAN",
+        "exhibitions": [
+          {
+            "name": "Tokyo, Tokyo University, Komaba Library",
+            "href": "https://www.eaa.c.u-tokyo.ac.jp/events/20240219-0304/",
+            "when": "(Feb 19 - Mar 4; 9AM-5PM; see details)"
+          },
+          {
+            "name": "Tokyo, Temple University, \"The Parliament\" Lounge",
+            "href": "https://maps.app.goo.gl/AVtZ6BWCFhhLMN5ZA",
+            "when": "(Feb 22)"
+          }
+        ]
+      },
+      {
+        "code": "IE",
+        "name": "IRELAND",
+        "exhibitions": [
+          {
+            "name": "Munster, Munster Technological University, Kerry (North campus) Library",
+            "href": "https://maps.app.goo.gl/TdwgWikvow71VBVj8",
+            "when": "(Feb 26 - Mar 15;\nMon - Wed 9AM-9PM,\nThu - Fri 9AM-5PM,\nSat - 10AM-2PM)"
+          }
+        ]
+      },
+      {
+        "code": "UA",
+        "name": "UKRAINE",
+        "exhibitions": [
+          {
+            "name": "Kyiv, National University of Kyiv-Mohyla Academy",
+            "href": "https://maps.app.goo.gl/V3P1QNFQQQRjW9dq5",
+            "when": "(Feb 23- Mar 23; 9AM - 9PM)"
+          },
+          {
+            "name": "Ternopil, Ternopil National Medical University",
+            "href": "https://maps.app.goo.gl/MovcY2fyy7diDbCH8",
+            "when": "(Feb 22 - Mar 22)"
+          }
+        ]
+      },
+      {
+        "code": "KR",
+        "name": "SOUTH KOREA",
+        "exhibitions": [
+          {
+            "name": "Seoul, square near the russian embassy (during the protest of Ukrainian community)",
+            "href": "https://www.facebook.com/UkrEmbassyKorea/posts/pfbid02fU9K61ZQULuEiGxhX4CV9n4ucjmErrHFpdHcgbbWKFhthmEwBkfLZyEmLgpwDPSml",
+            "when": "(Feb 24; 2PM - 5:30PM)"
+          }
+        ]
+      },
+      {
+        "code": "NO",
+        "name": "NORWAY",
+        "exhibitions": [
+          {
+            "name": "Lillehammer, Nansen academy",
+            "href": "https://maps.google.com/maps/place//data=!4m2!3m1!1s0x466a87fde64beae5:0x92b214f2770dee93?entry=s&sa=X&ved=2ahUKEwiN-t7Rw76EAxU4QVUIHcSGDTwQ4kB6BAgSEAA&hl=en-ua",
+            "when": "(Feb 26 - Apr 3)"
+          },
+          {
+            "name": "Tromsø, The Arctic University of Norway",
+            "href": "https://maps.app.goo.gl/nTtNGwcyCjqzHjCJ7?g_st=ic",
+            "when": "(Feb 26 - Mar 4)"
+          }
+        ]
+      },
+      {
+        "code": "BG",
+        "name": "BULGARIA",
+        "exhibitions": [
+          {
+            "name": "Blagoevgrad, American University in Bulgaria",
+            "href": "https://www.events.unsw.edu.au/event/unissued-diplomas",
+            "when": "(Feb 26 - Mar 5; 9AM-5PM)"
+          }
+        ]
+      },
+      {
+        "code": "US",
+        "name": "UNITED STATES OF AMERICA",
+        "exhibitions": [
+          {
+            "name": "New York, Ukrainian Institute",
+            "href": "https://maps.app.goo.gl/wiNPhzCN1jwVrtHN8",
+            "when": "(Feb 24)"
+          },
+          {
+            "name": "Cleveland, Cleveland State University",
+            "href": "https://maps.app.goo.gl/bA1tRBMjgB5Kr67p8",
+            "when": "(Mar 1 - Mar 31)"
+          },
+          {
+            "name": "Hanover, Dartmouth College",
+            "href": "https://maps.app.goo.gl/FScvgkmHgxtuCq397",
+            "when": "(Mar 3 - Apr 4)"
+          },
+          {
+            "name": "Worcester, MA, Worcester Polytechnic Institute",
+            "href": "https://maps.app.goo.gl/cKNbZu7Mo5TrTqtG8",
+            "when": "(Feb 27 - Mar 1)"
+          },
+          {
+            "name": "Stanford, Stanford Law School",
+            "href": "https://maps.app.goo.gl/TxKga4gXWp5fyPtm8",
+            "when": "(Feb 22 - Mar 30)"
+          },
+          {
+            "name": "Vermillion, University of South Dakota",
+            "href": "https://maps.app.goo.gl/LamTmqFQUZz3k5cn9",
+            "when": "(Feb 24 - Mar 8)"
+          },
+          {
+            "name": "Providence, Brown University",
+            "href": "https://maps.app.goo.gl/LamTmqFQUZz3k5cn9",
+            "when": "(Feb 24 - Mar 2)"
+          },
+          {
+            "name": "Toledo, University of Toledo",
+            "href": "https://maps.app.goo.gl/Za3SM25VHdiBkUG48",
+            "when": "(Mar 11 - Mar 31)"
+          },
+          {
+            "name": "Annandale-on-Hudson, Bard College",
+            "href": "https://maps.app.goo.gl/NhjYqKYJ5RCZG9bE9",
+            "when": "(Feb 24 - Mar 3)"
+          },
+          {
+            "name": "Storrs Mansfield, Babbidge library at UConn",
+            "href": "https://maps.app.goo.gl/jeds3gbsDX3tXmzJA",
+            "when": "(Feb 19 - Mar 4)"
+          },
+          {
+            "name": "Annandale-on-Hudson, Fisher Studio Arts Building",
+            "href": "https://maps.app.goo.gl/BfdLrkuqS5vTWu7u7",
+            "when": "(Feb 24 - Mar 3)"
+          },
+          {
+            "name": "Boston, Boston University",
+            "href": "https://maps.app.goo.gl/2p32KfferSAvcLi3A",
+            "when": "(Feb 26 - Mar 2)"
+          },
+          {
+            "name": "Cambridge, MA, Massachusetts Institute of Technology",
+            "href": "https://maps.app.goo.gl/xvbkK83EKE69cbdTA",
+            "when": "(Feb 26 ~)"
+          },
+          {
+            "name": "Montezuma, New Mexico, UWC-USA",
+            "href": "https://maps.app.goo.gl/nCmNQej9A2pENJVj9",
+            "when": "(Feb 23 - 27)"
+          },
+          {
+            "name": "Vermont, Middlebury College , Davis Family Library Display",
+            "href": "https://maps.app.goo.gl/SPyrx2Ev8y8PoD7E9",
+            "when": "(Feb 24 - Mar 5)"
+          },
+          {
+            "name": "Waltham, Brandeis University",
+            "href": "https://maps.app.goo.gl/nhZeWin31Mw3xHdU9",
+            "when": "(Feb 29 - Mar 12)"
+          }
+        ]
+      },
+      {
+        "code": "LT",
+        "name": "LITHUANIA",
+        "exhibitions": [
+          {
+            "name": "Vilnius, Vilnius University",
+            "href": "https://maps.app.goo.gl/t6RsfX5NwPr2FDuWA",
+            "when": "(Feb 26 - Mar 10)"
+          },
+          {
+            "name": "Vilnius, Ukrainian Centre",
+            "href": "https://maps.app.goo.gl/t6RsfX5NwPr2FDuWA",
+            "when": "(Feb 24 - Mar 29)"
+          }
+        ]
+      },
+      {
+        "code": "GB",
+        "name": "UNITED KINGDOM",
+        "exhibitions": [
+          {
+            "name": "Belfast, Ulster university",
+            "href": "https://maps.app.goo.gl/yuwYi4mNMuLLpfKC6",
+            "when": "(Feb 22 - 26)"
+          },
+          {
+            "name": "St. Andrews, St Andrews University, Main Library",
+            "href": null,
+            "when": "(Feb 19 - 25)"
+          },
+          {
+            "name": "Oxford, University of Oxford",
+            "href": null,
+            "when": "(Feb 20)"
+          },
+          {
+            "name": "London, Goodenough College",
+            "href": null,
+            "when": "(Feb 22 - 24)"
+          },
+          {
+            "name": "London, King's College London",
+            "href": null,
+            "when": "(Feb 26 - Mar 5)"
+          },
+          {
+            "name": "Aberdeen, University of Aberdeen",
+            "href": null,
+            "when": "(Feb 24 - Mar 1)"
+          },
+          {
+            "name": "Egham, Royal Holloway University of London",
+            "href": "https://maps.app.goo.gl/TWw6euKegaTF2Avu9?g_st=ic",
+            "when": "(Feb 24 - Mar 2)"
+          },
+          {
+            "name": "St Donats Castle, UWC Atlantic College",
+            "href": null,
+            "when": "(Feb 26 - Mar 4)"
+          },
+          {
+            "name": "Glasgow, University of Strathclyde",
+            "href": "https://maps.app.goo.gl/9EE4KENs7xk7M2Xm7?g_st=ic",
+            "when": "(Feb 22 - 24)"
+          },
+          {
+            "name": "Glasgow, University of Strathclyde",
+            "href": null,
+            "when": "(Feb 22 - 24)"
+          },
+          {
+            "name": "Nottingham, Nottingham Trent University",
+            "href": "https://goo.gl/maps/6wz3br35j9MQe1HJ6",
+            "when": "(Feb 24)"
+          },
+          {
+            "name": "Colchester, University of Essex",
+            "href": "https://maps.app.goo.gl/AjiBjikiAVyWmpCB9?g_st=ic",
+            "when": "(Feb 23)"
+          }
+        ]
+      },
+      {
+        "code": "NG",
+        "name": "NIGERIA",
+        "exhibitions": [
+          {
+            "name": "Maiduguri, Federal University of Maiduguri and the CATAI HUB Center For Advocacy, Transparency and Accountability Initiative.",
+            "href": "https://maps.app.goo.gl/qSoQ4Sx5xf2xTxkq8",
+            "when": "(Feb 23 - Mar 26)"
+          },
+          {
+            "name": "Maiduguri, Borno State University",
+            "href": "https://maps.app.goo.gl/bhwjbz1Epcs6FnuN8",
+            "when": "(Mar 3)"
+          }
+        ]
+      },
+      {
+        "code": "DK",
+        "name": "DENMARK",
+        "exhibitions": [
+          {
+            "name": "Aarhus, Aarhus University",
+            "href": "https://maps.app.goo.gl/zKVLkjRi7Uaboe537",
+            "when": "(Feb 22 - Mar 15)"
+          }
+        ]
+      },
+      {
+        "code": "ID",
+        "name": "INDONESIA",
+        "exhibitions": [
+          {
+            "name": "Bali, Denpasar, Honorary Consulate of Ukraine in Denpasar",
+            "href": "https://maps.app.goo.gl/pA3NkEbKEfW33Ekw8",
+            "when": "(Feb 24)"
+          }
+        ]
+      },
+      {
+        "code": "PL",
+        "name": "POLAND",
+        "exhibitions": [
+          {
+            "name": "Cracow, Jagiellonian University",
+            "href": null,
+            "when": "(Mar 14 - 21)"
+          }
+        ]
+      },
+      {
+        "code": "TW",
+        "name": "TAIWAN",
+        "exhibitions": [
+          {
+            "name": "Taipei, Taipei National University of the Arts",
+            "href": "https://maps.app.goo.gl/YQEc4qkfkex8htic6",
+            "when": "(Apr 23 - May 17)"
+          }
+        ]
+      }
+    ],
+    "columns": [
+      [
+        "AU",
+        "DE",
+        "CA",
+        "FI",
+        "SE",
+        "BE"
+      ],
+      [
+        "FR",
+        "UA",
+        "KR",
+        "NO",
+        "LT",
+        "BG",
+        "DK",
+        "TW"
+      ],
+      [
+        "JP",
+        "US",
+        "ID"
+      ],
+      [
+        "IE",
+        "GB",
+        "NG",
+        "PL"
+      ]
+    ]
+  },
+  "donate": {
+    "heading": "DONARE PER ONORARE L'EREDITÀ DEGLI STUDENTI",
+    "text": "Quest'anno, l'iniziativa Unissued Diplomas mira a creare il Fondo di dotazione Unissued Diplomas raccogliendo 75.000 dollari in tutto il mondo. Intendiamo collaborare con la Kyiv-Mohyla Foundation of America e utilizzare questi fondi per istituire un fondo di dotazione sostenibile che coprirà completamente le tasse scolastiche di uno studente all'anno, fornendo anche borse di studio e sovvenzioni per progetti.\n\n\n\nQuesta borsa di studio servirà come tributo vivente alla memoria degli studenti che hanno perso la vita a causa dell'invasione russa. Attraverso questo fondo, ci impegniamo a onorare la loro eredità investendo nel futuro dell'istruzione e nel potenziale della prossima generazione ucraina.",
+    "usd": {
+      "label": "DONARE IN USD",
+      "href": "https://kyivmohylafoundationofamerica.humanitru.com/donate?page=donate-to-unissued-diplomas-scholarships&amount=100&options=1000%2C500%2C250%2C100%2C50%2C25&tribute=true&address=optional&locale=en"
+    },
+    "cad": {
+      "label": "DONARE IN CAD",
+      "href": "https://www.kmafoundation.ca/unissued-diplomas-scholarship-canada?fbclid=IwAR0daVVJ9b8gHF5EDldqtJDK2LA_xPKHGdFSiAwmvlRCB9fH7EtU11h_MEc"
+    }
+  },
+  "photoCredit": "Photo by @johnwithlenses",
+  "mission": {
+    "heading": "MISSIONE",
+    "text": "È nostro onore diffondere le storie di vita dei coraggiosi studenti che sarebbero ancora qui se non fosse stato per l’invasione russa.\n\n\n\nCrediamo nell’azione quando è in gioco la libertà del nostro Paese."
+  },
+  "team": {
+    "heading": "LA SQUADRA",
+    "text": "Ragazze e ragazzi, studenti e laureati, in Ucraina e all'estero: tutti gli oltre 85 partecipanti sono molto diversi tra loro. **Ma siamo uniti nel nostro obiettivo di commemorare le vite perse degli studenti ucraini** e di ricordare al mondo che la guerra su vasta scala continua. E che ogni giorno prende vite innocenti, studenti e non solo."
+  },
+  "stories": {
+    "heading": "CHI HA FORNITO LE STORIE PER I DIPLOMI?",
+    "text": "Questo progetto non sarebbe possibile senza il supporto della piattaforma Memorial che raccoglie e pubblica informazioni sulle vittime di guerra civili e militari ucraine.",
+    "button": {
+      "label": "Esplora altre storie su Memorial",
+      "href": "https://www.victims.memorial/"
+    }
+  },
+  "donateFirst": false,
+  "sponsors": {
+    "heading": "SPONSOR",
+    "names": [
+      "The Ukrainian Canadian Research & Documentation Centre",
+      "The Dubczak Family",
+      "Peter Galadza"
+    ],
+    "logos": [
+      {
+        "name": "Meest",
+        "href": "https://ca.meest.com/uk",
+        "src": "/legacy/sponsors/d730fd74cba34676b934a65e2adc01a5.png"
+      },
+      {
+        "name": "Ukrainian Credit Union",
+        "href": "https://www.ukrainiancu.com/",
+        "src": "/legacy/sponsors/9fcf079e3ce147c8b6445dff48bec2a1.png"
+      },
+      {
+        "name": "UCC",
+        "href": "https://ucctoronto.ca/",
+        "src": "/legacy/sponsors/b608b3039f1b4ac59bc74b94d9bfedff.png"
+      },
+      {
+        "name": "BCU Foundation",
+        "href": "https://bcufoundation.com/",
+        "src": "/legacy/sponsors/90d089b2934f401889f82a66a26d93d6.png"
+      },
+      {
+        "name": "Starsky Fine Foods",
+        "href": "https://starskycanada.com/",
+        "src": "/legacy/sponsors/1aef25e0980a43928bbb700f466b94cd.png"
+      },
+      {
+        "name": "Canadian Institute of Ukrainian Studies",
+        "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/index.html",
+        "src": "/legacy/sponsors/45456369a59a4d23b97833aab7ac7aae.png"
+      },
+      {
+        "name": "Koota Ooma",
+        "href": "https://kootaooma.com/",
+        "src": "/legacy/sponsors/8e55a756744a4396904294b825ad89e6.png"
+      },
+      {
+        "name": "Disrupted Ukrainian Scholars & Students Initiative",
+        "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/stand-with-ukraine/index.html",
+        "src": "/legacy/sponsors/7e3c4de3ca6b49b28db5139f38dc8f77.png"
+      },
+      {
+        "name": "DROM Taverna",
+        "href": "https://www.dromtaberna.com/",
+        "src": "/legacy/sponsors/1a197192c82a47c4858cf5e4c4381606.png"
+      },
+      {
+        "name": "USC",
+        "href": "https://www.instagram.com/uscuoft/",
+        "src": "/legacy/sponsors/9f6084ebc1544684ad4e2504bd6e5c90.png"
+      },
+      {
+        "name": "St. Volodymyr Institute",
+        "href": "https://stvolodymyr.org/",
+        "src": "/legacy/sponsors/2585c542c7a84995b65aa294e9e286e7.png"
+      },
+      {
+        "name": "The Ukrainian Canadian Research & Documentation Centre",
+        "href": "http://www.ucrdc.org/",
+        "src": "/legacy/sponsors/28bda378936e4b938b4ebe8df78aed06.png"
+      },
+      {
+        "name": "LAVA",
+        "href": "https://lavalink.com/",
+        "src": "/legacy/sponsors/98b816a475ca4f6db98580d9fad36282.png"
+      },
+      {
+        "name": "Canada-Ukraine Foundation",
+        "href": "https://cufoundation.ca/",
+        "src": "/legacy/sponsors/c74932ade1864f40a7bfd4801b028919.png"
+      },
+      {
+        "name": "Boosters team",
+        "href": null,
+        "src": "/legacy/sponsors/be097e99e2ad47248418f84ad2df70a2.png"
+      }
+    ]
+  },
+  "partners": {
+    "heading": "PARTNER",
+    "names": [
+      "KMA Global Campus"
+    ],
+    "logos": [
+      {
+        "name": "Kyiv-Mohyla Foundation of Canada",
+        "href": "https://kmafoundation.ca/",
+        "src": "/legacy/partners/52606dc7233c441fb2554df2dad41012.png"
+      },
+      {
+        "name": "Ukrainian Canadian Students Union",
+        "href": null,
+        "src": "/legacy/partners/7667557f44204651a6829d4eddcf228f.png"
+      },
+      {
+        "name": "Franko Family Foundation",
+        "href": null,
+        "src": "/legacy/partners/franko-family-foundation.svg"
+      },
+      {
+        "name": "Trident Associates Printing",
+        "href": "https://trident-printing.com/",
+        "src": "/legacy/partners/e1064d4b63f841baa361770bb8f8ba69.png"
+      },
+      {
+        "name": "Ukrainian Canadian Art Foundation",
+        "href": "https://kumfgallery.com/",
+        "src": "/legacy/partners/af7be2a0d51b492282c861ad5a50b5d7.png"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "DOMANDE FREQUENTI",
+    "items": [
+      {
+        "q": "Sono stati uccisi solo 40 studenti?",
+        "a": "No, l'invasione russa su vasta scala ha causato la morte di più studenti, poiché, in totale, sono stati uccisi più di 6.000 civili e 13.000 soldati dal 24 febbraio 2022. Il numero esatto di studenti tra loro non è noto, considerando che le perdite continuare ad aumentare ogni giorno."
+      },
+      {
+        "q": "La partecipazione alle mostre è gratuita?",
+        "a": "Sì, le mostre sono gratuite. Tuttavia, sei il benvenuto a donare, poiché vogliamo sostenere finanziariamente gli studenti ucraini che rimangono in Ucraina e sacrificano il loro tempo e la loro istruzione per lavorare per la libertà dell'Ucraina."
+      },
+      {
+        "q": "Dove posso avere maggiori informazioni su altri eventi?",
+        "a": "Puoi trovare ulteriori informazioni sui nostri social media, i cui link sono appena sotto la sezione FAQ. Apprezzeremmo molto anche che condividessi gli eventi con coloro che potrebbero essere interessati, poiché speriamo che questo progetto raggiunga quante più persone possibile."
+      }
+    ]
+  },
+  "footer": {
+    "email": "UNISSUEDDIPLOMAS@GMAIL.COM",
+    "donate": "DONARE",
+    "copyright": "Unissued Diplomas ©2024"
+  },
+  "y2023": {
+    "heading": "ANNO 2023",
+    "stats": [
+      {
+        "top": "",
+        "number": "36",
+        "bottom": "STORIE DI STUDENTI UCCISI DALLA RUSSIA"
+      },
+      {
+        "top": "TRADOTTO IN",
+        "number": "7",
+        "bottom": "LINGUE"
+      },
+      {
+        "top": "",
+        "number": "110",
+        "bottom": "MOSTRE"
+      },
+      {
+        "top": "TENUTE IN",
+        "number": "24",
+        "bottom": "PAESI"
+      },
+      {
+        "top": "ORGANIZZATI DA",
+        "number": "250+",
+        "bottom": "AMBASCIATORI LOCALI"
+      },
+      {
+        "top": "OSPITATO DA",
+        "number": "67",
+        "bottom": "UNIVERSITA\n(E NON SOLO)"
+      }
+    ],
+    "locations": {
+      "heading": "SEDI DELLE MOSTRE 2023",
+      "button": "Vedi l'elenco completo"
+    },
+    "activities": {
+      "text": "Mentre la guerra continua, continuiamo a informare il mondo sugli studenti ucraini uccisi dalla Russia - uno dei suoi innumerevoli crimini commessi contro l'Ucraina.",
+      "button": "ESPLORA LE NOSTRE ATTIVITÀ PER IL 2024"
+    },
+    "photos": [
+      {
+        "src": "/legacy/y2023/photo-00.jpg",
+        "alt": "Unissued diplomas 2023 in USA, Washington, DC"
+      },
+      {
+        "src": "/legacy/y2023/photo-01.jpg",
+        "alt": "Boris Johnson visiting an Unissued diplomas exhibition"
+      },
+      {
+        "src": "/legacy/y2023/photo-02.jpg",
+        "alt": "Norwegian Prime Minister Jonas Gahr Støre at the \nUnissued diplomas 2023 exhibition in Bergen"
+      },
+      {
+        "src": "/legacy/y2023/photo-03.jpg",
+        "alt": "Unissued diplomas 2023 in The Netherlands, Amsterdam"
+      },
+      {
+        "src": "/legacy/y2023/photo-04.jpg",
+        "alt": "Berta Muza, ’25, installs a portion of the “Unissued Diplomas” exhibit in the lobby of the Mandel Center on March 3, 2023."
+      },
+      {
+        "src": "/legacy/y2023/photo-05.jpg",
+        "alt": "2023 Unissued diplomas exhibition in Glasgow, Scotland"
+      },
+      {
+        "src": "/legacy/y2023/photo-06.jpg",
+        "alt": "The delegation of the Verkhovna Rada of Ukraine to Australia and the Ambassador of Canada (from left to right: Oleh Seminsky, Yaroslav Zheleznyak, Ambassador Vasyl Myroshnychenko, Halyna Mykhailyuk, Mark Glauser, Yana Mokhonchuk, Olga Koval) attending the Unissued diplomas exhibition"
+      },
+      {
+        "src": "/legacy/y2023/photo-07.jpg",
+        "alt": "2023 Unissued diplomas exhibition in Kobe, Japan"
+      },
+      {
+        "src": "/legacy/y2023/photo-08.jpg",
+        "alt": ""
+      },
+      {
+        "src": "/legacy/y2023/photo-09.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Dijon, France"
+      },
+      {
+        "src": "/legacy/y2023/photo-10.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Helsinki, Finland"
+      },
+      {
+        "src": "/legacy/y2023/photo-11.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Toronto, Canada"
+      },
+      {
+        "src": "/legacy/y2023/photo-12.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Ringkebing, Denmark"
+      },
+      {
+        "src": "/legacy/y2023/photo-13.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Vienna, Austria"
+      },
+      {
+        "src": "/legacy/y2023/photo-14.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Leuven, Belgium"
+      },
+      {
+        "src": "/legacy/y2023/photo-15.jpg",
+        "alt": "Unissued diplomas 2023 in Australia, Canberra"
+      },
+      {
+        "src": "/legacy/y2023/photo-16.jpg",
+        "alt": "Ambassador of Ukraine to Germany at the 2023 Unissued Diplomas exhibition"
+      },
+      {
+        "src": "/legacy/y2023/photo-17.jpg",
+        "alt": "Unissued diplomas 2023 in Klaipeda, Lithuania"
+      },
+      {
+        "src": "/legacy/y2023/photo-18.jpg",
+        "alt": "Unissued diplomas 2023 in Waltham, USA"
+      },
+      {
+        "src": "/legacy/y2023/photo-19.jpg",
+        "alt": "Unissued diplomas 2023 in Vermilion, USA"
+      },
+      {
+        "src": "/legacy/y2023/photo-20.jpg",
+        "alt": "Unissued diplomas 2023 in Bergen, Norway"
+      },
+      {
+        "src": "/legacy/y2023/photo-21.jpg",
+        "alt": "Consul General of Ukraine in Krakow Viacheslav Voynarovskyi attending a 20203 Unissued Diplomas exhibition"
+      },
+      {
+        "src": "/legacy/y2023/photo-22.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in London, UK"
+      },
+      {
+        "src": "/legacy/y2023/photo-23.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Heidelberg, Germany"
+      },
+      {
+        "src": "/legacy/y2023/photo-24.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Abu-Dhabi, UAE"
+      }
+    ],
+    "guests": {
+      "text": "Tra gli ospiti delle mostre c'erano Boris Johnson, il primo ministro norvegese, Frank Wilde, rappresentanti del Senato australiano e gli ambasciatori di Canada, Croazia, Lettonia, Perù, UE, Qatar in Australia e altri paesi.",
+      "button": {
+        "label": "COME ORGANIZZARE UNA MOSTRA",
+        "href": "https://docs.google.com/forms/d/e/1FAIpQLSevvnb-yj7pCqaW6yK-lJM6jDjMrsXC4_nxjXZzgg3euD2-vA/viewform"
+      }
+    },
+    "team": {
+      "text": "Nel 2023, questo progetto è stato realizzato da un team di oltre 50 giovani ucraini, con sede in tutto il mondo, in collaborazione con SUSK e con il sostegno dell'Ambasciata dell'Ucraina in Polonia, Australia e Giappone. L'obiettivo è quello di commemorare le vite perdute degli studenti ucraini e di ricordare al mondo che la guerra su larga scala è ancora in corso."
+    },
+    "sponsors": {
+      "heading": "SPONSORS",
+      "names": [
+        "The Ukrainian Canadian Research & Documentation Centre",
+        "The Dubczak Family",
+        "Peter Galadza"
+      ],
+      "logos": [
+        {
+          "name": "Meest",
+          "href": "https://ca.meest.com/uk",
+          "src": "/legacy/sponsors/d730fd74cba34676b934a65e2adc01a5.png"
+        },
+        {
+          "name": "Ukrainian Credit Union",
+          "href": "https://www.ukrainiancu.com/",
+          "src": "/legacy/sponsors/9fcf079e3ce147c8b6445dff48bec2a1.png"
+        },
+        {
+          "name": "UCC",
+          "href": "https://ucctoronto.ca/",
+          "src": "/legacy/sponsors/b608b3039f1b4ac59bc74b94d9bfedff.png"
+        },
+        {
+          "name": "Canadian Institute of Ukrainian Studies",
+          "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/index.html",
+          "src": "/legacy/sponsors/45456369a59a4d23b97833aab7ac7aae.png"
+        },
+        {
+          "name": "St. Volodymyr Institute",
+          "href": "https://stvolodymyr.org/",
+          "src": "/legacy/sponsors/2585c542c7a84995b65aa294e9e286e7.png"
+        },
+        {
+          "name": "Koota Ooma",
+          "href": "https://kootaooma.com/",
+          "src": "/legacy/sponsors/8e55a756744a4396904294b825ad89e6.png"
+        },
+        {
+          "name": "The Ukrainian Canadian Research & Documentation Centre",
+          "href": "http://www.ucrdc.org/",
+          "src": "/legacy/sponsors/28bda378936e4b938b4ebe8df78aed06.png"
+        },
+        {
+          "name": "BCU Foundation",
+          "href": "https://bcufoundation.com/",
+          "src": "/legacy/sponsors/90d089b2934f401889f82a66a26d93d6.png"
+        },
+        {
+          "name": "Starsky Fine Foods",
+          "href": "https://starskycanada.com/",
+          "src": "/legacy/sponsors/1aef25e0980a43928bbb700f466b94cd.png"
+        },
+        {
+          "name": "Disrupted Ukrainian Scholars & Students Initiative",
+          "href": "https://www.ualberta.ca/canadian-institute-of-ukrainian-studies/stand-with-ukraine/index.html",
+          "src": "/legacy/sponsors/7e3c4de3ca6b49b28db5139f38dc8f77.png"
+        },
+        {
+          "name": "DROM Taverna",
+          "href": "https://www.dromtaberna.com/",
+          "src": "/legacy/sponsors/1a197192c82a47c4858cf5e4c4381606.png"
+        },
+        {
+          "name": "USC",
+          "href": "https://www.instagram.com/uscuoft/",
+          "src": "/legacy/sponsors/9f6084ebc1544684ad4e2504bd6e5c90.png"
+        },
+        {
+          "name": "LAVA",
+          "href": "https://lavalink.com/",
+          "src": "/legacy/sponsors/98b816a475ca4f6db98580d9fad36282.png"
+        },
+        {
+          "name": "Canada-Ukraine Foundation",
+          "href": "https://cufoundation.ca/",
+          "src": "/legacy/sponsors/c74932ade1864f40a7bfd4801b028919.png"
+        }
+      ]
+    },
+    "partners": {
+      "heading": "PARTNERS",
+      "names": [
+        "KMA Global Campus"
+      ],
+      "logos": [
+        {
+          "name": "Second Front",
+          "href": "https://secondfrontukraine.com/",
+          "src": "/legacy/partners/4c637539ddea.png"
+        },
+        {
+          "name": "Hart House",
+          "href": "https://harthouse.ca/",
+          "src": "/legacy/partners/78c29b1347bc.png"
+        },
+        {
+          "name": "Innis Town Hall",
+          "href": "https://innis.utoronto.ca/book-a-venue/",
+          "src": "/legacy/partners/a73840ec0a8f.png"
+        },
+        {
+          "name": "Kyiv-Mohyla Foundation of Canada",
+          "href": "https://kmafoundation.ca/",
+          "src": "/legacy/partners/52606dc7233c.png"
+        },
+        {
+          "name": "Trident Associates Printing",
+          "href": "https://trident-printing.com/",
+          "src": "/legacy/partners/e1064d4b63f8.png"
+        },
+        {
+          "name": "Print Plus Sign",
+          "href": "https://printplussign.ca/",
+          "src": "/legacy/partners/12d088680fc5.png"
+        },
+        {
+          "name": "Ukrainian Canadian Art Foundation",
+          "href": "https://kumfgallery.com/",
+          "src": "/legacy/partners/af7be2a0d51b.png"
+        },
+        {
+          "name": "UNWLA",
+          "href": null,
+          "src": "/legacy/partners/e1cdfe818f81.png"
+        }
+      ]
+    },
+    "exhibitions2023": [
+      {
+        "name": "AUSTRALIA",
+        "venues": [
+          {
+            "name": "Canberra, Cultural Centre Kambri (ANU Building 153)",
+            "href": "https://goo.gl/maps/fjaXKzsHmk9zTnra8"
+          },
+          {
+            "name": "Sydney, University of Sydney",
+            "href": "https://goo.gl/maps/fjaXKzsHmk9zTnra8"
+          },
+          {
+            "name": "Sydney, West Sydney University",
+            "href": "https://goo.gl/maps/fjaXKzsHmk9zTnra8"
+          },
+          {
+            "name": "Melbourne, University of Melbourne",
+            "href": "https://goo.gl/maps/fjaXKzsHmk9zTnra8"
+          }
+        ]
+      },
+      {
+        "name": "AUSTRIA",
+        "venues": [
+          {
+            "name": "Vienna, Central European University (CEU)",
+            "href": "https://goo.gl/maps/uPcdSV4vLqZTDDqz9"
+          },
+          {
+            "name": "Vienna, Vienna University of Economics and Business",
+            "href": null
+          },
+          {
+            "name": "Vienna, University of Vienna",
+            "href": null
+          },
+          {
+            "name": "Innsbruk, University of Innsbruk",
+            "href": null
+          }
+        ]
+      },
+      {
+        "name": "BELGIUM",
+        "venues": [
+          {
+            "name": "Leuven, Katholieke Universiteit Leuven",
+            "href": "https://maps.app.goo.gl/gJQn2XqY5iVdEAYu6"
+          },
+          {
+            "name": "Bruxelles, Institut d’études européennes de l’Université Libre de Bruxelles",
+            "href": "https://goo.gl/maps/rqXPAup2iazWQ3Pf6"
+          },
+          {
+            "name": "Brugge, College of Europe",
+            "href": "https://goo.gl/maps/rqXPAup2iazWQ3Pf6"
+          }
+        ]
+      },
+      {
+        "name": "BULGARIA",
+        "venues": [
+          {
+            "name": "Blagoevgrad, American University in Bulgaria (AUBG)",
+            "href": "https://goo.gl/maps/aN2u8kyTmxXBTR626"
+          }
+        ]
+      },
+      {
+        "name": "CANADA",
+        "venues": [
+          {
+            "name": "Ottawa, Carleton University, MacOdrum Library, 2nd floor",
+            "href": "https://maps.app.goo.gl/czLBpyHd5C2FG99W9"
+          },
+          {
+            "name": "Toronto, University of Toronto (St.George Campus)",
+            "href": "https://goo.gl/maps/V81c542nHH9SRStQ7"
+          },
+          {
+            "name": "Toronto, St. Volodymyr Institute",
+            "href": "https://goo.gl/maps/3acnR5d4eTUpn76aA"
+          },
+          {
+            "name": "Toronto, Ukrainian Canadian Art Foundation",
+            "href": "https://goo.gl/maps/piikqyD64LFTp7LdA"
+          },
+          {
+            "name": "Missisauga, University of Toronto (Missisauga campus)",
+            "href": "https://goo.gl/maps/HWJf6N4SiYCUqNnh6"
+          },
+          {
+            "name": "Scarborough, University of Toronto (Scarborough campus)",
+            "href": null
+          },
+          {
+            "name": "Banff, Banff Public Library",
+            "href": "https://goo.gl/maps/F9hFjRnZVtc5pZx9A"
+          },
+          {
+            "name": "Halifax, Saint Mary’s University",
+            "href": null
+          },
+          {
+            "name": "Edmonton, University of Alberta",
+            "href": "https://www.instagram.com/p/CpJCC6Ivx5C/"
+          },
+          {
+            "name": "Hamilton, Ontario",
+            "href": null
+          },
+          {
+            "name": "Montréal, McGill University, Leacock Building",
+            "href": "https://goo.gl/maps/r4Ktbu2qMH1Nt2N77"
+          },
+          {
+            "name": "Saskatoon, University of Saskatchewan",
+            "href": null
+          },
+          {
+            "name": "London, DB Weldon Library",
+            "href": "https://goo.gl/maps/x5L8XptwLjVYbQtU9"
+          }
+        ]
+      },
+      {
+        "name": "HUNGARY",
+        "venues": [
+          {
+            "name": "Budaörs, Budaörs Animation Base & Creative",
+            "href": null
+          },
+          {
+            "name": "Budapest, Central European University",
+            "href": null
+          }
+        ]
+      },
+      {
+        "name": "CZECH REPUBLIC",
+        "venues": [
+          {
+            "name": "Olomouc, Palacky University",
+            "href": "https://goo.gl/maps/3zeb9cYCoCAi85hB8"
+          }
+        ]
+      },
+      {
+        "name": "FRANCE",
+        "venues": [
+          {
+            "name": "Menton, Sciences Po",
+            "href": "https://goo.gl/maps/p4xD1yQjEgJrAU9w5"
+          },
+          {
+            "name": "Reims, Sciences Po",
+            "href": "https://goo.gl/maps/jTGMNiPnbEmok2pj6"
+          }
+        ]
+      },
+      {
+        "name": "ITALY",
+        "venues": [
+          {
+            "name": "To be announced",
+            "href": null
+          }
+        ]
+      },
+      {
+        "name": "DENMARK",
+        "venues": [
+          {
+            "name": "Skive, Krabbesholm Højskole",
+            "href": null
+          },
+          {
+            "name": "Ringkobing, Galleri Bit Kjeldsen",
+            "href": "https://goo.gl/maps/zccYU1r5TaxjroJo6"
+          },
+          {
+            "name": "Ringkobing, Statue Miss Ringkøbing",
+            "href": "https://goo.gl/maps/Q1RiBmaLdn67GKjJ7"
+          }
+        ]
+      },
+      {
+        "name": "FINLAND",
+        "venues": [
+          {
+            "name": "Helsinki, University of Helsinki",
+            "href": null
+          },
+          {
+            "name": "Tampere, Tullintori",
+            "href": null
+          },
+          {
+            "name": "Tampere, Tampere-Talo",
+            "href": "https://goo.gl/maps/rxzmRXtohPg9pTjH7"
+          },
+          {
+            "name": "Tampere, University of Tampere",
+            "href": "https://goo.gl/maps/fvs2f9Nrh4jffy8w5"
+          },
+          {
+            "name": "Kemi, Lapland University of Applied Sciences",
+            "href": "https://goo.gl/maps/qfjY589rssyyVEXh6"
+          },
+          {
+            "name": "Jyvaskyla, University of Jyvaskyla",
+            "href": "https://goo.gl/maps/CxCXbuEdnAhuxAgcA"
+          }
+        ]
+      },
+      {
+        "name": "GERMANY",
+        "venues": [
+          {
+            "name": "Köln, Rocalliplatz",
+            "href": "https://goo.gl/maps/Kz3WocGtoMiZck7XA"
+          },
+          {
+            "name": "Osnabrück, Universität Osnabrück",
+            "href": null
+          },
+          {
+            "name": "Heidelberg, SRH University Heidelberg",
+            "href": "https://maps.app.goo.gl/uA6ZAnEskTTHJT8t8"
+          },
+          {
+            "name": "Jena, Friedrich Schiller University of Jena",
+            "href": null
+          },
+          {
+            "name": "Kiel",
+            "href": "https://maps.app.goo.gl/Gw7CVDxCEZ7wYmyDA"
+          }
+        ]
+      },
+      {
+        "name": "INDIA",
+        "venues": [
+          {
+            "name": "Hyderabad, Minerva University",
+            "href": "https://goo.gl/maps/xhjWqxGuixmLoKHs8"
+          },
+          {
+            "name": "Hyderabad, Waltair Coffee",
+            "href": "https://goo.gl/maps/xhjWqxGuixmLoKHs8"
+          }
+        ]
+      },
+      {
+        "name": "JAPAN",
+        "venues": [
+          {
+            "name": "Tokyo, Izumi No Mori Hall",
+            "href": null
+          },
+          {
+            "name": "Kobe, Academic Community Hall UNITY",
+            "href": null
+          }
+        ]
+      },
+      {
+        "name": "LITHUANIA",
+        "venues": [
+          {
+            "name": "Klaipeda, LCC International University",
+            "href": "https://goo.gl/maps/YpfcdWeD2gMwVtdY8"
+          },
+          {
+            "name": "Vilnius, Vilnius University of Applied Sciences",
+            "href": "https://goo.gl/maps/i4mdue4Ciu9K1HuP8"
+          }
+        ]
+      },
+      {
+        "name": "NETHERLANDS",
+        "venues": [
+          {
+            "name": "Amsterdam, University of Amsterdam",
+            "href": "https://maps.app.goo.gl/ucitqW1T3J8EqCf29"
+          }
+        ]
+      },
+      {
+        "name": "ESTONIA",
+        "venues": [
+          {
+            "name": "Tartu, University of Tartu",
+            "href": "https://maps.app.goo.gl/ucitqW1T3J8EqCf29"
+          }
+        ]
+      },
+      {
+        "name": "POLAND",
+        "venues": [
+          {
+            "name": "Warsaw, University of Warsaw",
+            "href": "https://goo.gl/maps/KATBnqhYu2Zq3NZBA"
+          },
+          {
+            "name": "Lublin, Collegium Norwidianum KUL",
+            "href": "https://goo.gl/maps/kJTJLuuEsoVtjpFs6"
+          },
+          {
+            "name": "Lublin, Collegium Jana Pawła II KUL",
+            "href": "https://goo.gl/maps/xisMZVjrWcntXWeR6"
+          },
+          {
+            "name": "Kraków, Jagiellonian University",
+            "href": "https://goo.gl/maps/xisMZVjrWcntXWeR6"
+          }
+        ]
+      },
+      {
+        "name": "PORTUGAL",
+        "venues": [
+          {
+            "name": "Funchal, Art Center Caravel",
+            "href": "https://goo.gl/maps/NKAyxpMZwPH2oSCW6"
+          }
+        ]
+      },
+      {
+        "name": "SPAIN",
+        "venues": [
+          {
+            "name": "Madrid, Imaguru Startup Hub",
+            "href": "https://maps.app.goo.gl/TiE6yM8T7FvYRJDBA"
+          }
+        ]
+      },
+      {
+        "name": "NORWAY",
+        "venues": [
+          {
+            "name": "Bergen, Studentsenteret UiB",
+            "href": "https://www.google.com/maps/place/Studentsamskipnaden+p%C3%A5+Vestlandet/@60.3869561,5.3225949,19z/data=!4m6!3m5!1s0x463cfeaa6f40d55d:0x82eeda922c2e150a!8m2!3d60.3869561!4d5.3225949!16s%2Fg%2F1tdk8nks"
+          }
+        ]
+      },
+      {
+        "name": "UNITED ARAB EMIRATES",
+        "venues": [
+          {
+            "name": "Abu Dhabi, New York University Abu Dhabi",
+            "href": "https://goo.gl/maps/vZbwHvTjUfSimgM89"
+          }
+        ]
+      },
+      {
+        "name": "UNITED STATES OF AMERICA",
+        "venues": [
+          {
+            "name": "New York, City University of New York, Hunter College",
+            "href": null
+          },
+          {
+            "name": "New York, Ukrainian National Women's League of America",
+            "href": null
+          },
+          {
+            "name": "Washington, DC, Georgetown University",
+            "href": "https://g.co/kgs/xjmU7Z"
+          },
+          {
+            "name": "Fort Steilacoom, Puyallup, Pierce College",
+            "href": null
+          },
+          {
+            "name": "Waltham, Brandeis International Business School",
+            "href": null
+          },
+          {
+            "name": "Meadville, Allegheny College",
+            "href": "https://maps.app.goo.gl/UAtXCaT6KHYZrjjR9"
+          },
+          {
+            "name": "Vermillion, University of South Dakota",
+            "href": "https://goo.gl/maps/MVY2NtSrDYQwmWPC8"
+          },
+          {
+            "name": "Vancouver, WA, Vancouver Community Library",
+            "href": "https://goo.gl/maps/W8U6MuxsCqiDgzBg7"
+          },
+          {
+            "name": "Battle Ground, WA, Battle Ground Community Library",
+            "href": "https://goo.gl/maps/Lm6G7NissEjQBLSx8"
+          },
+          {
+            "name": "South Bend Indiana, Notre Dame University",
+            "href": "https://maps.app.goo.gl/EpaAqSMakb4gMcpa6"
+          }
+        ]
+      },
+      {
+        "name": "UNITED KINGDOM",
+        "venues": [
+          {
+            "name": "London, University of London",
+            "href": "https://goo.gl/maps/chGTqYWfENKst9Pi8"
+          },
+          {
+            "name": "Glasgow, University of Glasgow",
+            "href": "https://goo.gl/maps/tjYtTGppq157bwgJA"
+          },
+          {
+            "name": "Loughborough, Pilkington Library",
+            "href": "https://goo.gl/maps/m1Z9twYCNiPFAMtH9"
+          },
+          {
+            "name": "Oxford, St. Hugh’s College (during Oxford-Ukraine Summit)",
+            "href": null
+          },
+          {
+            "name": "Durham, Durham Students' Union",
+            "href": "https://maps.app.goo.gl/RZa3GFYzpjbjKAwU9"
+          },
+          {
+            "name": "Edinburgh, University of Edinburgh",
+            "href": "https://maps.app.goo.gl/RZa3GFYzpjbjKAwU9"
+          },
+          {
+            "name": "Lampeter, University of Wales Trinity Saint David",
+            "href": "https://maps.app.goo.gl/RZa3GFYzpjbjKAwU9"
+          }
+        ]
+      }
+    ]
+  }
+}

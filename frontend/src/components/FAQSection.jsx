@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
-import { useContent } from "../hooks/useContent";
 import { RichText } from "../shared/RichText";
 
 
-export const FAQSection = () => {
-  const { home, faqs } = useContent();
-  const [openId, setOpenId] = useState(faqs[0]?.documentId);
+// `items`: [{ question, answer: rich text blocks }] (`icon`: stamp after the heading, /jp)
+export const FAQSection = ({ heading, items, icon }) => {
+  const [openId, setOpenId] = useState(0);
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
@@ -23,11 +22,12 @@ export const FAQSection = () => {
               className="flex flex-col font-heading font-normal uppercase leading-none relative
                 text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]"
             >
-              {home.faqHeading?.split("\n").map((line) => (
+              {heading?.split("\n").map((line) => (
                 <span key={line}>{line}</span>
               ))}
+              {icon && <img src={HomeVyshyvankaIcon} alt="" className="absolute top-[0.45em] left-[5em] w-[1.15em] h-[1.15em] object-contain" />}
               {/* ponytail: em offsets fit the English heading only; translations would need their own */}
-              {home.faqHeading === "FREQUENTLY\nASKED\nQUESTIONS" && (
+              {heading === "FREQUENTLY\nASKED\nQUESTIONS" && (
                 <img
                   src={HomeVyshyvankaIcon}
                   alt=""
@@ -38,21 +38,21 @@ export const FAQSection = () => {
           </div>
 
           <div>
-            {faqs.map((item) => (
-              <div key={item.documentId}>
+            {items.map((item, i) => (
+              <div key={i}>
                 <button
                   className="w-full flex items-start justify-between gap-4 py-5 tablet:py-6 text-left"
-                  onClick={() => toggle(item.documentId)}
+                  onClick={() => toggle(i)}
                 >
                   <span className="text-[15px] tablet:text-[17px] font-normal leading-snug">
                     {item.question}
                   </span>
                   <span className="flex-shrink-0 text-[22px] leading-none">
-                    {openId === item.documentId ? "−" : "+"}
+                    {openId === i ? "−" : "+"}
                   </span>
                 </button>
                 <AnimatePresence initial={false}>
-                  {openId === item.documentId && (
+                  {openId === i && (
                     <motion.div
                       key="content"
                       initial={{ height: 0, opacity: 0 }}

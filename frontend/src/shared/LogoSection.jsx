@@ -33,7 +33,10 @@ export const LogoSection = ({ heading, items, variant, className }) => {
 
         <div className="flex flex-wrap gap-5 tablet:gap-8 tablet-md:gap-10 items-center">
           {items.map((item) => {
-            const logo = (
+            // Name-only credits (no logo) are shown as text
+            const logo = !item.logo ? (
+              <span className="text-[16px] whitespace-nowrap">{item.name}</span>
+            ) : (
               <img
                 src={mediaUrl(item.logo, "small")}
                 alt={item.name}
