@@ -12,7 +12,6 @@ import { MapTooltip } from "./MapTooltip";
 import { MapSkeleton } from "./MapSkeleton";
 
 const ANTARCTICA_ID = "010";
-const UKRAINE_ID = "804";
 
 const DEFAULT_FILL = "#2a2a2a";
 const HIGHLIGHT_FILL = "#a83232";
@@ -25,30 +24,6 @@ const HIDE_DELAY = 700;
 const MAP_WIDTH = 800;
 const MAP_HEIGHT = 420;
 const PROJECTION_CONFIG = { scale: 130, center: [10, 30] };
-
-// Crimea polygon extracted from TopoJSON Russia geometry — belongs to Ukraine
-const CRIMEA_COORDS = [
-  [33.435, 45.972], [33.698, 46.219], [34.411, 46.004], [34.731, 45.965],
-  [34.861, 45.767], [35.012, 45.737], [35.019, 45.651], [35.509, 45.410],
-  [36.531, 45.469], [36.333, 45.114], [35.239, 44.940], [33.882, 44.361],
-  [33.327, 44.566], [33.547, 45.034], [32.453, 45.327], [32.633, 45.519],
-  [33.587, 45.852], [33.435, 45.972],
-];
-
-const CRIMEA_GEO = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      id: UKRAINE_ID,
-      properties: { name: "Crimea" },
-      geometry: {
-        type: "Polygon",
-        coordinates: [CRIMEA_COORDS],
-      },
-    },
-  ],
-};
 
 const COUNTRY_TRANSITION = "fill 0.8s ease, filter 0.8s ease, transform 0.8s ease";
 
@@ -282,9 +257,7 @@ export const WorldMap = ({ exhibitionsByCountry }) => {
               geographies
                 .filter((geo) => geo.id !== ANTARCTICA_ID)
                 .map((geo) => {
-                  const isHighlighted =
-                    geo.id === hoveredCountryId ||
-                    (geo.id === UKRAINE_ID && hoveredCountryId === UKRAINE_ID);
+                  const isHighlighted = geo.id === hoveredCountryId;
 
                   const hasExhibition = exhibitionCountryIds.has(geo.id);
 
@@ -302,26 +275,6 @@ export const WorldMap = ({ exhibitionsByCountry }) => {
             }
           </Geographies>
 
-          {/* Crimea overlay — always rendered with Ukraine's fill */}
-          <Geographies geography={CRIMEA_GEO}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key="crimea"
-                  geography={geo}
-                  fill={
-                    hoveredCountryId === UKRAINE_ID
-                      ? HIGHLIGHT_FILL
-                      : DEFAULT_FILL
-                  }
-                  stroke={STROKE_COLOR}
-                  strokeWidth={0.5}
-                  style={hoveredCountryId === UKRAINE_ID ? STYLE_HIGHLIGHTED : STYLE_DEFAULT}
-                  tabIndex={-1}
-                />
-              ))
-            }
-          </Geographies>
 
           {/* Invisible SVG hit areas for mouse events */}
           {markers.map((marker) => (
