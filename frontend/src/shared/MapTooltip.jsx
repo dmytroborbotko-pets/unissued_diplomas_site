@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion"; // eslint-disable-line no-unused-vars
+import { useContent } from "../hooks/useContent";
 
 const TOOLTIP_WIDTH = 230;
 const TOOLTIP_OFFSET_Y = 16;
@@ -10,6 +11,7 @@ export const MapTooltip = ({
   tooltipRef,
   countryCode,
 }) => {
+  const { global } = useContent();
   const isVisible = !!(data && dotPos);
 
   let left = 0;
@@ -58,10 +60,10 @@ export const MapTooltip = ({
             </span>
           </div>
           <p className="text-theme-text-muted text-[13px] mb-2">
-            {data.count} exhibition{data.count !== 1 ? "s" : ""} held
+            {data.count} {data.count === 1 ? global.exhibitionsHeldOne : global.exhibitionsHeldOther}
           </p>
           <div className="flex items-center gap-1 text-theme-primary text-[13px] font-[500]">
-            <span>Show all exhibitions</span>
+            <span>{global.showAllExhibitions}</span>
             <svg
               width="14"
               height="14"

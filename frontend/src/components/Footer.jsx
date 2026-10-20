@@ -35,13 +35,13 @@ export default function Footer() {
           {/* Logo + mobile Donate row */}
           <div className="flex items-start justify-between tablet:block">
             <Link to="/" className="text-white font-bold text-lg">
-              UNISSUED DIPLOMAS
+              {global.siteName?.replace(/\n/g, ' ')}
             </Link>
             <a
               href="#donate"
               className="tablet:hidden bg-red-700 text-white px-6 py-3 hover:bg-white transition-colors font-[500] uppercase"
             >
-              DONATE
+              {global.donateLabel}
             </a>
           </div>
 
@@ -78,7 +78,7 @@ export default function Footer() {
               href="#donate"
               className="bg-red-700 text-white px-28 py-2 hover:bg-white hover:text-black transition-colors font-[500] uppercase"
             >
-              DONATE
+              {global.donateLabel}
             </a>
           </div>
         </div>

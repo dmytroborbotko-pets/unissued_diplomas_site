@@ -26,11 +26,14 @@ export const FAQSection = () => {
               {home.faqHeading?.split("\n").map((line) => (
                 <span key={line}>{line}</span>
               ))}
-              <img
-                src={HomeVyshyvankaIcon}
-                alt=""
-                className="absolute top-[1.2em] left-[3.15em] -translate-y-1/2 w-[1.3em] h-[1.3em] object-contain"
-              />
+              {/* ponytail: em offsets fit the English heading only; translations would need their own */}
+              {home.faqHeading === "FREQUENTLY\nASKED\nQUESTIONS" && (
+                <img
+                  src={HomeVyshyvankaIcon}
+                  alt=""
+                  className="absolute top-[1.2em] left-[3.15em] -translate-y-1/2 w-[1.3em] h-[1.3em] object-contain"
+                />
+              )}
             </p>
           </div>
 

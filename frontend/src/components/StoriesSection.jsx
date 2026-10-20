@@ -33,7 +33,7 @@ export const StoriesSection = () => {
           rel="noopener noreferrer"
           className="inline-block px-5 mobile-sm:px-12 py-2 bg-theme-primary-dark text-white font-[500] tracking-widest rounded hover:bg-theme-primary transition-colors"
         >
-          Explore more stories on Memorial
+          {home.storiesLinkText}
         </a>
       </div>
     </section>

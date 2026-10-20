@@ -31,18 +31,19 @@ const formatDates = ({ startDate, endDate, dateNote }, dateFormat) => {
 };
 
 const StatusBadge = ({ status }) => {
+  const { global } = useContent();
   if (status === "open") {
     return (
       <span className="flex items-center gap-2 shrink-0 text-[12px] uppercase tracking-[0.08em] text-theme-text">
         <span className="size-2 rounded-full bg-theme-primary animate-pulse" />
-        Now open
+        {global.nowOpen}
       </span>
     );
   }
   if (status === "upcoming") {
     return (
       <span className="shrink-0 px-2 py-0.5 border border-white/30 text-[12px] uppercase tracking-[0.08em] text-theme-text-muted">
-        Upcoming
+        {global.upcoming}
       </span>
     );
   }
@@ -172,7 +173,7 @@ const ScrollArrow = ({ direction, onClick }) => (
 
 export default function Exhibitions() {
   const { exhibitionsByCountry, isLoading } = useExhibitions();
-  const { exhibitionsPage } = useContent();
+  const { exhibitionsPage, global } = useContent();
   const { currentLanguage } = useLanguage();
   const [searchParams, setSearchParams] = useSearchParams();
   const selected = searchParams.get("country")?.toUpperCase() ?? null;
@@ -233,7 +234,7 @@ export default function Exhibitions() {
               {isLoading ? (
                 <span className="inline-block h-[1em] w-56 align-middle bg-white/10 animate-pulse" />
               ) : (
-                `${countries.length} countries · ${venueCount} venues`
+                `${countries.length} ${global.countriesLabel} · ${venueCount} ${global.venuesLabel}`
               )}
             </p>
           </div>
@@ -258,7 +259,7 @@ export default function Exhibitions() {
                 ))}
               {!isLoading && (
                 <Chip active={!selected} onClick={() => selectCountry(null)}>
-                  All
+                  {global.filterAll}
                 </Chip>
               )}
               {countries.map((country) => (
@@ -292,14 +293,14 @@ export default function Exhibitions() {
           ) : (
             <div className="py-24 text-center">
               <p className="text-[18px] text-theme-text-muted">
-                No exhibitions found for this country.
+                {global.noExhibitionsForCountry}
               </p>
               <button
                 type="button"
                 onClick={() => selectCountry(null)}
                 className="mt-6 px-8 py-3 uppercase font-medium bg-theme-accent text-theme-bg-dark transition-colors hover:bg-theme-primary hover:text-theme-text cursor-pointer"
               >
-                Show all exhibitions
+                {global.showAllExhibitions}
               </button>
             </div>
           )}

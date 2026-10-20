@@ -16,19 +16,22 @@ import { lines } from "../utils/media";
 
 export const Main = () => {
   const { home, global, sponsors, partners } = useContent();
+  // ponytail: the icon is placed by em offsets over the "O" of DIPLOMAS; other titles would need their own offsets
+  const showTitleIcon = global.siteName === "UNISSUED\nDIPLOMAS";
 
   return (
     <section className="bg-theme-bg text-theme-text mt-4 min-h-screen">
       <main className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
         <div className="tablet:px-4 mobile-xs:px-1 tablet:hidden my-[30px]">
           <p className="flex flex-col font-normal tablet:text-[70px] mobile-sm:text-[58px] mobile-lg:text-[60px] mobile-xs:text-[48px] leading-none relative">
-            <span>UNISSUED</span>
-            <span>DIPLOMAS</span>
-            <img
-              src={HomeVyshyvankaIcon}
-              alt={""}
-              className="absolute top-[1.1em] left-[2.96em] -translate-y-1/2 w-[1.11em] h-[1.11em] object-contain"
-            />
+            {lines(global.siteName)?.map((line) => <span key={line}>{line}</span>)}
+            {showTitleIcon && (
+              <img
+                src={HomeVyshyvankaIcon}
+                alt={""}
+                className="absolute top-[1.1em] left-[2.96em] -translate-y-1/2 w-[1.11em] h-[1.11em] object-contain"
+              />
+            )}
           </p>
           <p className="font-normal mt-[20px] text-[15px] max-w-[75%] letter-spacing-[0.05em]">
             {home.heroTagline}
@@ -37,12 +40,12 @@ export const Main = () => {
         <div className="flex flex-col mobile-xs:gap-5 tablet:grid tablet:grid-cols-2 tablet:gap-4 tablet:px-4 mobile-xs:px-1 tablet:mt-16">
           {/* Block 1: Dark with title image and description */}
           <ActionBlock
-            title={["UNISSUED", "DIPLOMAS"]}
-            titleIcon={{
+            title={lines(global.siteName)}
+            titleIcon={showTitleIcon && {
               src: HomeVyshyvankaIcon,
               alt: "Vyshyvanka",
             }}
-            mobileTitle="ABOUT THE PROJECT"
+            mobileTitle={global.navAbout}
             description={home.heroTagline}
             variant="dark"
             titleFont="font-normal"

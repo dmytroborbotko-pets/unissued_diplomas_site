@@ -49,7 +49,7 @@ export const ExhibitionMap = () => {
           type="button"
           className="w-full mt-8 py-4 text-center uppercase font-medium bg-theme-accent text-theme-bg-dark"
         >
-          GET EXHIBITION ORGANIZER'S GUIDE
+          {home.mapButtonText}
         </button>
       </div>
     </section>

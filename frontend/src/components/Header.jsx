@@ -3,17 +3,18 @@ import smallLogo from '../assets/small_logo.png';
 import { Link } from 'react-router-dom';
 import { useScroll, useMotionValueEvent, AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
-
-const NAV_LINKS = [
-  { to: '/#about', label: 'About the Project' },
-  { to: '/exhibitions', label: 'All Exhibitions' },
-  { to: '/#donate', label: 'Donations' },
-  { to: '/#faq', label: 'FAQ' },
-  { to: '/#contacts', label: 'Contacts' },
-];
+import { useContent } from '../hooks/useContent';
 
 export default function Header() {
   const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
+  const { global } = useContent();
+  const NAV_LINKS = [
+    { to: '/#about', label: global.navAbout },
+    { to: '/exhibitions', label: global.navExhibitions },
+    { to: '/#donate', label: global.navDonations },
+    { to: '/#faq', label: global.navFaq },
+    { to: '/#contacts', label: global.navContacts },
+  ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const headerRef = useRef(null);

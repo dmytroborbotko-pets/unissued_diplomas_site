@@ -2,7 +2,7 @@ import { useContent } from "../hooks/useContent";
 import { RichText } from "../shared/RichText";
 
 export const DonateSection = () => {
-  const { home } = useContent();
+  const { home, global } = useContent();
 
   return (
     <section
@@ -37,7 +37,7 @@ export const DonateSection = () => {
               border border-theme-accent
               transition-colors duration-200 hover:bg-transparent hover:text-theme-accent"
           >
-            Donate
+            {global.donateLabel}
           </a>
         </div>
       </div>
