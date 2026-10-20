@@ -13,7 +13,7 @@ export function ActionBlock({
   titleLineHeight = "1.25em",
   descriptionFont,
   hasBorder = false,
-  href = "#",
+  href,
   className,
 }) {
   const bgColors = {
@@ -81,17 +81,17 @@ export function ActionBlock({
       )}
     >
       {/* Title and description container */}
-      <div className="max-tablet:flex-1 tablet:space-y-4">
+      <div className="max-tablet:flex-1 max-tablet:min-w-0 wrap-break-word tablet:space-y-4">
         {/* Mobile title */}
         {mobileTitle && (
           <h2
             className={cn(
               "font-[800]",
-              "uppercase tracking-tight leading-tight text-balance tablet:hidden",
+              "uppercase tracking-tight leading-tight text-balance whitespace-pre-line tablet:hidden",
               "text-[18px]",
             )}
           >
-            {mobileTitle}
+            {Array.isArray(mobileTitle) ? mobileTitle.join("\n") : mobileTitle}
           </h2>
         )}
         {/* Desktop title (or mobile if no mobileTitle provided) */}
@@ -157,7 +157,7 @@ export function ActionBlock({
 
   if (href) {
     return (
-      <Link href={href} className="inline">
+      <Link to={href} className="inline">
         {content}
       </Link>
     );

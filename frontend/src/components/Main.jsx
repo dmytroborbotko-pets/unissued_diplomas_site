@@ -52,7 +52,7 @@ export const Main = () => {
             titleSize="tablet:text-[60px] tablet-md:text-[70px]"
             titleLineHeight="1"
             descriptionFont="font-normal"
-            href="/unissued-diplomas"
+            href="/#about"
           />
 
           {/* Block 2: Dark with border */}
@@ -71,7 +71,6 @@ export const Main = () => {
             mobileTitle={lines(home.hostBlockMobileTitle)}
             variant="red"
             titleFont="font-[800]"
-            href={global.hostExhibitionUrl || "#"}
           />
 
           {/* Block 4: White */}
@@ -80,7 +79,6 @@ export const Main = () => {
             mobileTitle={lines(home.donateBlockMobileTitle)}
             variant="white"
             titleFont="font-[800]"
-            href="/donate"
           />
         </div>
 
