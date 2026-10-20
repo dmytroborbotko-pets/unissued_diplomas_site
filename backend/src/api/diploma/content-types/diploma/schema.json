@@ -1,0 +1,11 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diplomas",
+  "info": { "singularName": "diploma", "pluralName": "diplomas", "displayName": "Diploma" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "studentName": { "type": "string", "required": true },
+    "order": { "type": "integer", "required": true },
+    "versions": { "type": "component", "repeatable": true, "component": "diploma.version" }
+  }
+}

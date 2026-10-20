@@ -1,0 +1,13 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsors",
+  "info": { "singularName": "sponsor", "pluralName": "sponsors", "displayName": "Sponsor" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "logo": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] },
+    "url": { "type": "string" },
+    "size": { "type": "enumeration", "enum": ["wide", "square", "bordered", "text"], "default": "wide", "required": true },
+    "order": { "type": "integer", "default": 0 }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "unissued-diplomas-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "download-diplomas": "node download-diplomas.mjs"
+  },
+  "dependencies": {
+    "@wix/sdk": "^1.13.0",
+    "@wix/data": "^1.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stats",
+  "info": { "singularName": "stat", "pluralName": "stats", "displayName": "Stat" },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
+  "attributes": {
+    "number": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": false } } },
+    "label": { "type": "string", "required": true, "pluginOptions": { "i18n": { "localized": true } } },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["diploma", "media", "exhibitions", "world", "team", "fund"],
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "order": { "type": "integer", "default": 0, "pluginOptions": { "i18n": { "localized": false } } }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "backend-scaffold",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "db:up": "docker compose -f docker-compose.db.yml up -d --wait",
+    "db:down": "docker compose -f docker-compose.db.yml down"
+  },
+  "dependencies": {
+    "@strapi/database": "5.54.0",
+    "@strapi/plugin-cloud": "5.54.0",
+    "@strapi/plugin-users-permissions": "5.54.0",
+    "@strapi/strapi": "5.54.0",
+    "mysql2": "3.20.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "e0d640fe-3fca-4a8c-8bca-37f1c9e13a98",
+    "installId": "a389a71a78cf025f0a02c7802dfe4580ecea5cac882d0a66c8d681c4ac521408"
+  }
+}

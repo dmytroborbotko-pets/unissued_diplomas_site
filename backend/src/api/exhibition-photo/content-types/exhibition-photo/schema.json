@@ -1,0 +1,12 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exhibition_photos",
+  "info": { "singularName": "exhibition-photo", "pluralName": "exhibition-photos", "displayName": "Exhibition photo" },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": { "i18n": { "localized": true } },
+  "attributes": {
+    "image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"], "pluginOptions": { "i18n": { "localized": false } } },
+    "caption": { "type": "string", "pluginOptions": { "i18n": { "localized": true } } },
+    "order": { "type": "integer", "default": 0, "pluginOptions": { "i18n": { "localized": false } } }
+  }
+}

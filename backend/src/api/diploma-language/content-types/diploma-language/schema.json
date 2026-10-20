@@ -1,0 +1,10 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diploma_languages",
+  "info": { "singularName": "diploma-language", "pluralName": "diploma-languages", "displayName": "Diploma language" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true, "unique": true },
+    "order": { "type": "integer", "default": 0 }
+  }
+}
