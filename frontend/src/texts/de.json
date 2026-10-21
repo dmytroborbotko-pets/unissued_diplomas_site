@@ -28,7 +28,8 @@
     "donate": "SPENDEN SIE",
     "diplomaLanguage": "Deutsch",
     "languageLabel": "Language of diplomas",
-    "zoomHint": "Click on the diploma to zoom in"
+    "zoomHint": "Click on the diploma to zoom in",
+    "soundcloud": "https://soundcloud.com/user-418708485/unissued-diplomas-audiotour-1"
   },
   "attend": {
     "heading": "BESUCHEN SIE DIE AUSSTELLUNGEN 2024\nAUF DER WELT",
@@ -3528,6 +3529,116 @@
       "titleSize": 40,
       "tagline": 17,
       "taglineWidth": 212,
+      "heroRows": [
+        {
+          "box": [
+            16,
+            187,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgba(77, 77, 77, 0)",
+          "lines": [
+            [
+              11,
+              10,
+              "ÜBER DAS PROJEKT"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            243,
+            288,
+            67
+          ],
+          "border": true,
+          "bg": "rgba(255, 255, 255, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "BESUCHEN SIE EINE"
+            ],
+            [
+              12,
+              32,
+              "AUSSTELLUNG"
+            ]
+          ],
+          "arrow": [
+            255,
+            27,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            327,
+            288,
+            88
+          ],
+          "border": false,
+          "bg": "rgb(177, 0, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "VERANSTALTEN SIE"
+            ],
+            [
+              12,
+              32,
+              "EINE AUSSTELLUNG"
+            ],
+            [
+              12,
+              53,
+              "IN IHRER STADT"
+            ]
+          ],
+          "arrow": [
+            255,
+            39,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            15,
+            432,
+            288,
+            67
+          ],
+          "border": false,
+          "bg": "rgb(255, 255, 255)",
+          "lines": [
+            [
+              14,
+              11,
+              "SPENDEN IN"
+            ],
+            [
+              14,
+              32,
+              "DIE UKRAINE"
+            ]
+          ],
+          "arrow": [
+            253,
+            27,
+            "rgb(0, 0, 0)"
+          ]
+        }
+      ],
       "donateButtonsGap": 20,
       "donateHeading": {},
       "footerCentered": {
@@ -3582,6 +3693,10 @@
     "partnersGap": 76,
     "banner": 323,
     "bannerWidth": 653,
+    "soundcloudTop": [
+      460,
+      683
+    ],
     "nav": {
       "fs": 16,
       "items": [

@@ -97,6 +97,11 @@ const MOBILE = {
 
 const W = 1057;
 const pct = (v, of) => `${(v / of) * 100}%`;
+// names keep their size from 1089px up and shrink with the logo boxes on tablets
+const scaled = (cls) => {
+  const px = +/text-\[(\d+)px\]/.exec(cls)?.[1];
+  return px ? `min(${px}px, ${((px * 100) / 1089).toFixed(3)}vw)` : undefined;
+};
 
 // `minHeight`: section height of the old page (texts `layout`); `gap`: heading → logos, when it differs from the default
 // `offset`: measured heading shift from `ink()`
@@ -110,7 +115,7 @@ export const LegacyLogos = ({ kind, heading, logos, names, className, minHeight,
   };
 
   return (
-    <section className={`relative text-[#ebebeb] tablet:min-h-(--h) max-tablet:min-h-(--mh) ${className}`} style={{ "--h": `${minHeight}px`, "--mh": `${mobileMinHeight}px` }}>
+    <section className={`relative text-[#ebebeb] tablet:min-h-(--h) max-tablet:min-h-(--mh) tab:min-h-0 tab:pb-16 ${className}`} style={{ "--h": `${minHeight}px`, "--mh": `${mobileMinHeight}px` }}>
       <div style={{ "--mt": `${MOBILE[kind].top}px` }} className="max-w-[1089px] mx-auto px-4 pt-(--mt) tablet:pt-[91px] pb-6">
         <h2 style={offset?.style} className={`text-[30px] tablet:text-[56px] leading-none tracking-[0.01em] uppercase ${offset?.className ?? ""}`}>{heading}</h2>
 
@@ -125,7 +130,7 @@ export const LegacyLogos = ({ kind, heading, logos, names, className, minHeight,
             if (!nameBoxes[i]) return null;
             const [x, y, w, h, cls] = nameBoxes[i];
             return (
-              <p key={name} className={`absolute translate-y-[3px] ${cls}`} style={{ left: pct(x, W), top: pct(y, height), width: pct(w, W), minHeight: h }}>
+              <p key={name} className={`absolute translate-y-[3px] ${cls}`} style={{ left: pct(x, W), top: pct(y, height), width: pct(w, W), minHeight: h, fontSize: scaled(cls) }}>
                 {name}
               </p>
             );

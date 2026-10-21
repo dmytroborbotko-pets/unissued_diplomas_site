@@ -5,7 +5,8 @@ import { RichText } from "../shared/RichText";
 import { cn } from "../utils/utils";
 
 // `items`: [{ question, answer: rich text blocks }] (`icon`: stamp after the heading, /jp)
-// `legacy`: old main-site look (Home) — measured column widths, all questions closed at first
+// `legacy`: old main-site look (Home) — measured column widths, all questions closed at first;
+// tablets: heading above the questions below 905px, beside them (at its own width) above
 // `offset`: measured shift of the question list from `ink()` (Home)
 export const FAQSection = ({ heading, items, icon, legacy, offset }) => {
   const [openId, setOpenId] = useState(legacy ? null : 0);
@@ -15,8 +16,8 @@ export const FAQSection = ({ heading, items, icon, legacy, offset }) => {
   return (
     <section id="faq" className="w-full bg-theme-bg text-theme-text scroll-mt-20">
       <div className={legacy ? "max-w-[1089px] mx-auto px-[15px] tablet:px-4 pt-[59px] tablet:pt-[71px] pb-4 tablet:pb-6" : "max-w-[1080px] mx-auto px-4 mobile-xs:px-3 tablet:px-4 py-(--section-space)"}>
-        <div className={cn("flex flex-col tablet:grid", legacy ? "tablet:grid-cols-[451px_523px] tablet:justify-between" : "tablet:grid-cols-2 tablet:gap-16 tablet-md:gap-20")}>
-          <div className={cn("mb-8 tablet:mb-0", legacy && "max-tablet:mb-[7px] max-tablet:[&>p]:text-[30px] tablet:pt-6 text-[#ebebeb] tracking-[0.01em]")}>
+        <div className={cn("flex flex-col tablet:grid", legacy ? "tablet:grid-cols-[451px_523px] tablet:justify-between tab:grid-cols-[auto_minmax(0,1fr)] tab:gap-x-12 tab:max-tablet-md:grid-cols-1" : "tablet:grid-cols-2 tablet:gap-16 tablet-md:gap-20")}>
+          <div className={cn("mb-8 tablet:mb-0", legacy && "max-tablet:mb-[7px] max-tablet:[&>p]:text-[30px] tablet:pt-6 tab:max-tablet-md:mb-10 text-[#ebebeb] tracking-[0.01em]")}>
             <p
               className="flex flex-col font-heading font-normal uppercase leading-none relative
                 text-[28px] mobile-sm:text-[36px] tablet:text-[48px] tablet-md:text-[52px] desktop:text-[56px]"

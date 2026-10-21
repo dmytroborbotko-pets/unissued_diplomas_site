@@ -29,7 +29,7 @@ export const DonateSection = ({ heading, text, url, label, buttons = [{ href: ur
         </div>
 
         {/* Buttons */}
-        <div style={{ "--mgap": `${mobileButtonsGap}px`,...buttonsOffset.style }} className={cn(buttonsOffset.className, "mx-auto flex flex-col", plain ? "mt-[34px] max-tablet:mt-auto tablet:mt-[63px] max-tablet:gap-(--mgap) tablet:gap-[18px]" : "mt-10 gap-4 tablet:mt-14 tablet:flex-row")}>
+        <div style={{ "--mgap": `${mobileButtonsGap}px`,...buttonsOffset.style }} className={cn(buttonsOffset.className, "mx-auto flex flex-col", plain ? "w-full mt-[34px] max-tablet:mt-auto tablet:mt-[63px] max-tablet:gap-(--mgap) tablet:gap-[18px]" : "mt-10 gap-4 tablet:mt-14 tablet:flex-row")}>
           {buttons.map((button) => (
             <a
               key={button.label}

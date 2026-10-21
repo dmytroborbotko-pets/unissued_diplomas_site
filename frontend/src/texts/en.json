@@ -28,7 +28,8 @@
     "donate": "DONATE",
     "diplomaLanguage": null,
     "languageLabel": "Language of diplomas",
-    "zoomHint": "Click on the diploma to zoom in"
+    "zoomHint": "Click on the diploma to zoom in",
+    "soundcloud": "https://soundcloud.com/user-418708485/unissued-diplomas-audiotour-1"
   },
   "attend": {
     "heading": "ATTEND 2024 — 2026 EXHIBITIONS AROUND THE WORLD",
@@ -3761,6 +3762,106 @@
       "titleSize": 40,
       "tagline": 12,
       "taglineWidth": 212,
+      "heroRows": [
+        {
+          "box": [
+            16,
+            212,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgba(77, 77, 77, 0)",
+          "lines": [
+            [
+              11,
+              10,
+              "ABOUT THE PROJECT"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            17,
+            273,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgba(77, 77, 77, 0)",
+          "lines": [
+            [
+              11,
+              10,
+              "VISIT AN EXHIBITION"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            328,
+            288,
+            67
+          ],
+          "border": false,
+          "bg": "rgb(177, 0, 0)",
+          "lines": [
+            [
+              14,
+              11,
+              "HOLD AN EXHIBITION"
+            ],
+            [
+              14,
+              32,
+              "IN YOUR CITY"
+            ]
+          ],
+          "arrow": [
+            253,
+            27,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            15,
+            412,
+            288,
+            67
+          ],
+          "border": false,
+          "bg": "rgb(255, 255, 255)",
+          "lines": [
+            [
+              14,
+              11,
+              "DONATE TO HONOR"
+            ],
+            [
+              14,
+              32,
+              "STUDENTS' LEGACY"
+            ]
+          ],
+          "arrow": [
+            253,
+            27,
+            "rgb(0, 0, 0)"
+          ]
+        }
+      ],
       "donateButtonsGap": 29,
       "donateHeading": {}
     },
@@ -3811,6 +3912,10 @@
     "partnersGap": 76,
     "banner": 323,
     "bannerWidth": 653,
+    "soundcloudTop": [
+      414,
+      648
+    ],
     "nav": {
       "fs": 14,
       "items": [

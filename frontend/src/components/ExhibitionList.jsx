@@ -15,13 +15,13 @@ const Country = ({ code, name, exhibitions, className, style }) => (
         className="mt-[10px] [&+&]:mt-3 text-[16px] whitespace-pre-line"
       >
         {href ? (
-          <a href={href} target="_blank" rel="noopener noreferrer" className="block w-max tablet:max-w-(--w) max-tablet:max-w-(--mw) leading-[1.1] underline hover:text-[#ff6868]">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="block w-max tablet:max-w-(--w) max-tablet:max-w-(--mw) tab:max-w-full leading-[1.1] underline hover:text-[#ff6868]">
             {name}
           </a>
         ) : (
-          <p className="w-max tablet:max-w-(--w) max-tablet:max-w-(--mw) leading-[1.1]">{name}</p>
+          <p className="w-max tablet:max-w-(--w) max-tablet:max-w-(--mw) tab:max-w-full leading-[1.1]">{name}</p>
         )}
-        <p className="mt-[10px] w-max tablet:max-w-(--ww) max-tablet:max-w-(--mww) leading-[18px]"><Responsive mobile={whenMobile}>{when}</Responsive></p>
+        <p className="mt-[10px] w-max tablet:max-w-(--ww) max-tablet:max-w-(--mww) tab:max-w-full leading-[18px]"><Responsive mobile={whenMobile}>{when}</Responsive></p>
       </div>
     ))}
   </div>
@@ -99,14 +99,10 @@ export const ExhibitionList = () => {
             {attend.countries.map((c) => c.pos.d && <PlacedCountry key={c.code} {...c} pos={c.pos.d} mode="d" />)}
           </div>
 
-          {/* Tablets: the same columns as a flowing grid */}
-          <div className="max-tablet:hidden min-[1089px]:hidden mt-[41px] grid grid-cols-4 gap-x-[29px]">
-            {attend.columns.map((codes) => (
-              <div key={codes[0]}>
-                {codes.map((code) => (
-                  <Country key={code} {...byCode[code]} className="mb-[50px]" />
-                ))}
-              </div>
+          {/* Tablets: the old columns' reading order, flowing in two columns (three from 905px) */}
+          <div className="max-tablet:hidden min-[1089px]:hidden mt-[41px] columns-2 tablet-md:columns-3 gap-x-10">
+            {attend.columns.flat().map((code) => (
+              <Country key={code} {...byCode[code]} className="mb-[50px] break-inside-avoid" />
             ))}
           </div>
         </div>

@@ -28,7 +28,8 @@
     "donate": "DONA AQUÍ",
     "diplomaLanguage": "Español",
     "languageLabel": "Language of diplomas",
-    "zoomHint": "Click on the diploma to zoom in"
+    "zoomHint": "Click on the diploma to zoom in",
+    "soundcloud": "https://soundcloud.com/user-418708485/unissued-diplomas-audiotour-1"
   },
   "attend": {
     "heading": "ASISTE A LAS EXPOSICIONES DE 2024 EN TODO EL MUNDO",
@@ -3531,6 +3532,111 @@
       "titleSize": 40,
       "tagline": 12,
       "taglineWidth": 212,
+      "heroRows": [
+        {
+          "box": [
+            16,
+            225,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgba(77, 77, 77, 0)",
+          "lines": [
+            [
+              11,
+              10,
+              "SOBRE EL PROYECTO"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            281,
+            288,
+            67
+          ],
+          "border": true,
+          "bg": "rgba(255, 255, 255, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "VISITA NUESTRA"
+            ],
+            [
+              12,
+              32,
+              "EXPOSICIÓN"
+            ]
+          ],
+          "arrow": [
+            255,
+            27,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            365,
+            288,
+            88
+          ],
+          "border": false,
+          "bg": "rgb(177, 0, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "ORGANIZA UNA"
+            ],
+            [
+              12,
+              32,
+              "EXPOSICIÓN EN"
+            ],
+            [
+              12,
+              53,
+              "TU CIUDAD"
+            ]
+          ],
+          "arrow": [
+            255,
+            39,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            15,
+            470,
+            288,
+            42
+          ],
+          "border": false,
+          "bg": "rgb(255, 255, 255)",
+          "lines": [
+            [
+              14,
+              11,
+              "DONA A UCRANIA"
+            ]
+          ],
+          "arrow": [
+            253,
+            17,
+            "rgb(0, 0, 0)"
+          ]
+        }
+      ],
       "donateButtonsGap": 20,
       "donateHeading": {
         "size": 30,
@@ -3589,6 +3695,10 @@
     "partnersGap": 17,
     "banner": 323,
     "bannerWidth": 653,
+    "soundcloudTop": [
+      414,
+      612
+    ],
     "nav": {
       "fs": 16,
       "items": [

@@ -4,8 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/unissueddiplomas-favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Phones get the 320px layout scaled to the screen, like the old Wix site (<meta viewport width=320>) -->
-    <script>if (screen.width < 600) document.querySelector('meta[name="viewport"]').content = "width=320, user-scalable=yes";</script>
+    <!-- Phones get the 320px layout scaled to the screen, like the old Wix site (<meta viewport width=320>);
+         tablets narrower than 769px (iPad portrait) get the 769px tablet layout scaled down instead of the phone one -->
+    <script>
+      (function () {
+        var meta = document.querySelector('meta[name="viewport"]');
+        // re-evaluated on rotation and resize (device switch in dev tools), with an explicit scale so a previous zoom never sticks
+        var fit = function () {
+          var short = Math.min(screen.width, screen.height);
+          var wide = matchMedia("(orientation: landscape)").matches ? Math.max(screen.width, screen.height) : short;
+          var content = short < 600 ? "width=320, initial-scale=" + (short / 320).toFixed(4) + ", user-scalable=yes"
+            : wide < 769 ? "width=769, initial-scale=" + (wide / 769).toFixed(4)
+            : "width=device-width, initial-scale=1.0";
+          if (meta.content !== content) meta.content = content;
+        };
+        fit();
+        addEventListener("orientationchange", fit);
+        addEventListener("resize", fit);
+      })();
+    </script>
     <title>Unissued Diplomas</title>
     <meta name="description" content="Unissued Diplomas is a Ukrainian charity project aimed at commemorating student victims of the Russian invasion of Ukraine." />
   </head>

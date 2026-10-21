@@ -71,7 +71,30 @@ const Stats = ({ heading, stats, h, mobileTop, shift = {} }) => (
     </div>
 
     {/* Desktop: measured placement in the 1057px column */}
-    <div style={{ height: h.stats }} className="max-tablet:hidden relative max-w-[1057px] mx-auto">
+    {/* Tablets: the same stats as a grid (the measured desktop infographic needs 1057px) */}
+    <div className="hidden tab:block max-w-[1089px] mx-auto px-4 pt-10 pb-16">
+      <h1 className="text-[64px] font-[800] leading-[1.2] tracking-[0.01em] text-theme-primary-dark">{heading}</h1>
+      <div className="mt-10 grid grid-cols-2 tablet-md:grid-cols-3 gap-x-8 gap-y-12">
+        {DESKTOP_STATS.map(([i, [icon, , , w, h]]) => {
+          const { top: above, number, bottom } = stats[i];
+          return (
+            <div key={i} className="flex flex-col items-center">
+              <div className="flex items-center gap-4">
+                <img src={`/legacy/y2023/icon-${icon}`} alt="" className="shrink-0 object-contain" style={{ width: w, height: h }} />
+                <div className="text-center uppercase leading-[1.4] font-[700] text-[14px]" style={{ letterSpacing: LABELS[i][0] }}>
+                  {above && <p className="whitespace-pre-line">{above}</p>}
+                  <p className="text-[40px] leading-[41px] tracking-normal text-theme-primary-dark">{number}</p>
+                  <p className="whitespace-pre-line">{bottom}</p>
+                </div>
+              </div>
+              <img src="/legacy/y2023/icon-line.svg" alt="" className="mt-3 w-[248px] h-[21px]" />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div style={{ height: h.stats }} className="max-tablet:hidden tab:hidden relative max-w-[1057px] mx-auto">
       <h1 className="absolute left-[43px] top-[23px] text-[80px] font-[800] leading-[1.45] tracking-[0.01em] text-theme-primary-dark">{heading}</h1>
       {DESKTOP_STATS.map(([i, [icon, x, y, w, h], left, top, size, [lx, ly]]) => {
         const { top: above, number, bottom } = stats[i];

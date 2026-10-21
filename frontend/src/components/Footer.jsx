@@ -62,7 +62,28 @@ export default function Footer({ emailLeft }) {
       )}
 
       {/* Desktop: measured placement in the 1057px column (translations: shifted right, copyright higher) */}
-      <div {...minH(layout, "footer", "max-tablet:hidden relative max-w-[1057px] mx-auto")}>
+      {/* Tablets: the same pieces in a fluid layout (the old site had no tablet footer) */}
+      <div className="hidden tab:block max-w-[1089px] mx-auto px-4 pt-12 pb-6">
+        <div className="flex items-start justify-between gap-8">
+          <Link to="/">
+            <img src="/legacy/logo-white.png" alt="Unissued Diplomas" className="w-[147px] h-10" />
+          </Link>
+          <a href="#donate" className="w-[262px] h-[37px] flex items-center justify-center bg-theme-primary-dark hover:bg-[#ebebeb] hover:text-theme-bg transition-all duration-200 ease-[ease] text-[16px] font-[500] tracking-[0.05em] uppercase">
+            {footer.donate}
+          </a>
+        </div>
+        <a href={`mailto:${footer.email}`} className="block mt-10 text-[16px] font-[500] leading-[31px]">{footer.email}</a>
+        <div className="mt-[25px] flex gap-[37px]">
+          {SOCIAL_LINKS.map(([label, icon, url]) => (
+            <a key={icon} href={url} target="_blank" rel="noopener noreferrer" aria-label={label}>
+              <img src={`/legacy/social/${icon}.png`} alt="" className="w-10 h-10" />
+            </a>
+          ))}
+        </div>
+        <p className="mt-12 text-[14px] leading-[29px]">{footer.copyright}</p>
+      </div>
+
+      <div {...minH(layout, "footer", "max-tablet:hidden tab:hidden relative max-w-[1057px] mx-auto")}>
         <Link to="/" className="absolute top-[53px]" style={{ left: -9 + d.logo }}>
           <img src="/legacy/logo-white.png" alt="Unissued Diplomas" className="w-[147px] h-10" />
         </Link>

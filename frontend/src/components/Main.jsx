@@ -43,8 +43,8 @@ const TileTitle = ({ width, top = 18, offset, children }) => (
 // Mission + team next to the red duotone photo (old site: 858px high, photo 437×648)
 const MissionTeam = ({ mission, team, photoCredit, layout }) => (
   <section {...minH(layout, "mission", "bg-theme-bg text-[#ebebeb]")}>
-    <div className={`${WRAP} max-tablet:px-[15px] pt-[63px] tablet:pt-[100px] pb-10 grid grid-cols-1 tablet:grid-cols-[437px_1fr] tablet:gap-x-[107px]`}>
-      <div className="relative mt-1 hidden tablet:block w-[437px] h-[648px]">
+    <div className={`${WRAP} max-tablet:px-[15px] pt-[63px] tablet:pt-[100px] pb-10 grid grid-cols-1 tablet:grid-cols-[437px_1fr] tablet:gap-x-[107px] tab:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] tab:gap-x-12 tab:pb-[72px]`}>
+      <div className="relative mt-1 hidden tablet:block w-[437px] h-[648px] tab:w-full tab:h-auto tab:aspect-[437/648] tab:self-start">
         <img src="/legacy/team.jpg" alt="" loading="lazy" className="w-full h-full object-cover" />
         <p {...ink(layout, "photoCredit", "absolute left-[15px] bottom-[13px] text-[12px] font-[500] leading-[1.41]")}>{photoCredit}</p>
       </div>
@@ -70,15 +70,21 @@ const MissionTeam = ({ mission, team, photoCredit, layout }) => (
 );
 
 // Phones: the old 320px mobile hero — title with ornament, tagline, four full-width link rows
-const MobileHero = ({ hero, about, m, L }) => {
-  const rows = [
-    { to: "/#about", label: about.replace(/\n/g, " "), cls: "border border-white text-white", key: "rowAbout" },
-    { to: "/#exhibitions", label: hero.visit, cls: "border border-white text-white", key: "tileVisit" },
-    { href: ORGANIZER_FORM, label: hero.host, cls: "bg-theme-primary-dark text-white", key: "tileHost" },
-    { to: "/#donate", label: hero.donate, cls: "bg-white text-black", key: "tileDonate" },
-  ];
+// Arrow of the old mobile hero rows: the Wix up-arrow shape turned right (≈21×10)
+const RowArrow = ({ x, y, color }) => (
+  <span className="absolute w-5 h-[10px] flex items-center justify-center" style={{ left: x, top: y }}>
+    <svg viewBox="60 20 80 160" preserveAspectRatio="none" className="w-[10px] h-5 rotate-90 shrink-0" style={{ fill: color }}>
+      <path d="M140 58.395l-37.001-37.146a4.232 4.232 0 0 0-6.003 0L60 58.395l6.003 6.028 29.099-29.216V180h9.796V35.209l29.099 29.212L140 58.395z" />
+    </svg>
+  </span>
+);
+
+// Phones: the old 320px mobile hero — title with ornament, tagline, four link rows placed as on the old page
+// (texts `layout.m.heroRows`: box from the header bottom, its own line breaks, arrow position and colour)
+const MobileHero = ({ hero, m }) => {
+  const links = [{ to: "/#about" }, { to: "/#exhibitions" }, { href: ORGANIZER_FORM }, { to: "/#donate" }];
   return (
-    <div style={{ "--mh": `${m.hero}px` }} className="tablet:hidden min-h-(--mh) px-4 pt-10 pb-[30px]">
+    <div style={{ "--mh": `${m.hero}px` }} className="tablet:hidden relative min-h-(--mh) px-4 pt-10 pb-[30px]">
       <h1 style={{ fontSize: m.titleSize }} className="relative max-w-[288px] leading-[0.9] tracking-[-0.02em] uppercase">
         {hero.title}
         <img src="/legacy/ornament.png" alt="" className="absolute left-[110px] top-[22px] w-[43px] h-[43px] object-contain" />
@@ -86,22 +92,24 @@ const MobileHero = ({ hero, about, m, L }) => {
       {hero.tagline && (
         <p style={{ fontSize: m.tagline, maxWidth: m.taglineWidth }} className="mt-[18px] tracking-[0.05em]">{hero.tagline}</p>
       )}
-      <div className={`${hero.tagline ? "mt-[29px]" : "mt-[71px]"} flex flex-col gap-[13px] w-[288px]`}>
-        {rows.map(({ to, href, label, cls, key }) => {
-          const body = (
-            <>
-              <span {...ink(L, key, "max-w-[232px] font-[800] text-[16px] leading-[21.5px] uppercase")}>{label}</span>
-              <RightArrowLongIcon className="w-5 h-[10px] shrink-0" />
-            </>
-          );
-          const rowCls = `flex items-center justify-between min-h-10 py-3 pl-3 pr-[15px] ${cls}`;
-          return href ? (
-            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className={rowCls}>{body}</a>
-          ) : (
-            <Link key={label} to={to} className={rowCls}>{body}</Link>
-          );
-        })}
-      </div>
+      {m.heroRows.map(({ box: [x, y, w, h], border, bg, lines, arrow }, i) => {
+        const { to, href } = links[i];
+        const cls = `absolute block font-[800] text-[16px] leading-[19.2px] uppercase ${border ? "border border-white" : ""}`;
+        const style = { left: x, top: y, width: w, height: h, background: bg, color: arrow[2] };
+        const body = (
+          <>
+            {lines.map(([lx, ly, text]) => (
+              <span key={text} className="absolute whitespace-nowrap" style={{ left: lx - (border ? 1 : 0), top: ly - (border ? 1 : 0) }}>{text}</span>
+            ))}
+            <RowArrow x={arrow[0] - (border ? 1 : 0)} y={arrow[1] - (border ? 1 : 0)} color={arrow[2]} />
+          </>
+        );
+        return href ? (
+          <a key={i} href={href} target="_blank" rel="noopener noreferrer" className={cls} style={style}>{body}</a>
+        ) : (
+          <Link key={i} to={to} className={cls} style={style}>{body}</Link>
+        );
+      })}
     </div>
   );
 };
@@ -130,10 +138,11 @@ export const Main = () => {
           {/* title box and ornament offset per language (texts `layout.heroTitle`), as placed on the old pages */}
           <h1
             style={{ "--fs": `${titleSize}px`, "--w": `${titleWidth}px`, top: L.ink?.d?.heroTitle?.[0] }}
-            className="relative ml-[23px] mt-2 tablet:max-w-(--w) text-[48px] desktop:text-(length:--fs) leading-[0.9] tracking-[-0.02em] uppercase text-[#ebebeb]"
+            className="relative ml-[23px] mt-2 tablet:max-w-(--w) text-[48px] tablet:text-(length:--fs) tab:text-[min(var(--fs),7.6vw)] leading-[0.9] tracking-[-0.02em] uppercase text-[#ebebeb]"
           >
             {hero.title}
-            <img src="/legacy/ornament.png" alt="" style={{ left: ornX, top: ornY }} className="absolute w-[83px] h-[81px] object-contain max-desktop:hidden" />
+            {/* in em of the title, so it follows the title when tablets shrink it */}
+            <img src="/legacy/ornament.png" alt="" style={{ left: `${ornX / titleSize}em`, top: `${ornY / titleSize}em`, width: `${83 / titleSize}em`, height: `${81 / titleSize}em` }} className="absolute object-contain max-tablet:hidden" />
           </h1>
           {hero.tagline && (
             <p
@@ -155,11 +164,11 @@ export const Main = () => {
         </Tile>
       </div>
 
-      <MobileHero hero={hero} about={t.nav[0]} m={L.m} L={L} />
+      <MobileHero hero={hero} m={L.m} />
 
-      <div id="about" {...minH(L, "about", `${WRAP} scroll-mt-24 pt-[37px] tablet:pt-[51px] pb-6 grid content-start grid-cols-1 tablet:grid-cols-[500px_498px] tablet:gap-x-[47px]`)}>
-        <h2 {...ink(L, "aboutHeading", "text-[30px] tablet:text-[56px] leading-none tracking-[0.01em] uppercase whitespace-pre-line max-tablet:max-w-[226px]")}>{t.about.heading}</h2>
-        <div {...ink(L, "aboutText", "mt-[36px] tablet:mt-[15px] space-y-[22px] max-tablet:max-w-[282px]")}>
+      <div id="about" {...minH(L, "about", `${WRAP} scroll-mt-24 pt-[37px] tablet:pt-[51px] pb-6 grid content-start grid-cols-1 tablet:grid-cols-[500px_498px] tablet:gap-x-[47px] tab:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] tab:gap-x-10 tab:pb-[72px]`)}>
+        <h2 {...ink(L, "aboutHeading", "text-[30px] tablet:text-[56px] tab:text-[clamp(40px,5.15vw,56px)] leading-none tracking-[0.01em] uppercase whitespace-pre-line max-tablet:max-w-[226px]")}>{t.about.heading}</h2>
+        <div {...ink(L, "aboutText", "mt-[36px] tablet:mt-[15px] tab:mt-0 space-y-[22px] max-tablet:max-w-[282px]")}>
           <RichText
             blocks={toBlocks(t.about.text)}
             className="text-[16px] leading-[1.4] tracking-[0.01em]"

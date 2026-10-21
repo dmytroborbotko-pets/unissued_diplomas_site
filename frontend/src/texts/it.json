@@ -24,11 +24,12 @@
   "banner": "MAI LAUREATO, ETERNAMENTE ONORATO",
   "hall": {
     "heading": "SALA DEI DIPLOMI",
-    "text": "Trascorrevano le giornate nelle aule studio. Avevano le lezioni preferite e quelle che temevano settimanalmente. E quanto era spaventoso per loro anche solo pensare di fallire un semestre.\n\n**Ma dopo il 24 febbraio 2022 tutto è cambiato per gli studenti ucraini.** Le aule si trasformarono in rifugi antiaerei e campi di battaglia. La paura ha cambiato il suo corso e il coraggio ha preso il sopravvento.",
+    "text": "Trascorrevano le giornate nelle aule studio. Avevano le lezioni preferite e quelle che temevano settimanalmente. E quanto era spaventoso per loro anche solo pensare di fallire un semestre.\n**Ma dopo il 24 febbraio 2022 tutto è cambiato per gli studenti ucraini.** Le aule si trasformarono in rifugi antiaerei e campi di battaglia. La paura ha cambiato il suo corso e il coraggio ha preso il sopravvento.",
     "donate": "DONARE",
     "diplomaLanguage": "Italiano",
     "languageLabel": "Language of diplomas",
-    "zoomHint": "Click on the diploma to zoom in"
+    "zoomHint": "Click on the diploma to zoom in",
+    "soundcloud": "https://soundcloud.com/user-418708485/unissued-diplomas-audiotour-1"
   },
   "attend": {
     "heading": "PARTECIPA ALLE MOSTRE DEL 2024 IN TUTTO IL MONDO",
@@ -3024,6 +3025,106 @@
       "titleSize": 37,
       "tagline": 17,
       "taglineWidth": 288,
+      "heroRows": [
+        {
+          "box": [
+            16,
+            288,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgba(77, 77, 77, 0)",
+          "lines": [
+            [
+              11,
+              10,
+              "IL PROGETTO"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            344,
+            288,
+            67
+          ],
+          "border": true,
+          "bg": "rgba(255, 255, 255, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "ELENCO DELLE"
+            ],
+            [
+              12,
+              32,
+              "ESPOSIZIONI"
+            ]
+          ],
+          "arrow": [
+            255,
+            27,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            428,
+            288,
+            67
+          ],
+          "border": false,
+          "bg": "rgb(177, 0, 0)",
+          "lines": [
+            [
+              12,
+              11,
+              "ORGANIZZA UNA MOSTRA"
+            ],
+            [
+              12,
+              32,
+              "NELLA TUA CITTÀ"
+            ]
+          ],
+          "arrow": [
+            255,
+            28,
+            "rgb(255, 255, 255)"
+          ]
+        },
+        {
+          "box": [
+            16,
+            512,
+            288,
+            40
+          ],
+          "border": true,
+          "bg": "rgb(255, 255, 255)",
+          "lines": [
+            [
+              11,
+              10,
+              "DONA ALL'UCRAINA"
+            ]
+          ],
+          "arrow": [
+            253.6,
+            14.8,
+            "rgb(0, 0, 0)"
+          ]
+        }
+      ],
       "donateButtonsGap": 20,
       "donateHeading": {},
       "footerCentered": {
@@ -3078,6 +3179,10 @@
     "partnersGap": 76,
     "banner": 323,
     "bannerWidth": 653,
+    "soundcloudTop": [
+      355,
+      495
+    ],
     "nav": {
       "fs": 16,
       "items": [
