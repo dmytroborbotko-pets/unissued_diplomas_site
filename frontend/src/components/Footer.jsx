@@ -46,7 +46,7 @@ export default function Footer({ emailLeft }) {
             <img src="/legacy/logo-white.png" alt="Unissued Diplomas" className="w-[107px] h-[30px] object-contain" />
           </Link>
           <img src="/legacy/y2023/susk.png" alt="" className="absolute left-[147px] top-[22px] w-[21px] h-[38px] object-contain" />
-          <a href="#donate" className="absolute left-[196px] top-[26px] w-[107px] h-[30px] flex items-center justify-center bg-theme-primary-dark text-[13px] font-[500] tracking-[0.05em] uppercase">
+          <a href="#donate" className="absolute left-[196px] top-[26px] w-[107px] h-[30px] flex items-center justify-center bg-theme-primary-dark hover:bg-[#ebebeb] hover:text-theme-bg transition-all duration-200 ease-[ease] text-[13px] font-[500] tracking-[0.05em] uppercase">
             {footer.donate}
           </a>
           <a href={`mailto:${footer.email}`} className="absolute left-[14px] top-[99px] text-[14px] font-[500] leading-[26.25px]">
@@ -66,17 +66,17 @@ export default function Footer({ emailLeft }) {
         <Link to="/" className="absolute top-[53px]" style={{ left: -9 + d.logo }}>
           <img src="/legacy/logo-white.png" alt="Unissued Diplomas" className="w-[147px] h-10" />
         </Link>
-        <a href={`mailto:${footer.email}`} className="absolute text-[16px] font-[500] leading-[31px] hover:text-[#ff6868] transition-colors" style={{ left: 382 + d.x, top: 45 + d.y }}>
+        <a href={`mailto:${footer.email}`} className="absolute text-[16px] font-[500] leading-[31px]" style={{ left: 382 + d.x, top: 45 + d.y }}>
           {footer.email}
         </a>
         {SOCIAL_LINKS.map(([label, icon, url], i) => (
-          <a key={icon} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="absolute top-[102px] hover:opacity-80 transition-opacity" style={{ left: [380, 457, 538, 618, 695][i] + d.x, marginTop: d.y ? 1 : 0 }}>
+          <a key={icon} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="absolute top-[102px]" style={{ left: [380, 457, 538, 618, 695][i] + d.x, marginTop: d.y ? 1 : 0 }}>
             <img src={`/legacy/social/${icon}.png`} alt="" className="w-10 h-10" />
           </a>
         ))}
         <a
           href="#donate"
-          className="absolute w-[262px] h-[37px] flex items-center justify-center bg-theme-primary-dark hover:bg-theme-primary transition-colors text-[16px] font-[500] tracking-[0.05em] uppercase"
+          className="absolute w-[262px] h-[37px] flex items-center justify-center bg-theme-primary-dark hover:bg-[#ebebeb] hover:text-theme-bg transition-all duration-200 ease-[ease] text-[16px] font-[500] tracking-[0.05em] uppercase"
           style={{ left: 796 + d.x, top: 55 + d.y }}
         >
           {footer.donate}

@@ -2767,103 +2767,153 @@
     "photos": [
       {
         "src": "/legacy/y2023/photo-00.jpg",
-        "alt": "Unissued diplomas 2023 in USA, Washington, DC"
+        "full": "/legacy/y2023/photo-00-full.jpg",
+        "alt": "Unissued diplomas 2023 in USA, Washington, DC",
+        "caption": "USA, Washington, DC"
       },
       {
         "src": "/legacy/y2023/photo-01.jpg",
-        "alt": "Boris Johnson visiting an Unissued diplomas exhibition"
+        "full": "/legacy/y2023/photo-01-full.jpg",
+        "alt": "Boris Johnson visiting an Unissued diplomas exhibition",
+        "caption": "Boris Johnson visiting an Unissued diplomas exhibition"
       },
       {
         "src": "/legacy/y2023/photo-02.jpg",
-        "alt": "Norwegian Prime Minister Jonas Gahr Støre at the \nUnissued diplomas 2023 exhibition in Bergen"
+        "full": "/legacy/y2023/photo-02-full.jpg",
+        "alt": "Norwegian Prime Minister Jonas Gahr Støre at the \nUnissued diplomas 2023 exhibition in Bergen",
+        "caption": "Norwegian Prime Minister Jonas Gahr Støre at the exhibition in Bergen"
       },
       {
         "src": "/legacy/y2023/photo-03.jpg",
-        "alt": "Unissued diplomas 2023 in The Netherlands, Amsterdam"
+        "full": "/legacy/y2023/photo-03-full.jpg",
+        "alt": "Unissued diplomas 2023 in The Netherlands, Amsterdam",
+        "caption": "The Netherlands, Amsterdam"
       },
       {
         "src": "/legacy/y2023/photo-04.jpg",
-        "alt": "Berta Muza, ’25, installs a portion of the “Unissued Diplomas” exhibit in the lobby of the Mandel Center on March 3, 2023."
+        "full": "/legacy/y2023/photo-04-full.jpg",
+        "alt": "Berta Muza, ’25, installs a portion of the “Unissued Diplomas” exhibit in the lobby of the Mandel Center on March 3, 2023.",
+        "caption": "USA, Waltham"
       },
       {
         "src": "/legacy/y2023/photo-05.jpg",
-        "alt": "2023 Unissued diplomas exhibition in Glasgow, Scotland"
+        "full": "/legacy/y2023/photo-05-full.jpg",
+        "alt": "2023 Unissued diplomas exhibition in Glasgow, Scotland",
+        "caption": "Scotland, Glasgow"
       },
       {
         "src": "/legacy/y2023/photo-06.jpg",
-        "alt": "The delegation of the Verkhovna Rada of Ukraine to Australia and the Ambassador of Canada (from left to right: Oleh Seminsky, Yaroslav Zheleznyak, Ambassador Vasyl Myroshnychenko, Halyna Mykhailyuk, Mark Glauser, Yana Mokhonchuk, Olga Koval) attending the Unissued diplomas exhibition"
+        "full": "/legacy/y2023/photo-06-full.jpg",
+        "alt": "The delegation of the Verkhovna Rada of Ukraine to Australia and the Ambassador of Canada (from left to right: Oleh Seminsky, Yaroslav Zheleznyak, Ambassador Vasyl Myroshnychenko, Halyna Mykhailyuk, Mark Glauser, Yana Mokhonchuk, Olga Koval) attending the Unissued diplomas exhibition",
+        "caption": "The delegation of the Verkhovna Rada of Ukraine to Australia and the Ambassador of Canada (from left to right: Oleh Seminsky, Yaroslav Zheleznyak, Ambassador Vasyl Myroshnychenko, Halyna Mykhailyuk, Mark Glauser, Yana Mokhonchuk, Olga Koval)"
       },
       {
         "src": "/legacy/y2023/photo-07.jpg",
-        "alt": "2023 Unissued diplomas exhibition in Kobe, Japan"
+        "full": "/legacy/y2023/photo-07-full.jpg",
+        "alt": "2023 Unissued diplomas exhibition in Kobe, Japan",
+        "caption": "Kobe, Japan"
       },
       {
         "src": "/legacy/y2023/photo-08.jpg",
-        "alt": ""
+        "full": "/legacy/y2023/photo-08-full.jpg",
+        "alt": "",
+        "caption": "2023 Unissued Diplomas exhibition in Hyderabad, India"
       },
       {
         "src": "/legacy/y2023/photo-09.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Dijon, France"
+        "full": "/legacy/y2023/photo-09-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Dijon, France",
+        "caption": "Dijon, France"
       },
       {
         "src": "/legacy/y2023/photo-10.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Helsinki, Finland"
+        "full": "/legacy/y2023/photo-10-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Helsinki, Finland",
+        "caption": "Helsinki, Finland"
       },
       {
         "src": "/legacy/y2023/photo-11.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Toronto, Canada"
+        "full": "/legacy/y2023/photo-11-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Toronto, Canada",
+        "caption": "Toronto, Canada"
       },
       {
         "src": "/legacy/y2023/photo-12.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Ringkebing, Denmark"
+        "full": "/legacy/y2023/photo-12-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Ringkebing, Denmark",
+        "caption": "Ringkebing, Denmark"
       },
       {
         "src": "/legacy/y2023/photo-13.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Vienna, Austria"
+        "full": "/legacy/y2023/photo-13-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Vienna, Austria",
+        "caption": "Vienna, Austria"
       },
       {
         "src": "/legacy/y2023/photo-14.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Leuven, Belgium"
+        "full": "/legacy/y2023/photo-14-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Leuven, Belgium",
+        "caption": "Leuven, Belgium"
       },
       {
         "src": "/legacy/y2023/photo-15.jpg",
-        "alt": "Unissued diplomas 2023 in Australia, Canberra"
+        "full": "/legacy/y2023/photo-15-full.jpg",
+        "alt": "Unissued diplomas 2023 in Australia, Canberra",
+        "caption": "Australia, Canberra"
       },
       {
         "src": "/legacy/y2023/photo-16.jpg",
-        "alt": "Ambassador of Ukraine to Germany at the 2023 Unissued Diplomas exhibition"
+        "full": "/legacy/y2023/photo-16-full.jpg",
+        "alt": "Ambassador of Ukraine to Germany at the 2023 Unissued Diplomas exhibition",
+        "caption": "Ambassador of Ukraine to Germany"
       },
       {
         "src": "/legacy/y2023/photo-17.jpg",
-        "alt": "Unissued diplomas 2023 in Klaipeda, Lithuania"
+        "full": "/legacy/y2023/photo-17-full.jpg",
+        "alt": "Unissued diplomas 2023 in Klaipeda, Lithuania",
+        "caption": "Klaipeda, Lithuania"
       },
       {
         "src": "/legacy/y2023/photo-18.jpg",
-        "alt": "Unissued diplomas 2023 in Waltham, USA"
+        "full": "/legacy/y2023/photo-18-full.jpg",
+        "alt": "Unissued diplomas 2023 in Waltham, USA",
+        "caption": "Waltham, USA"
       },
       {
         "src": "/legacy/y2023/photo-19.jpg",
-        "alt": "Unissued diplomas 2023 in Vermilion, USA"
+        "full": "/legacy/y2023/photo-19-full.jpg",
+        "alt": "Unissued diplomas 2023 in Vermilion, USA",
+        "caption": "Vermilion, USA"
       },
       {
         "src": "/legacy/y2023/photo-20.jpg",
-        "alt": "Unissued diplomas 2023 in Bergen, Norway"
+        "full": "/legacy/y2023/photo-20-full.jpg",
+        "alt": "Unissued diplomas 2023 in Bergen, Norway",
+        "caption": "Bergen, Norway"
       },
       {
         "src": "/legacy/y2023/photo-21.jpg",
-        "alt": "Consul General of Ukraine in Krakow Viacheslav Voynarovskyi attending a 20203 Unissued Diplomas exhibition"
+        "full": "/legacy/y2023/photo-21-full.jpg",
+        "alt": "Consul General of Ukraine in Krakow Viacheslav Voynarovskyi attending a 20203 Unissued Diplomas exhibition",
+        "caption": "Consul General of Ukraine in Krakow Viacheslav Voynarovskyi"
       },
       {
         "src": "/legacy/y2023/photo-22.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in London, UK"
+        "full": "/legacy/y2023/photo-22-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in London, UK",
+        "caption": "London, UK"
       },
       {
         "src": "/legacy/y2023/photo-23.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Heidelberg, Germany"
+        "full": "/legacy/y2023/photo-23-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Heidelberg, Germany",
+        "caption": "Heidelberg, Germany"
       },
       {
         "src": "/legacy/y2023/photo-24.jpg",
-        "alt": "2023 Unissued Diplomas exhibition in Abu-Dhabi, UAE"
+        "full": "/legacy/y2023/photo-24-full.jpg",
+        "alt": "2023 Unissued Diplomas exhibition in Abu-Dhabi, UAE",
+        "caption": "Abu-Dhabi, UAE"
       }
     ],
     "guests": {

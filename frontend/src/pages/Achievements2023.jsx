@@ -7,6 +7,7 @@ import { RightArrowLongIcon } from "../assets/RightArrowLongIcon";
 import { useContent } from "../hooks/useContent";
 import { useHashScroll } from "../hooks/useHashScroll";
 import { RichText } from "../shared/RichText";
+import { PhotoLightbox } from "../shared/PhotoLightbox";
 import { toBlocks } from "../utils/markup";
 
 // "2023 results" page — a copy of the old /2023-achievements (texts: texts/<lang>.json `y2023`).
@@ -113,30 +114,111 @@ const FullList = ({ countries, onClose }) => (
 
 // White (or light grey) full-width link box with a bold label and an arrow
 // `mobileRegular`: the old mobile page sets this label in the regular weight
-const ArrowBox = ({ to, href, label, className = "bg-white", mobileRegular, labelClassName = "" }) => {
-  const cls = `flex items-center justify-between w-[287px] tablet:w-full h-[81px] tablet:h-[61px] pl-[10px] pr-[30px] tablet:pl-[23px] tablet:pr-[17px] text-black transition-colors hover:bg-theme-primary-dark hover:text-white ${className}`;
+// hover (old site): red background, 1px light border, light label; the arrow stays dark
+const ArrowBox = ({ to, href, label, className = "bg-[#fbfbfb]", mobileRegular, labelClassName = "" }) => {
+  const cls = `flex items-center justify-between w-[287px] tablet:w-full h-[81px] tablet:h-[61px] pl-[10px] pr-[30px] tablet:pl-[23px] tablet:pr-[17px] text-black transition-all duration-200 ease-[ease] hover:bg-theme-primary-dark hover:border hover:border-[#fafafa] hover:text-[#fafafa] ${className}`;
   const body = (
     <>
       <span className={`max-w-[220px] tablet:max-w-none font-[800] text-[16px] tablet:text-[28px] uppercase tracking-[0.05em] leading-[1.35] ${mobileRegular ? "max-tablet:font-normal max-tablet:tracking-normal max-tablet:text-theme-bg" : ""} ${labelClassName}`}>{label}</span>
-      <RightArrowLongIcon className="w-[31px] tablet:w-[100px] h-[15px] tablet:h-5 shrink-0" />
+      <RightArrowLongIcon className="w-[31px] tablet:w-[100px] h-[15px] tablet:h-5 shrink-0 text-theme-bg" />
     </>
   );
   return href ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{body}</a> : <Link to={to} className={cls}>{body}</Link>;
 };
 
+// Slider motion of the old Wix gallery, fitted to its measured positions: starts after 150ms, 850ms, slow start
+const bezier = (x1, y1, x2, y2) => (t) => {
+  let u = t; // solve x(u) = t (Newton), return y(u)
+  for (let i = 0; i < 8; i++) {
+    const x = 3 * x1 * u * (1 - u) ** 2 + 3 * x2 * u ** 2 * (1 - u) + u ** 3 - t;
+    const dx = 3 * x1 * (1 - u) ** 2 + 6 * (x2 - x1) * u * (1 - u) + 3 * (1 - x2) * u ** 2;
+    if (Math.abs(x) < 1e-5 || !dx) break;
+    u -= x / dx;
+  }
+  return 3 * y1 * u * (1 - u) ** 2 + 3 * y2 * u ** 2 * (1 - u) + u ** 3;
+};
+const slideEase = bezier(0.9, 0.2, 0.3, 0.8);
+
+const NavArrow = ({ dir, onClick }) => (
+  <button
+    onClick={onClick}
+    aria-label={dir > 0 ? "Next Item" : "Previous Item"}
+    className={`absolute ${dir > 0 ? "right-[13px] tablet:right-[23px]" : "left-[13px] tablet:left-[23px]"} top-1/2 max-tablet:-mt-px -translate-y-1/2 w-[46px] h-[46px] tablet:w-[75px] tablet:h-[75px] flex items-center justify-center bg-black/60 tablet:bg-black/80 opacity-90 hover:opacity-100 cursor-pointer`}
+  >
+    {/* the old gallery's arrow (39×11 at 80%) */}
+    <svg viewBox="0 0 39 11" className={`w-[22px] tablet:w-[31px] h-auto fill-white ${dir > 0 ? "" : "-scale-x-100"}`}><polygon points="30.79 0 38.18 5.21 30.79 10.35 30.79 6.24 0 6.24 0 4.32 30.79 4.32" /></svg>
+  </button>
+);
+
+// Old gallery: grey (#BFBFBF) until a photo has loaded, then it fades in. Desktop hover: the photo zooms to 110%
+// over 2.2s while a dark gradient and the caption (Avenir Light 16/20, 30px from the bottom left) fade in over 0.4s.
+// Phones: no hover, swipe snaps photo by photo
+const ZOOM = "2.2s cubic-bezier(0.14, 0.4, 0.09, 0.99)";
+const GalleryPhoto = ({ src, alt, caption, onOpen }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <button onClick={onOpen} className="group relative shrink-0 snap-start w-[147px] h-[195px] tablet:w-[439px] tablet:h-[585px] overflow-hidden bg-[#bfbfbf] cursor-pointer text-left">
+      <img
+        ref={(img) => img?.complete && img.naturalWidth && setLoaded(true)}
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        style={{ transition: `opacity 0.4s ease, scale ${ZOOM}` }}
+        className={`w-full h-full object-cover tablet:group-hover:scale-110 ${loaded ? "opacity-100" : "opacity-0"}`}
+      />
+      <span
+        style={{ transition: `opacity 0.4s, scale ${ZOOM}` }}
+        className="max-tablet:hidden absolute inset-0 bg-linear-to-b from-[rgba(64,64,64,0.01)] to-[rgba(0,0,0,0.6)] opacity-0 group-hover:opacity-100 group-hover:scale-111"
+      />
+      {caption && (
+        <span
+          style={{ transition: "opacity 0.4s", fontFamily: "Avenir, 'Avenir Next', 'Helvetica Neue', sans-serif" }}
+          className="max-tablet:hidden absolute left-[31px] right-[30px] bottom-[31px] text-[16px] leading-[20px] font-light text-white opacity-0 group-hover:opacity-100"
+        >
+          {caption}
+        </span>
+      )}
+    </button>
+  );
+};
+
 const Photos = ({ photos }) => {
   const strip = useRef(null);
-  const next = () => strip.current?.scrollBy({ left: strip.current.clientWidth * 0.5, behavior: "smooth" });
+  const [edges, setEdges] = useState({ start: true, end: false });
+  const [open, setOpen] = useState(null);
+  const update = () => {
+    const el = strip.current;
+    if (el) setEdges({ start: el.scrollLeft < 2, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2 });
+  };
+  // one photo per click, eased like the old slider
+  const slide = (dir) => {
+    const el = strip.current;
+    const item = el.firstElementChild;
+    const step = item.offsetWidth + parseFloat(getComputedStyle(el).columnGap || 0);
+    const from = el.scrollLeft;
+    const to = Math.max(0, Math.min(el.scrollWidth - el.clientWidth, Math.round(from / step + dir) * step));
+    const t0 = performance.now() + 150;
+    const tick = (now) => {
+      const p = Math.min(1, Math.max(0, (now - t0) / 850));
+      el.scrollLeft = from + (to - from) * slideEase(p);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
   return (
-    <section className="relative bg-[rgba(250,250,250,0.8)] py-5 tablet:pt-[60px] tablet:pb-[64px] max-tablet:min-h-[236px] overflow-hidden">
-      <div ref={strip} className="flex gap-5 tablet:pl-[max(0px,calc((100vw-1057px)/2-32px))] overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
-        {photos.map(({ src, alt }) => (
-          <img key={src} src={src} alt={alt} loading="lazy" className="shrink-0 w-[146px] h-[195px] tablet:w-[439px] tablet:h-[585px] object-cover" />
-        ))}
+    // old gallery: strip clipped 40px from both window edges (phones: 20px on the right), dark square arrows
+    <section className="relative bg-[#fbfbfb] py-5 tablet:pt-[60px] tablet:pb-[64px] max-tablet:min-h-[236px]">
+      <div className="relative max-tablet:mr-5 tablet:mx-10 overflow-hidden">
+        <div ref={strip} onScroll={update} className="flex gap-4 tablet:gap-5 overflow-x-auto max-tablet:snap-x max-tablet:snap-mandatory [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+          {photos.map(({ src, alt, caption }, i) => (
+            <GalleryPhoto key={src} src={src} alt={alt} caption={caption} onOpen={() => setOpen(i)} />
+          ))}
+        </div>
+        {!edges.start && <NavArrow dir={-1} onClick={() => slide(-1)} />}
+        {!edges.end && <NavArrow dir={1} onClick={() => slide(1)} />}
       </div>
-      <button onClick={next} aria-label="Next photos" className="absolute right-[25px] top-1/2 -translate-y-1/2 w-[46px] h-[46px] flex items-center justify-center cursor-pointer">
-        <svg width="16" height="27" viewBox="0 0 16 27" fill="none" stroke="#e21c21" strokeWidth="1.5"><path d="M1 1l13 12.5L1 26" /></svg>
-      </button>
+      {open !== null && <PhotoLightbox photos={photos} index={open} onIndex={setOpen} onClose={() => setOpen(null)} />}
     </section>
   );
 };
@@ -162,7 +244,7 @@ export default function Achievements2023() {
             <button
               onClick={() => setListOpen(true)}
               style={{ "--fs": `${y.mobile.listButtonSize ?? 24}px`, "--lpt": `${2 * (y.mobile.listButtonShift ?? 0)}px` }}
-              className="mt-9 tablet:mt-[58px] tablet:translate-x-[19px] w-[280px] tablet:w-[332px] h-[53px] tablet:h-[73px] bg-white text-theme-bg max-tablet:text-(length:--fs) max-tablet:pt-(--lpt) tablet:text-[24px] font-[700] tracking-[0.05em] cursor-pointer hover:bg-theme-primary-dark hover:text-white transition-colors"
+              className="mt-9 tablet:mt-[58px] tablet:translate-x-[19px] w-[280px] tablet:w-[332px] h-[53px] tablet:h-[73px] bg-white text-theme-bg max-tablet:text-(length:--fs) max-tablet:pt-(--lpt) tablet:text-[24px] font-[700] tracking-[0.05em] cursor-pointer hover:text-[#404040] transition-all duration-200 ease-[ease]"
             >
               {y.locations.button}
             </button>

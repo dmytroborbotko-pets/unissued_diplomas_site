@@ -97,7 +97,7 @@ export default function Header({ links, cta }) {
           <div className="relative">
             <button
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-              className="flex items-center justify-center gap-[14px] tablet-md:gap-5 tablet-md:w-[97px] px-0 tablet-md:px-4 py-3 text-white uppercase text-[12px] tablet-md:text-[14px] tracking-[0.03em] transition-colors cursor-pointer hover:bg-[var(--color-theme-bg-grey)]"
+              className="flex items-center justify-center gap-[14px] tablet-md:gap-5 tablet-md:w-[97px] px-0 tablet-md:px-4 py-3 text-white uppercase text-[12px] tablet-md:text-[14px] tracking-[0.03em] cursor-pointer"
             >
               {currentLanguage.toUpperCase()}
               <svg
