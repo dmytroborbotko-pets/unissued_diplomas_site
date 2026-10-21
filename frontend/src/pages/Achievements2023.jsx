@@ -114,19 +114,31 @@ const Stats = ({ heading, stats, h, mobileTop, shift = {} }) => (
   </section>
 );
 
-// Popup with the full 2023 list (old "See full list")
+// Flag emoji per country of the 2023 list (the old popup shows one above each country)
+const FLAGS = {
+  AUSTRALIA: "AU", AUSTRIA: "AT", BELGIUM: "BE", BULGARIA: "BG", CANADA: "CA", HUNGARY: "HU", "CZECH REPUBLIC": "CZ",
+  FRANCE: "FR", ITALY: "IT", DENMARK: "DK", FINLAND: "FI", GERMANY: "DE", INDIA: "IN", JAPAN: "JP", LITHUANIA: "LT",
+  NETHERLANDS: "NL", ESTONIA: "EE", POLAND: "PL", PORTUGAL: "PT", SPAIN: "ES", NORWAY: "NO", "UNITED ARAB EMIRATES": "AE",
+  "UNITED STATES OF AMERICA": "US", "UNITED KINGDOM": "GB",
+};
+const flag = (name) => FLAGS[name] && String.fromCodePoint(...[...FLAGS[name]].map((c) => 0x1f1a5 + c.charCodeAt(0)));
+
+// Popup with the full 2023 list (old "See full list"); the list is English on every old page, so is its title.
+// The old popup broke country names mid-word ("AUSTRALI / A") — here they wrap normally.
 const FullList = ({ countries, onClose }) => (
   <div className="fixed inset-0 z-[60] bg-black/70 flex items-start justify-center overflow-y-auto py-10" onClick={onClose}>
-    <div className="relative bg-theme-bg text-[#ebebeb] w-[90%] max-w-[700px] px-6 py-8" onClick={(e) => e.stopPropagation()}>
+    <div className="relative bg-theme-bg text-[#ebebeb] w-[90%] max-w-[700px] px-6 tablet:px-10 pt-10 pb-10" onClick={(e) => e.stopPropagation()}>
       <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 cursor-pointer">
         <svg width="20" height="20" viewBox="0 0 20 20" stroke="currentColor" strokeWidth="1.6"><path d="M2 2l16 16M18 2L2 18" /></svg>
       </button>
+      <h2 className="text-center text-white text-[34px] tablet:text-[48px] leading-[1.15] font-bold">List of 2023 exhibitions</h2>
       {countries.map(({ name, venues }) => (
-        <div key={name} className="mt-6 first:mt-0">
-          <h3 className="text-[20px] font-[500] uppercase">{name}</h3>
+        <div key={name} className="mt-6">
+          {flag(name) && <p className="text-[38px] leading-none">{flag(name)}</p>}
+          <h3 className="mt-5 text-[22px] tablet:text-[26px] leading-[1.15] font-[500] uppercase">{name}</h3>
           {venues.map(({ name: venue, href }) => (
-            <p key={venue} className="mt-1 text-[16px] leading-[1.3]">
-              {href ? <a href={href} target="_blank" rel="noopener noreferrer" className="underline">{venue}</a> : venue}
+            <p key={venue} className="mt-2.5 text-[17px] tablet:text-[19px] leading-[1.15]">
+              {href ? <a href={href} target="_blank" rel="noopener noreferrer" className="hover:underline">{venue}</a> : venue}
             </p>
           ))}
         </div>
@@ -139,11 +151,13 @@ const FullList = ({ countries, onClose }) => (
 // `mobileRegular`: the old mobile page sets this label in the regular weight
 // hover (old site): red background, 1px light border, light label; the arrow stays dark
 const ArrowBox = ({ to, href, label, className = "bg-[#fbfbfb]", mobileRegular, labelClassName = "" }) => {
-  const cls = `flex items-center justify-between w-[287px] tablet:w-full h-[81px] tablet:h-[61px] pl-[10px] pr-[30px] tablet:pl-[23px] tablet:pr-[17px] text-black transition-all duration-200 ease-[ease] hover:bg-theme-primary-dark hover:border hover:border-[#fafafa] hover:text-[#fafafa] ${className}`;
+  const cls = `flex items-center justify-between w-[287px] tablet:w-full h-[81px] tablet:h-[61px] pl-[10px] pr-[13px] tablet:pl-[23px] tablet:pr-[17px] text-black transition-all duration-200 ease-[ease] hover:bg-theme-primary-dark hover:border hover:border-[#fafafa] hover:text-[#fafafa] ${className}`;
   const body = (
     <>
       <span className={`max-w-[220px] tablet:max-w-none font-[800] text-[16px] tablet:text-[28px] uppercase tracking-[0.05em] leading-[1.35] ${mobileRegular ? "max-tablet:font-normal max-tablet:tracking-normal max-tablet:text-theme-bg" : ""} ${labelClassName}`}>{label}</span>
-      <RightArrowLongIcon className="w-[31px] tablet:w-[100px] h-[15px] tablet:h-5 shrink-0 text-theme-bg" />
+      <RightArrowLongIcon className="max-tablet:hidden w-[100px] h-5 shrink-0 text-theme-bg" />
+      {/* phones: the old short arrow (the long one squashed to this width loses its head) */}
+      <svg viewBox="0 0 32 16" className="tablet:hidden w-[32px] h-4 shrink-0 text-theme-bg" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M0 8h30M23 1l7 7-7 7" /></svg>
     </>
   );
   return href ? <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{body}</a> : <Link to={to} className={cls}>{body}</Link>;
@@ -289,13 +303,13 @@ export default function Achievements2023() {
           <div className={`${WRAP} max-tablet:px-4 pt-[39px] tablet:pt-[75px] pb-6`}>
             <p className="max-tablet:px-1 max-w-[288px] tablet:max-w-[724px] text-[19px] tablet:text-[24px] tablet:leading-[1.48]">{y.guests.text}</p>
             <div className="mt-[35px] tablet:mt-[55px]">
-              <ArrowBox href={y.guests.button.href ?? ORGANIZER_FORM} label={y.guests.button.label} className="bg-[#ebebeb] tablet:bg-[#fbfbfb]" mobileRegular labelClassName="max-tablet:-translate-y-[6px]" />
+              <ArrowBox href={y.guests.button.href ?? ORGANIZER_FORM} label={y.guests.button.label} className="bg-[#ebebeb] tablet:bg-[#fbfbfb]" />
             </div>
           </div>
         </section>
 
-        <section style={{ "--h": `${H.team}px`, "--mh": `${M.team}px` }} className="bg-theme-bg-grey max-tablet:min-h-(--mh) tablet:min-h-(--h)">
-          <div className={`${WRAP} max-tablet:px-4 pt-[41px] tablet:pt-[70px] pb-6 flex flex-col tablet:flex-row tablet:items-start gap-7 tablet:gap-[61px]`}>
+        <section style={{ "--h": `${H.team}px` }} className="bg-theme-bg-grey tablet:min-h-(--h)">
+          <div className={`${WRAP} max-tablet:px-4 pt-[41px] tablet:pt-[70px] pb-9 tablet:pb-6 flex flex-col tablet:flex-row tablet:items-start gap-7 tablet:gap-[61px]`}>
             <img src="/legacy/y2023/susk.png" alt="" className="max-tablet:hidden shrink-0 w-[110px] h-[195px] object-contain" />
             <div className="max-tablet:px-1 max-tablet:translate-y-[4px] max-w-[288px] tablet:max-w-[891px] tablet:mt-[9px] space-y-[22px] [&_a]:text-[#ff6868] [&_a]:no-underline">
               <RichText blocks={toBlocks(y.team.text)} className="text-[19px] tablet:text-[24px] leading-[1.2] tablet:leading-[1.48] tracking-[0.01em]" strongClassName="text-[#ff6868] font-normal" />

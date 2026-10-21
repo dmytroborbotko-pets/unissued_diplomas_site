@@ -27,6 +27,7 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint, legacy })
   const language = diplomaLanguages.find((l) => l.documentId === languageId) ?? diplomaLanguages[0];
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const touchX = useRef(0);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -166,7 +167,46 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint, legacy })
       </div>
 
       {/* Main diploma display */}
-      <div className={cn("mb-8", legacy && "relative mb-[10px]")}>
+      {legacy ? (
+        // old Wix slider: slides move sideways, swipe on touch screens; phones also have a "previous" arrow
+        <div
+          className="relative mb-[10px]"
+          onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+          onTouchEnd={(e) => {
+            const dx = e.changedTouches[0].clientX - touchX.current;
+            if (Math.abs(dx) > 40) (dx < 0 ? nextDiploma : prevDiploma)();
+          }}
+        >
+          <div className="overflow-hidden">
+            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${Math.min(currentIndex, diplomaImages.length - 1) * 100}%)` }}>
+              {diplomaImages.map((diploma) => (
+                <button
+                  key={diploma.name}
+                  onClick={() => setIsFullscreen(true)}
+                  className="shrink-0 w-full cursor-pointer hover:opacity-90 transition-opacity"
+                  aria-label="Click to view diploma in fullscreen"
+                >
+                  <img
+                    src={diploma.src}
+                    srcSet={diploma.srcSet}
+                    sizes="(min-width: 769px) 821px, 100vw"
+                    alt={diploma.name}
+                    loading="lazy"
+                    className={cn("w-full h-auto object-contain tablet:h-[387px] tablet:w-auto mx-auto", fixedLanguage ? "max-tablet:w-[227px]" : "max-tablet:w-[178px]")}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+          <button onClick={prevDiploma} aria-label="Previous diploma" className="tablet:hidden absolute left-[19px] top-1/2 -translate-y-1/2 cursor-pointer scale-[0.7]">
+            <svg width="16" height="27" viewBox="0 0 16 27" fill="none" stroke="#e21c21" strokeWidth="1.5"><path d="M15 1L2 13.5L15 26" /></svg>
+          </button>
+          <button onClick={nextDiploma} aria-label="Next diploma" className="absolute right-[19px] tablet:right-[12px] top-1/2 -translate-y-1/2 cursor-pointer max-tablet:scale-[0.7]">
+            <svg width="16" height="27" viewBox="0 0 16 27" fill="none" stroke="#e21c21" strokeWidth="1.5"><path d="M1 1l13 12.5L1 26" /></svg>
+          </button>
+        </div>
+      ) : (
+      <div className="mb-8">
         <button
           onClick={() => setIsFullscreen(true)}
           className="w-full cursor-pointer hover:opacity-90 transition-opacity"
@@ -175,17 +215,13 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint, legacy })
           <img
             src={currentDiploma?.src}
             srcSet={currentDiploma?.srcSet}
-            sizes={legacy ? "(min-width: 769px) 821px, 100vw" : "(min-width: 1080px) 1048px, 100vw"}
+            sizes="(min-width: 1080px) 1048px, 100vw"
             alt={currentDiploma?.name}
-            className={cn("w-full h-auto object-contain", legacy ? cn(fixedLanguage ? "max-tablet:w-[227px]" : "max-tablet:w-[178px]", "tablet:h-[387px] tablet:w-auto mx-auto") : "max-h-[600px]")}
+            className="w-full h-auto object-contain max-h-[600px]"
           />
         </button>
-        {legacy && (
-          <button onClick={nextDiploma} aria-label="Next diploma" className="absolute right-[19px] tablet:right-[12px] top-1/2 -translate-y-1/2 cursor-pointer max-tablet:scale-[0.7]">
-            <svg width="16" height="27" viewBox="0 0 16 27" fill="none" stroke="#e21c21" strokeWidth="1.5"><path d="M1 1l13 12.5L1 26" /></svg>
-          </button>
-        )}
       </div>
+      )}
 
       {/* Thumbnail carousel */}
       <DiplomaThumbnails
