@@ -17,7 +17,8 @@ const ChevronDownIcon = ({ className }) => (
 );
 
 // `languageName`: show only this diploma language, without the language dropdown (/jp, translated Home pages)
-export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
+// `legacy`: the old Wix gallery look (Home) — 387px-high slide with a red "next" arrow, square thumbnails, hint picture
+export const DiplomaViewer = ({ languageName, languageLabel, zoomHint, legacy }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { diplomas, diplomaLanguages } = useContent();
@@ -46,6 +47,11 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
           ? [{
               name: studentName,
               src: mediaUrl(version.image, "large"),
+              // the original (1920px) on dense screens, so the slide is as sharp as the fullscreen view
+              srcSet: [version.image.formats?.large, version.image]
+                .filter(Boolean)
+                .map((f) => `${f.url} ${f.width}w`)
+                .join(", "),
               thumb: mediaUrl(version.image, "thumbnail"),
               full: version.image.url,
             }]
@@ -80,12 +86,12 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
   return (
     <div>
       {/* Top controls bar */}
-      <div className="flex items-start justify-between mb-6">
+      <div className={cn("flex items-start justify-between mb-6", fixedLanguage && "justify-end", legacy && (fixedLanguage ? "mb-8 max-tablet:mb-[50px]" : "mb-9 max-tablet:mb-[61px]"))}>
         {/* Left: Language selector and Fullscreen toggle */}
         <div className="flex items-start gap-3">
           {/* Language dropdown */}
           <div ref={dropdownRef} className={cn("relative", fixedLanguage && "hidden")}>
-            <p className="text-gray-200 text-sm mb-2">{languageLabel}</p>
+            <p className={cn("text-sm mb-2", legacy ? "text-[#bfbfbf] pl-1 -mt-[3px] max-tablet:text-[16px]" : "text-gray-200")}>{languageLabel}</p>
             <button
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               className="flex items-center justify-between w-full min-w-[280px] tablet:min-w-[304px] bg-transparent text-white px-5 py-2 border border-gray-500 hover:border-gray-400 transition-colors cursor-pointer focus:outline-none"
@@ -131,6 +137,13 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
         </div>
 
         {/* Right: Instruction hint */}
+        {legacy ? (
+          <>
+            <img src="/legacy/zoom-hint.png" alt={zoomHint} className={cn("hidden tablet:block w-[258px] h-[31px]", !fixedLanguage && "mt-[21px]")} />
+            {/* phones: the old mobile pages show a smaller hint picture, and only where there is no language picker */}
+            {fixedLanguage && <img src="/legacy/zoom-hint-mobile.png" alt={zoomHint} className="tablet:hidden w-[206px] h-[13px] mr-auto" />}
+          </>
+        ) : (
         <div className="flex items-center gap-2 text-neutral-700 text-md mt-8">
           <svg
             className="w-9 h-9"
@@ -149,10 +162,11 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
             {zoomHint}
           </span>
         </div>
+        )}
       </div>
 
       {/* Main diploma display */}
-      <div className="mb-8">
+      <div className={cn("mb-8", legacy && "relative mb-[10px]")}>
         <button
           onClick={() => setIsFullscreen(true)}
           className="w-full cursor-pointer hover:opacity-90 transition-opacity"
@@ -160,10 +174,17 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
         >
           <img
             src={currentDiploma?.src}
+            srcSet={currentDiploma?.srcSet}
+            sizes={legacy ? "(min-width: 769px) 821px, 100vw" : "(min-width: 1080px) 1048px, 100vw"}
             alt={currentDiploma?.name}
-            className="w-full h-auto object-contain max-h-[600px]"
+            className={cn("w-full h-auto object-contain", legacy ? cn(fixedLanguage ? "max-tablet:w-[227px]" : "max-tablet:w-[178px]", "tablet:h-[387px] tablet:w-auto mx-auto") : "max-h-[600px]")}
           />
         </button>
+        {legacy && (
+          <button onClick={nextDiploma} aria-label="Next diploma" className="absolute right-[19px] tablet:right-[12px] top-1/2 -translate-y-1/2 cursor-pointer max-tablet:scale-[0.7]">
+            <svg width="16" height="27" viewBox="0 0 16 27" fill="none" stroke="#e21c21" strokeWidth="1.5"><path d="M1 1l13 12.5L1 26" /></svg>
+          </button>
+        )}
       </div>
 
       {/* Thumbnail carousel */}
@@ -171,6 +192,8 @@ export const DiplomaViewer = ({ languageName, languageLabel, zoomHint }) => {
         diplomas={diplomaImages}
         currentIndex={currentIndex}
         onSelect={selectDiploma}
+        square={legacy}
+        className={legacy ? "max-tablet:hidden" : undefined}
       />
 
       {/* Donate button

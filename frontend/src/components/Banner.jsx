@@ -1,36 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-// Full-width photo strip with a centered caption; the photo slides as the strip scrolls past (parallax)
-export const Banner = ({ text, image }) => {
-  const parallaxRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+// Full-width photo strip with a centered caption. Parallax like the old Wix strip: a viewport-high photo
+// trails the scroll at 0.8 (it drifts 0.2× relative to the screen), measured on the old site.
+// `mobileHeight`: strip height on phones (old mobile pages: 199-219px)
+// `offset`: measured caption shift from `ink()`; `width`: caption width on desktop (old Ukrainian page: wider)
+export const Banner = ({ text, image, mobileHeight, offset, width = 653 }) => {
+  const stripRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
-    const element = parallaxRef.current;
-    if (!element) return;
-
-    const handleScroll = () => {
-      const rect = element.getBoundingClientRect();
-      // 0 when the strip enters at the bottom, 1 when it leaves at the top
-      const progress = (window.innerHeight - rect.bottom) / (window.innerHeight + rect.height);
-      setScrollProgress(Math.max(0, Math.min(1, progress)));
+    const onScroll = () => {
+      const top = stripRef.current.getBoundingClientRect().top;
+      imageRef.current.style.transform = `translateY(${-0.8 * top}px)`;
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <div ref={parallaxRef} className="relative w-full h-[280px] tablet:h-[323px] overflow-hidden">
+    <div ref={stripRef} style={{ "--mh": `${mobileHeight}px` }} className="relative w-full h-(--mh) tablet:h-[323px] overflow-hidden">
       <img
+        ref={imageRef}
         src={image}
         alt=""
-        style={{ transform: `translateY(${-25 + scrollProgress * 25}%)` }}
-        className="absolute top-0 left-0 w-full h-[160%] object-cover object-center"
+        className="absolute top-0 left-0 w-full h-screen object-cover object-center will-change-transform"
       />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <h2 className="text-[24px] mobile-sm:text-[34px] tablet:text-[40px] font-normal uppercase leading-none text-white text-center px-4 max-w-[700px] whitespace-pre-line">
+      <div className="absolute inset-0 flex items-center justify-center pb-[10px] tablet:pb-[18px]">
+        <h2 style={{ "--bw": `${width}px`, ...offset?.style }} className={`text-[19px] tablet:text-[40px] font-normal uppercase leading-none text-white text-center max-tablet:max-w-[234px] tablet:px-4 tablet:max-w-(--bw) tracking-[0.01em] whitespace-pre-line ${offset?.className ?? ""}`}>
           {text}
         </h2>
       </div>

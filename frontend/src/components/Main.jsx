@@ -1,118 +1,205 @@
 import { Link } from "react-router-dom";
-import { ActionBlock } from "../shared/ActionBlock";
-import HomeVyshyvankaIcon from "../assets/HomeVyshyvankaIcon.png";
 import { RightArrowLongIcon } from "../assets/RightArrowLongIcon";
 import { Banner } from "./Banner";
 import { HallOfDiplomas } from "./HallOfDiplomas";
 import { ExhibitionList } from "./ExhibitionList";
 import { DonateSection } from "./DonateSection";
-import { MissionSection } from "./MissionSection";
 import { StoriesSection } from "./StoriesSection";
-import { LogoSection } from "../shared/LogoSection";
+import { LegacyLogos } from "./LegacyLogos";
 import { FAQSection } from "./FAQSection";
 import { useContent } from "../hooks/useContent";
 import { RichText } from "../shared/RichText";
 import { toBlocks } from "../utils/markup";
+import { cn, ink, minH } from "../utils/utils";
+import { Responsive } from "../shared/Responsive";
 
 const ORGANIZER_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSevvnb-yj7pCqaW6yK-lJM6jDjMrsXC4_nxjXZzgg3euD2-vA/viewform";
 
-// Logo images + name-only credits → LogoSection items
-const logoItems = ({ logos, names }) => [
-  ...logos.map(({ name, href, src }) => ({ documentId: src, name, url: href, logo: { url: src }, size: "wide" })),
-  ...names.map((name) => ({ documentId: name, name })),
-];
+// Content width of the old site (1057px)
+export const WRAP = "max-w-[1089px] mx-auto px-4";
+
+// Hero tile: 521×311 on desktop, arrow at the bottom right
+const Tile = ({ to, href, className, children }) => {
+  const body = (
+    <>
+      {children}
+      <RightArrowLongIcon className="absolute right-[34px] bottom-[39px] w-[90px] tablet:w-[125px] h-4" />
+    </>
+  );
+  const cls = cn("relative block h-[180px] tablet:h-[311px] text-white transition-opacity hover:opacity-90", className);
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{body}</a>
+  ) : (
+    <Link to={to} className={cls}>{body}</Link>
+  );
+};
+
+const TileTitle = ({ width, top = 18, offset, children }) => (
+  <h2 style={{ maxWidth: width, paddingTop: top, ...offset.style }} className={`box-content px-[34px] text-[28px] tablet:text-[32px] desktop:text-[39px] leading-[1.25] font-[800] uppercase whitespace-pre-line ${offset.className}`}>
+    {children}
+  </h2>
+);
+
+// Mission + team next to the red duotone photo (old site: 858px high, photo 437×648)
+const MissionTeam = ({ mission, team, photoCredit, layout }) => (
+  <section {...minH(layout, "mission", "bg-theme-bg text-[#ebebeb]")}>
+    <div className={`${WRAP} max-tablet:px-[15px] pt-[63px] tablet:pt-[100px] pb-10 grid grid-cols-1 tablet:grid-cols-[437px_1fr] tablet:gap-x-[107px]`}>
+      <div className="relative mt-1 hidden tablet:block w-[437px] h-[648px]">
+        <img src="/legacy/team.jpg" alt="" loading="lazy" className="w-full h-full object-cover" />
+        <p {...ink(layout, "photoCredit", "absolute left-[15px] bottom-[13px] text-[12px] font-[500] leading-[1.41]")}>{photoCredit}</p>
+      </div>
+      <div>
+        {[mission, team].map(({ heading, text }, i) => (
+          <div key={heading} className={i ? "mt-[52px] tablet:mt-[63px]" : ""}>
+            <h2 {...ink(layout, i ? "teamHeading" : "missionHeading", "text-[30px] tablet:text-[56px] leading-[1.05] tracking-[0.01em] uppercase whitespace-pre-line")}>{heading}</h2>
+            <div {...ink(layout, i ? "teamText" : "missionText", "mt-[31px] tablet:mt-[25px] max-w-[280px] tablet:max-w-[470px] space-y-[22px]")}>
+              <RichText blocks={toBlocks(text)} className="text-[16px] leading-[1.4] tracking-[0.01em]" strongClassName="text-[#ff6868] font-normal" />
+            </div>
+            {/* phones: the photo sits between the mission and the team */}
+            {!i && (
+              <div className="tablet:hidden relative mt-[46px] w-[287px] h-[308px]">
+                <img src="/legacy/team.jpg" alt="" loading="lazy" className="w-full h-full object-cover" />
+                <p {...ink(layout, "photoCredit", "absolute left-[7px] bottom-[2px] text-[7px] font-[500] leading-[1.41]")}>{photoCredit}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// Phones: the old 320px mobile hero — title with ornament, tagline, four full-width link rows
+const MobileHero = ({ hero, about, m, L }) => {
+  const rows = [
+    { to: "/#about", label: about.replace(/\n/g, " "), cls: "border border-white text-white", key: "rowAbout" },
+    { to: "/#exhibitions", label: hero.visit, cls: "border border-white text-white", key: "tileVisit" },
+    { href: ORGANIZER_FORM, label: hero.host, cls: "bg-theme-primary-dark text-white", key: "tileHost" },
+    { to: "/#donate", label: hero.donate, cls: "bg-white text-black", key: "tileDonate" },
+  ];
+  return (
+    <div style={{ "--mh": `${m.hero}px` }} className="tablet:hidden min-h-(--mh) px-4 pt-10 pb-[30px]">
+      <h1 style={{ fontSize: m.titleSize }} className="relative max-w-[288px] leading-[0.9] tracking-[-0.02em] uppercase">
+        {hero.title}
+        <img src="/legacy/ornament.png" alt="" className="absolute left-[110px] top-[22px] w-[43px] h-[43px] object-contain" />
+      </h1>
+      {hero.tagline && (
+        <p style={{ fontSize: m.tagline, maxWidth: m.taglineWidth }} className="mt-[18px] tracking-[0.05em]">{hero.tagline}</p>
+      )}
+      <div className={`${hero.tagline ? "mt-[29px]" : "mt-[71px]"} flex flex-col gap-[13px] w-[288px]`}>
+        {rows.map(({ to, href, label, cls, key }) => {
+          const body = (
+            <>
+              <span {...ink(L, key, "max-w-[232px] font-[800] text-[16px] leading-[21.5px] uppercase")}>{label}</span>
+              <RightArrowLongIcon className="w-5 h-[10px] shrink-0" />
+            </>
+          );
+          const rowCls = `flex items-center justify-between min-h-10 py-3 pl-3 pr-[15px] ${cls}`;
+          return href ? (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className={rowCls}>{body}</a>
+          ) : (
+            <Link key={label} to={to} className={rowCls}>{body}</Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 // Home: same sections, order and texts as the old site (texts/<lang>.json)
 export const Main = () => {
   const t = useContent();
-  const { hero } = t;
-  // ponytail: the icon is placed by em offsets over the "O" of DIPLOMAS; other titles get none
-  const titleIcon = hero.title === "UNISSUED DIPLOMAS" && { src: HomeVyshyvankaIcon, alt: "" };
+  const { hero, layout: L } = t;
+  const [titleSize, titleWidth, ornX, ornY] = L.heroTitle;
+  const [tagSize, tagTop, tagWidth] = L.tagline;
 
   const donate = (
-    <DonateSection
-      key="donate"
-      heading={t.donate.heading}
-      text={toBlocks(t.donate.text)}
-      buttons={[t.donate.usd, t.donate.cad]}
-      plain
-    />
+    <div key="donate" {...minH(L, "donate", "bg-theme-primary-dark max-tablet:order-first flex flex-col")}>
+      <DonateSection heading={t.donate.heading} text={toBlocks(t.donate.text)} buttons={[t.donate.usd, t.donate.cad]} plain mobileHeading={L.m.donateHeading} headingOffset={ink(L, "donateHeading")} textOffset={ink(L, "donateText")} buttonsOffset={ink(L, "donateButtons")} mobileButtonsGap={L.m.donateButtonsGap} />
+    </div>
   );
-  const mission = (
-    <MissionSection
-      key="mission"
-      sections={[
-        { title: t.mission.heading, text: toBlocks(t.mission.text) },
-        { title: t.team.heading, text: toBlocks(t.team.text) },
-      ]}
-      photoCredit={t.photoCredit}
-    />
-  );
+  const mission = <MissionTeam key="mission" mission={t.mission} team={t.team} photoCredit={t.photoCredit} layout={L} />;
   const stories = <StoriesSection key="stories" />;
 
   return (
-    <section className="bg-theme-bg text-theme-text mt-4 min-h-screen">
-      <main className="p-4 tablet:p-0 max-w-[1080px] mx-auto">
-        <div className="flex flex-col mobile-xs:gap-5 tablet:grid tablet:grid-cols-2 tablet:gap-4 tablet:px-4 mobile-xs:px-1 tablet:mt-16">
-          <ActionBlock
-            title={hero.title.split(" ").length === 2 ? hero.title.split(" ") : hero.title}
-            titleIcon={titleIcon}
-            description={hero.tagline}
-            variant="dark"
-            titleFont="font-normal"
-            titleSize="tablet:text-[60px] tablet-md:text-[70px]"
-            titleLineHeight="1"
-            descriptionFont="font-normal"
-            href="/#about"
-          />
-          <ActionBlock title={hero.visit} variant="dark" titleFont="font-[800]" hasBorder href="/#exhibitions" />
-          <a href={ORGANIZER_FORM} target="_blank" rel="noopener noreferrer">
-            <ActionBlock title={hero.host} variant="red" titleFont="font-[800]" />
-          </a>
-          <ActionBlock title={hero.donate} variant="white" titleFont="font-[800]" href="/#donate" />
-        </div>
+    <section className="bg-theme-bg text-[#ebebeb]">
+      {/* Hero: 4 tiles, sizes and offsets measured on the old site (desktop). The old header height differs per
+          language (two-line menu items) while ours is 80px, hence the offsets */}
+      <div style={{ "--pt": `${L.header - 11}px`, "--h": `${L.hero + L.header - 80}px` }} className={`${WRAP} max-tablet:hidden tablet:pt-(--pt) tablet:min-h-(--h) content-start grid tablet:grid-cols-2 gap-x-[14px] tablet:gap-y-[17px]`}>
+        <Tile to="/#about" className="bg-theme-bg">
+          {/* title box and ornament offset per language (texts `layout.heroTitle`), as placed on the old pages */}
+          <h1
+            style={{ "--fs": `${titleSize}px`, "--w": `${titleWidth}px`, top: L.ink?.d?.heroTitle?.[0] }}
+            className="relative ml-[23px] mt-2 tablet:max-w-(--w) text-[48px] desktop:text-(length:--fs) leading-[0.9] tracking-[-0.02em] uppercase text-[#ebebeb]"
+          >
+            {hero.title}
+            <img src="/legacy/ornament.png" alt="" style={{ left: ornX, top: ornY }} className="absolute w-[83px] h-[81px] object-contain max-desktop:hidden" />
+          </h1>
+          {hero.tagline && (
+            <p
+              style={{ top: tagTop, width: tagWidth, fontSize: tagSize }}
+              className="absolute left-[31px] max-w-[85%] tracking-[0.05em] text-[#ebebeb] max-tablet:hidden"
+            >
+              {hero.tagline}
+            </p>
+          )}
+        </Tile>
+        <Tile to="/#exhibitions" className="bg-theme-bg border-2 border-white">
+          <TileTitle width={L.tileWidths[0]} offset={ink(L, "tileVisit")}>{hero.visit}</TileTitle>
+        </Tile>
+        <Tile href={ORGANIZER_FORM} className="bg-theme-primary-dark">
+          <TileTitle width={L.tileWidths[1]} top={11} offset={ink(L, "tileHost")}>{hero.host}</TileTitle>
+        </Tile>
+        <Tile to="/#donate" className="bg-white text-theme-bg">
+          <TileTitle width={L.tileWidths[2]} offset={ink(L, "tileDonate")}>{hero.donate}</TileTitle>
+        </Tile>
+      </div>
 
-        <div id="about" className="scroll-mt-24 tablet:px-4 mobile-xs:px-1 pt-(--section-space) pb-(--section-space)">
-          <div className="flex flex-col tablet:grid tablet:grid-cols-2 tablet:gap-8">
-            <h2 className="text-[#ebebeb] max-tablet:text-[38px] tablet:text-[58px] font-normal uppercase leading-none whitespace-pre-line">
-              {t.about.heading}
-            </h2>
-            <div className="mt-8 tablet:mt-0 space-y-6">
-              <RichText
-                blocks={toBlocks(t.about.text)}
-                className="text-[#ebebeb] max-tablet:text-[17px] tablet:text-[16px] leading-7 tablet:leading-6"
-                strongClassName="text-[#ff6868] font-normal"
-              />
-            </div>
-          </div>
+      <MobileHero hero={hero} about={t.nav[0]} m={L.m} L={L} />
+
+      <div id="about" {...minH(L, "about", `${WRAP} scroll-mt-24 pt-[37px] tablet:pt-[51px] pb-6 grid content-start grid-cols-1 tablet:grid-cols-[500px_498px] tablet:gap-x-[47px]`)}>
+        <h2 {...ink(L, "aboutHeading", "text-[30px] tablet:text-[56px] leading-none tracking-[0.01em] uppercase whitespace-pre-line max-tablet:max-w-[226px]")}>{t.about.heading}</h2>
+        <div {...ink(L, "aboutText", "mt-[36px] tablet:mt-[15px] space-y-[22px] max-tablet:max-w-[282px]")}>
+          <RichText
+            blocks={toBlocks(t.about.text)}
+            className="text-[16px] leading-[1.4] tracking-[0.01em]"
+            strongClassName="text-[#ff6868] font-normal"
+          />
         </div>
-      </main>
+      </div>
 
       {/* 2023 results teaser */}
-      <div className="bg-theme-bg-grey">
-        <div className="max-w-[1080px] mx-auto px-4 py-10">
-          <p className="text-[16px] leading-6">{t.results2023.text}</p>
+      <div {...minH(L, "note", "bg-theme-bg-grey")}>
+        <div className={`${WRAP} max-tablet:px-5 pt-[31px] tablet:pt-[39px] pb-[39px] tablet:pb-[45px]`}>
+          <p className="text-[13px] tablet:text-[16px] tablet:pl-[3px]">{t.results2023.text}</p>
           <Link
             to="/2023-achievements"
-            className="mt-6 flex items-center justify-between w-full bg-white text-theme-bg px-4 py-2 transition-colors hover:bg-theme-primary-dark hover:text-white"
+            className="mt-[25px] tablet:mt-[33px] h-[74px] tablet:h-[61px] flex items-center justify-between w-full bg-white text-theme-bg pl-[17px] pr-[17px] tablet:pl-[23px] tablet:pr-4 transition-colors hover:bg-theme-primary-dark hover:text-white"
           >
-            <span className="text-[18px] tablet:text-[22px] font-[800] uppercase tracking-wide">{t.results2023.button}</span>
-            <RightArrowLongIcon className="w-16 h-4 shrink-0" />
+            <span {...ink(L, "results2023Button", "font-[800] text-[16px] tablet:text-[22px] uppercase tracking-[0.05em] max-tablet:max-w-[209px] leading-[1.35] text-black max-tablet:text-theme-bg")}><Responsive mobile={t.mobileText.results2023Button}>{t.results2023.button}</Responsive></span>
+            <RightArrowLongIcon className="w-[34px] tablet:w-[70px] h-[17px] tablet:h-4 shrink-0" />
           </Link>
         </div>
       </div>
 
-      <Banner text={t.banner} image="/legacy/never-graduated.jpg" />
+      <Banner text={t.banner} image="/legacy/never-graduated.jpg" mobileHeight={L.m.banner} offset={ink(L, "banner")} width={L.bannerWidth} />
       <HallOfDiplomas />
       <ExhibitionList />
-      {/* The English page shows the donate block before the mission; translations after the stories */}
-      {t.donateFirst ? [donate, mission, stories] : [mission, stories, donate]}
-      <LogoSection heading={t.sponsors.heading} items={logoItems(t.sponsors)} variant="sponsors" className="bg-theme-bg" />
-      <LogoSection heading={t.partners.heading} items={logoItems(t.partners)} variant="partners" className="bg-theme-bg-grey" />
-      <FAQSection
-        heading={t.faq.heading.replaceAll(" ", "\n")} // one word per line, as on the old site
-        items={t.faq.items.map(({ q, a }) => ({ question: q, answer: toBlocks(a) }))}
-      />
+      {/* Desktop: English shows the donate block before the mission, translations after the stories.
+          Phones: every language has it first */}
+      <div className="flex flex-col">
+        {t.donateFirst ? [donate, mission, stories] : [mission, stories, donate]}
+      </div>
+      <LegacyLogos kind="sponsors" {...t.sponsors} className="bg-theme-bg" minHeight={L.sponsors} mobileMinHeight={L.m.sponsors} offset={ink(L, "sponsorsHeading")} />
+      <LegacyLogos kind="partners" {...t.partners} className="bg-theme-bg-grey" minHeight={L.partners} mobileMinHeight={L.m.partners} gap={L.partnersGap} offset={ink(L, "partnersHeading")} />
+      <div {...minH(L, "faq", "bg-theme-bg")}>
+        <FAQSection
+          heading={t.faq.heading.replaceAll(" ", "\n")} // one word per line, as on the old site
+          items={t.faq.items.map(({ q, a }) => ({ question: q, answer: toBlocks(a) }))}
+          legacy
+          offset={ink(L, "faqItems")}
+        />
+      </div>
     </section>
   );
 };

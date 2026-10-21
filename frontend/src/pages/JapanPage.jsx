@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
 import { DiplomaModal } from "../shared/DiplomaModal";
 import { RichText } from "../shared/RichText";
@@ -11,8 +11,10 @@ import { cn } from "../utils/utils";
 import jp from "../texts/jp.json";
 
 // 1:1 copy of the old Wix /jp page. Texts live in texts/jp.json; only diplomas come from Strapi.
-// From 1100px the old desktop layout is reproduced: a 980px column with the Wix coordinates
-// (x from the column's left edge, y from the section's top, via --x/--y/--w/--h); below that, a stacked layout.
+// Like Wix, the page has two hand-placed layouts: desktop (980px column) and mobile (320px column, which phones
+// scale to their width via the viewport meta, see usePhoneViewport). Every element gets both sets of coordinates —
+// x from the column's left edge, y from its section's top — as --x/--y/--w/--h and --mx/--my/--mw/--mh.
+// Tablets (600–1099px) get their own fluid layout instead (TabletPage, at the end of the file); the old page had none.
 
 // Fonts as on the old page. Its <html lang="en"> and font stacks without a generic family make the browser
 // pick the Japanese glyphs from its default CJK fallback (PingFang on macOS) — so no lang="ja" and no
@@ -25,22 +27,22 @@ const R = "font-['Montserrat','M_PLUS_1p'] font-light tabular-nums [word-spacing
 const HV = "font-['Helvetica_Neue',Helvetica,Arial,sans-serif] font-light";
 const FONTS = `@font-face{font-family:"KyivType Sans Medium";src:url("/font/KyivType-Sans--Medium.otf") format("opentype");font-display:swap}`;
 
-const POS = "min-[1100px]:absolute min-[1100px]:left-(--x) min-[1100px]:top-(--y)";
-const W = "min-[1100px]:w-(--w)";
-const H = "min-[1100px]:h-(--h)";
-const at = (x, y, w, h) => ({
-  "--x": `${x}px`,
-  "--y": `${y}px`,
-  ...(w && { "--w": `${w}px` }),
-  ...(h && { "--h": `${h}px` }),
+const POS = "absolute left-(--mx) top-(--my) min-[600px]:left-(--x) min-[600px]:top-(--y)";
+const W = "w-(--mw) min-[600px]:w-(--w)";
+const H = "h-(--mh) min-[600px]:h-(--h)";
+const px = (v) => (v == null ? "auto" : `${v}px`);
+// at([x, y, w, h], [mx, my, mw, mh]); all variables are always set so nested elements never inherit them
+const at = ([x, y, w, h], [mx, my, mw, mh] = []) => ({
+  "--x": px(x), "--y": px(y), "--w": px(w), "--h": px(h),
+  "--mx": px(mx), "--my": px(my), "--mw": px(mw), "--mh": px(mh),
 });
 
-// y values are Wix's span tops (67px content box around the 56px line), hence the 5.5px offset
-const H56 = `${KR} text-[36px] leading-[1.15] min-[1100px]:text-[56px] min-[1100px]:leading-[56px] min-[1100px]:mt-[5.5px] tracking-[0.01em] whitespace-pre-line`;
+// y values are Wix's span tops (content box taller than the line), hence the small top margins
+const H56 = `${KR} text-[30px] leading-[30px] mt-[3px] min-[600px]:text-[56px] min-[600px]:leading-[56px] min-[600px]:mt-[5.5px] tracking-[0.01em] whitespace-pre-line`;
 const BODY16 = `${R} text-[16px] leading-[22.4px] tracking-[0.01em] space-y-[27px]`; // Wix: an empty line between paragraphs
-const BODY18 = `${R} text-[18px] leading-[32px] space-y-[32px]`;
 const RED_RUN = "font-light text-[#ff6868]";
 const RED = "bg-[#b10000]";
+const DESKTOP_ONLY = "hidden min-[600px]:block";
 
 const mapEmbed = (query) => `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
 const scrollTo = (id) => (e) => {
@@ -48,26 +50,33 @@ const scrollTo = (id) => (e) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 };
 
-// Fixed-height Wix section (desktop) holding the 980px column; stacked with padding below 1100px
-const Section = ({ id, h, className, children }) => (
-  <section id={id} style={{ "--sh": `${h}px` }} className={cn("relative scroll-mt-4 min-[1100px]:h-(--sh)", className)}>
-    <div className="relative mx-auto max-w-[980px] h-full flex flex-col gap-6 px-4 py-12 min-[1100px]:block min-[1100px]:p-0">
-      {children}
-    </div>
+// Fixed-height Wix section holding the 320px (mobile) / 980px (desktop) column
+const Section = ({ id, h, mh, className, children }) => (
+  <section id={id} style={{ "--sh": `${h}px`, "--msh": `${mh}px` }} className={cn("relative h-(--msh) min-[600px]:h-(--sh)", className)}>
+    <div className="relative mx-auto w-[320px] min-[600px]:w-[980px] h-full">{children}</div>
   </section>
 );
+
+// Heading lines that Wix breaks on desktop only
+const DesktopLines = ({ text }) =>
+  text.split("\n").map((line, i) => (
+    <span key={line}>
+      {i > 0 && <br className="hidden min-[600px]:inline" />}
+      {line}
+    </span>
+  ));
 
 const LANGUAGE_ORDER = ["en", "ja", "it", "de", "uk", "es"]; // as in the old Wix language menu
 const languageLabel = (code) => (code === "uk" ? "UA" : code.toUpperCase());
 
-const LanguageMenu = () => {
+const LanguageMenu = ({ className = cn(POS, W, H), style = at([895, 44, null, 40], [206, 15, 97, 46]) }) => {
   const { currentLanguage, changeLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn(POS, "relative ml-auto")} style={at(895, 44)}>
+    <div className={className} style={style}>
       <button
         onClick={() => setOpen(!open)}
-        className={`${HV} flex items-center gap-[30px] h-10 px-2 text-[14px] text-white cursor-pointer`}
+        className={`${HV} flex items-center justify-between w-full h-full pl-[10px] pr-[20px] min-[600px]:justify-start min-[600px]:gap-[30px] min-[600px]:px-2 text-[14px] text-white cursor-pointer`}
         aria-expanded={open}
       >
         {languageLabel(currentLanguage)}
@@ -96,65 +105,70 @@ const LanguageMenu = () => {
   );
 };
 
-// Wix menu item boxes (x, width); labels are centered in them
+// Wix menu item boxes (x, width); labels are centered in them. The mobile layout has no menu.
 const NAV = [[98, 159], [319, 91], [499, 105]];
 
 const Header = () => (
-  <Section h={119}>
-    <div className="flex items-center gap-4 flex-wrap min-[1100px]:block">
-      <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={POS} style={at(0, 39)}>
-        <img src={smallLogo} alt="Unissued Diplomas" className="w-[39px] h-[50px] object-contain" />
-      </Link>
-      {jp.nav.map(({ label, to }, i) => (
-        <a
-          key={to}
-          href={to}
-          onClick={scrollTo(to.split("#")[1])}
-          className={`${POS} ${W} ${HV} hidden min-[1100px]:block text-center text-[14px] leading-[50px] text-white whitespace-nowrap`}
-          style={at(NAV[i][0], 39, NAV[i][1])}
-        >
-          {label}
-        </a>
-      ))}
+  <Section h={119} mh={76}>
+    <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={cn(POS, W, H)} style={at([0, 39, 39, 50], [22, 23, 27, 31])}>
+      <img src={smallLogo} alt="Unissued Diplomas" className="w-full h-full object-contain" />
+    </Link>
+    {jp.nav.map(({ label, to }, i) => (
       <a
-        href={jp.donate.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${POS} ${W} ${H} ${HV} ${RED} flex items-center justify-center px-4 h-10 text-[15px] tracking-[1.5px] text-white`}
-        style={at(660, 44, 209, 40)}
+        key={to}
+        href={to}
+        onClick={scrollTo(to.split("#")[1])}
+        className={`${POS} ${W} ${HV} ${DESKTOP_ONLY} text-center text-[14px] leading-[50px] text-white whitespace-nowrap`}
+        style={at([NAV[i][0], 39, NAV[i][1]])}
       >
-        {jp.donate.label}
+        {label}
       </a>
-      <LanguageMenu />
-    </div>
+    ))}
+    <a
+      href={jp.donate.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${POS} ${W} ${H} ${HV} ${RED} flex items-center justify-center text-[15px] tracking-[1.5px] text-white`}
+      style={at([660, 44, 209, 40], [75, 21, 111, 34])}
+    >
+      {jp.donate.label}
+    </a>
+    <LanguageMenu />
   </Section>
 );
 
-const Hero = () => (
-  <Section h={523}>
-    <h1 className={`${KR} text-[#ebebeb] whitespace-nowrap leading-none`}>
-      <span className={`${POS} block text-[11vw] tracking-[-0.02em] min-[1100px]:text-[120px]`} style={at(0, 85)}>
-        {jp.hero.title.split("\n")[0]}
-      </span>
-      <span className={`${POS} block mt-3 text-[13.3vw] min-[1100px]:mt-0 min-[1100px]:text-[145px]`} style={at(0, 224)}>
-        <span className="tracking-[-0.02em]">{jp.hero.title.split("\n")[1].slice(0, -1)}</span>
-        {jp.hero.title.slice(-1)}
-      </span>
-    </h1>
-    <img
-      src="/legacy/ornament.png"
-      alt=""
-      className={`${POS} ${W} ${H} absolute right-4 top-24 w-[22vw] h-auto min-[1100px]:right-auto`}
-      style={at(654, 189, 118, 116)}
-    />
-    <p className={`${POS} ${R} text-[16px] min-[1100px]:text-[20px] min-[1100px]:leading-[20px] tracking-[1px] text-[#ebebeb]`} style={at(0, 406)}>
-      {jp.hero.tagline}
-    </p>
-  </Section>
-);
+const Hero = () => {
+  const [line1, line2] = jp.hero.title.split("\n");
+  return (
+    <Section h={523} mh={333}>
+      <h1 className={`${KR} text-[#ebebeb]`}>
+        <span
+          className={`${POS} ${W} block text-[40px] leading-[44px] min-[600px]:text-[120px] min-[600px]:leading-none min-[600px]:whitespace-nowrap tracking-[-0.02em]`}
+          style={at([0, 85], [16, 50, 200])}
+        >
+          {line1}
+        </span>
+        <span
+          className={`${POS} block whitespace-nowrap text-[40px] leading-[44px] min-[600px]:text-[145px] min-[600px]:leading-none`}
+          style={at([0, 224], [16, 142])}
+        >
+          <span className="tracking-[-0.02em]">{line2.slice(0, -1)}</span>
+          {line2.slice(-1)}
+        </span>
+      </h1>
+      <img src="/legacy/ornament.png" alt="" className={cn(POS, W, H)} style={at([654, 189, 118, 116], [154, 134, 40, 39])} />
+      <p
+        className={`${POS} ${W} ${R} text-[16px] leading-[32px] min-[600px]:text-[20px] min-[600px]:leading-[20px] min-[600px]:whitespace-nowrap tracking-[0.05em] text-[#ebebeb]`}
+        style={at([0, 406], [16, 209, 202])}
+      >
+        {jp.hero.tagline}
+      </p>
+    </Section>
+  );
+};
 
-const TwoColumns = ({ id, h, className, heading, headingClass, headingAt, text, textClass, textAt }) => (
-  <Section id={id} h={h} className={className}>
+const TwoColumns = ({ id, h, mh, className, heading, headingClass, headingAt, text, textClass, textAt }) => (
+  <Section id={id} h={h} mh={mh} className={className}>
     <h2 className={cn(POS, W, headingClass)} style={headingAt}>
       {heading}
     </h2>
@@ -164,11 +178,12 @@ const TwoColumns = ({ id, h, className, heading, headingClass, headingAt, text, 
   </Section>
 );
 
-// The image stays pinned to the viewport while the section scrolls over it (Wix "reveal" background)
+// Desktop: the image stays pinned to the viewport while the section scrolls over it (Wix "reveal" background).
+// Mobile: a plain image filling the section.
 const Banner = () => (
-  <section className="relative h-[200px] min-[1100px]:h-[281px] [clip-path:inset(0)]">
-    <img src="/legacy/jp/banner-flags.jpg" alt="" className="fixed inset-0 w-full h-screen object-cover pointer-events-none" />
-    <p className={`${R} relative h-full flex items-center justify-center text-center whitespace-pre-line px-4 text-[26px] leading-[1.1] min-[1100px]:text-[40px] min-[1100px]:leading-[40px] tracking-[0.01em] text-[#ebebeb]`}>
+  <section className="relative h-[200px] min-[600px]:h-[281px] [clip-path:inset(0)]">
+    <img src="/legacy/jp/banner-flags.jpg" alt="" className="absolute inset-0 w-full h-full min-[600px]:fixed min-[600px]:h-screen object-cover pointer-events-none" />
+    <p className={`${R} relative h-full flex items-center justify-center text-center whitespace-pre-line min-[600px]:pt-[8px] text-[20px] leading-[20px] min-[600px]:text-[40px] min-[600px]:leading-[40px] tracking-[0.01em] text-[#ebebeb]`}>
       {jp.banner}
     </p>
   </section>
@@ -178,77 +193,92 @@ const THUMB = 108;
 const THUMB_STEP = 118;
 
 const Chevron = ({ flip }) => (
-  <svg viewBox="0 0 16 27" className={cn("w-4 h-[27px]", flip && "rotate-180")} fill="none" stroke="#b10000" strokeWidth="1.5">
+  <svg viewBox="0 0 16 27" className={cn("w-[11px] h-[19px] min-[600px]:w-4 min-[600px]:h-[27px]", flip && "rotate-180")} fill="none" stroke="#b10000" strokeWidth="1.5">
     <path d="M2 1l12 12.5L2 26" />
   </svg>
 );
 
-// Wix Pro Gallery look: one slide (840×390 image) with side arrows, a strip of square thumbnails below
-const Gallery = () => {
+// The students and order of the old page's gallery (texts/jp.json); images come from Strapi
+const useGalleryImages = () => {
   const { diplomas, diplomaLanguages } = useContent();
-  const [index, setIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(false);
-  const strip = useRef(null);
   const language = diplomaLanguages.find((l) => l.name === jp.gallery.diplomaLanguage);
-  // The students and order of the old page's gallery (texts/jp.json); images come from Strapi
-  const images = useMemo(
+  return useMemo(
     () =>
       jp.gallery.students.flatMap((student) => {
         const version = diplomas
           .find(({ studentName }) => studentName === student)
           ?.versions.find((v) => v.language?.documentId === language?.documentId);
         return version
-          ? [{ name: student, src: mediaUrl(version.image, "large"), thumb: mediaUrl(version.image, "small"), full: version.image.url }]
+          ? [{
+              name: student,
+              src: mediaUrl(version.image, "large"),
+              // the original (1920px) on dense screens, so the slide is as sharp as the fullscreen view
+              srcSet: [version.image.formats?.large, version.image].filter(Boolean).map((f) => `${f.url} ${f.width}w`).join(", "),
+              thumb: mediaUrl(version.image, "small"),
+              full: version.image.url,
+            }]
           : [];
       }),
     [diplomas, language],
   );
-  const go = (i) => setIndex((i + images.length) % images.length);
+};
 
-  // Keep the active thumbnail centered in the strip
+// Slide index + a thumbnail strip that keeps the active thumbnail centered
+const useGallery = (count, step = THUMB_STEP, thumb = THUMB) => {
+  const [index, setIndex] = useState(0);
+  const strip = useRef(null);
   useEffect(() => {
     const el = strip.current;
-    el?.scrollTo({ left: index * THUMB_STEP - (el.clientWidth - THUMB) / 2, behavior: "smooth" });
-  }, [index]);
+    el?.scrollTo({ left: index * step - (el.clientWidth - thumb) / 2, behavior: "smooth" });
+  }, [index, step, thumb]);
+  return { index, setIndex, go: (i) => setIndex((i + count) % count), strip };
+};
 
+// Wix Pro Gallery look: one slide (840×390 image, 227×105 on mobile) with side arrows;
+// desktop also has a strip of square thumbnails and a donate button below
+const Gallery = () => {
+  const images = useGalleryImages();
+  const { index, setIndex, go, strip } = useGallery(images.length);
+  const [zoomed, setZoomed] = useState(false);
+
+  // Mobile: the classroom's dark bottom strip overlaps 13px into this section, so mobile y values include it
   return (
-    <Section h={784}>
-      <h2 className={cn(POS, H56)} style={at(0, 27)}>
+    <Section h={784} mh={294}>
+      <h2 className={cn(POS, H56)} style={at([0, 27], [16, 31])}>
         {jp.gallery.heading}
       </h2>
-      <p className={`${POS} ${HV} flex items-center gap-[2px] whitespace-nowrap text-[16px] leading-[30px] text-[#404040]`} style={at(716, 30)}>
-        <img src="/legacy/zoom-hint.png" alt="" className="w-[34px] h-[30px] object-cover object-left" />
+      <p
+        className={`${POS} ${W} ${HV} flex items-start gap-[7px] text-[14px] leading-[26.32px] min-[600px]:items-center min-[600px]:gap-[2px] min-[600px]:whitespace-nowrap min-[600px]:text-[16px] min-[600px]:leading-[30px] text-[#404040]`}
+        style={at([716, 30], [46, 72, 246])}
+      >
+        <img src="/legacy/zoom-hint.png" alt="" className="shrink-0 mt-[5px] min-[600px]:mt-0 w-[24px] h-[21px] min-[600px]:w-[34px] min-[600px]:h-[30px] object-cover object-left" />
         {jp.gallery.hint}
       </p>
 
-      <div className={`${POS} ${W} relative`} style={at(-39, 131, 1066)}>
-        <div className="relative mx-auto min-[1100px]:w-[954px]">
+      <div className={cn(POS, W)} style={at([-39, 131, 1066], [47, 124, 227])}>
+        <div className="relative mx-auto w-full min-[600px]:w-[954px]">
           <div className="overflow-hidden">
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${index * 100}%)` }}>
               {images.map((image) => (
-                <button
-                  key={image.name}
-                  onClick={() => setZoomed(true)}
-                  className="shrink-0 w-full aspect-[840/390] min-[1100px]:aspect-auto min-[1100px]:h-[390px] min-[1100px]:px-[57px] cursor-pointer"
-                >
-                  <img src={image.src} alt={image.name} loading="lazy" className="w-full h-full object-contain" />
+                <button key={image.name} onClick={() => setZoomed(true)} className="shrink-0 w-full h-[105px] min-[600px]:h-[390px] min-[600px]:px-[57px] cursor-pointer">
+                  <img src={image.src} srcSet={image.srcSet} sizes="(min-width: 600px) 840px, 227px" alt={image.name} loading="lazy" className="w-full h-full object-contain" />
                 </button>
               ))}
             </div>
           </div>
           {index > 0 && (
-            <button onClick={() => go(index - 1)} aria-label="Previous" className="absolute top-1/2 -translate-y-1/2 -left-4 min-[1100px]:-left-9 cursor-pointer">
+            <button onClick={() => go(index - 1)} aria-label="Previous" className="absolute top-1/2 -translate-y-1/2 -left-[31px] min-[600px]:-left-9 cursor-pointer">
               <Chevron flip />
             </button>
           )}
           {index < images.length - 1 && (
-            <button onClick={() => go(index + 1)} aria-label="Next" className="absolute top-1/2 -translate-y-1/2 -right-4 min-[1100px]:-right-9 cursor-pointer">
+            <button onClick={() => go(index + 1)} aria-label="Next" className="absolute top-1/2 -translate-y-1/2 -right-[31px] min-[600px]:-right-9 cursor-pointer">
               <Chevron />
             </button>
           )}
         </div>
 
-        <div ref={strip} className="mt-[5px] overflow-x-auto [scrollbar-width:none] p-[5px]">
+        <div ref={strip} className={`${DESKTOP_ONLY} mt-[5px] overflow-x-auto [scrollbar-width:none] p-[5px]`}>
           <div className="flex gap-[10px]">
             {images.map((image, i) => (
               <button
@@ -267,8 +297,8 @@ const Gallery = () => {
       <a
         href="#fund"
         onClick={scrollTo("fund")}
-        className={`${POS} ${W} ${H} ${KM} ${RED} flex items-center justify-center h-[47px] text-[16px] tracking-[0.8px] text-[#ebebeb]`}
-        style={at(-37, 690, 1057, 47)}
+        className={`${POS} ${W} ${H} ${KM} ${RED} hidden min-[600px]:flex items-center justify-center text-[16px] tracking-[0.8px] text-[#ebebeb]`}
+        style={at([-37, 690, 1057, 47])}
       >
         {jp.gallery.donate}
       </a>
@@ -284,64 +314,78 @@ const Gallery = () => {
   );
 };
 
-// Venues grouped by city: name, red-framed dates and hours on the left, a map on the right.
-// Wix placed every venue by hand, so each one carries its own desktop coordinates (texts/jp.json `layout`).
+// Venues grouped by city: name, red-framed dates and hours, a map. Wix placed every venue by hand in both
+// layouts, so each one carries its own coordinates (texts/jp.json: `layout` desktop, `mobile`).
 const Venues = () => (
-  <Section h={2262}>
-    <h2 className={cn(POS, W, H56, "text-center")} style={at(283, 48, 454)}>
+  <Section h={2262} mh={2929}>
+    <h2 className={cn(POS, W, H56, "min-[600px]:text-center")} style={at([283, 48, 454], [16, 18])}>
       {jp.venues.heading}
     </h2>
-    {Object.entries(Object.groupBy(jp.venues.items, (v) => v.city)).map(([city, venues]) => (
-      <div key={city} className="flex flex-col gap-6 min-[1100px]:contents">
-        <h3 className={cn(POS, R, "text-[40px] leading-[1.1] min-[1100px]:text-[56px] min-[1100px]:leading-[56px] tracking-[0.01em]")} style={at(-37, jp.venues.cities[city])}>
-          {city}
-        </h3>
-        {venues.map(({ name, dates, hours, map, layout }) => (
-          <div key={name} className="flex flex-col gap-6 min-[1100px]:contents">
-            <p className={cn(POS, W, KM, "whitespace-pre-line text-[24px] leading-[25px] tracking-[0.01em] text-[#ebebeb]")} style={at(-37, layout.name, 420)}>
-              {name}
+    {Object.entries(Object.groupBy(jp.venues.items, (v) => v.city)).map(([city, venues]) => [
+      <h3
+        key={city}
+        className={cn(POS, R, "text-[36px] leading-[36px] min-[600px]:text-[56px] min-[600px]:leading-[56px] tracking-[0.01em]")}
+        style={at([-37, jp.venues.cities[city]], [20, jp.venues.mobileCities[city]])}
+      >
+        {city}
+      </h3>,
+      ...venues.map(({ name, dates, hours, map, layout, mobile: m }) => (
+        <div key={name} className="contents">
+          <p
+            className={cn(POS, W, KM, "whitespace-pre-line text-(length:--mfs) leading-(--mfs) min-[600px]:text-[24px] min-[600px]:leading-[25px] tracking-[0.01em] text-[#ebebeb]")}
+            style={{ ...at([-37, layout.name, 420], m.name), "--mfs": `${m.name[3]}px` }}
+          >
+            {name}
+          </p>
+          <div
+            className={cn(POS, W, H, "flex items-center justify-center border border-[#b10000] min-[600px]:block")}
+            style={{ ...at([-37, layout.box[0], layout.box[1], layout.box[2]], [...m.box, 50]), "--tw": `${layout.date[1]}px` }}
+          >
+            <p className={`${KR} min-[600px]:absolute min-[600px]:left-[16px] min-[600px]:top-[13px] min-[600px]:w-(--tw) text-[24px] leading-[29px] min-[600px]:leading-[25px] tracking-[0.01em] text-[#b30000]`}>
+              {dates}
             </p>
-            <div
-              className={cn(POS, W, H, "relative w-fit border border-[#b10000] px-[17px] py-[14px]")}
-              style={{ ...at(-37, layout.box[0], layout.box[1], layout.box[2]), "--tw": `${layout.date[1]}px` }}
-            >
-              <p className={`${KR} min-[1100px]:absolute min-[1100px]:left-[16px] min-[1100px]:top-[13px] min-[1100px]:w-(--tw) text-[24px] leading-[25px] tracking-[0.01em] text-[#b30000]`}>
-                {dates}
-              </p>
-            </div>
-            {hours && (
-              <p className={cn(POS, R, "whitespace-pre-line text-[18px] leading-[20px] min-[1100px]:text-[20px] min-[1100px]:leading-[21.5px] tracking-[0.01em] text-[#ebebeb]")} style={at(-37, layout.hours)}>
-                {hours}
-              </p>
-            )}
-            <iframe
-              src={mapEmbed(map)}
-              title={name}
-              loading="lazy"
-              className={cn(POS, W, H, "w-full h-[260px] border-0 grayscale invert-[0.9]")}
-              style={at(540, layout.name, 479, 310)}
-            />
           </div>
-        ))}
-      </div>
-    ))}
+          {hours && (
+            <p
+              className={cn(POS, W, R, "whitespace-pre-line text-[17px] leading-[18px] min-[600px]:text-[20px] min-[600px]:leading-[21.5px] tracking-[0.01em] text-[#ebebeb]")}
+              style={at([-37, layout.hours], m.hours)}
+            >
+              {hours}
+            </p>
+          )}
+          <iframe
+            src={mapEmbed(map)}
+            title={name}
+            loading="lazy"
+            className={cn(POS, W, H, "border-0 grayscale invert-[0.9]")}
+            style={at([540, layout.name, 479, 310], [...m.map, 280, 240])}
+          />
+        </div>
+      )),
+    ])}
   </Section>
 );
 
 const Fund = () => (
-  <Section id="fund" h={512} className={RED}>
-    <h2 className={cn(POS, W, H56, "text-center tracking-normal")} style={at(100, 49, 784)}>
+  <Section id="fund" h={512} mh={837} className={RED}>
+    <h2
+      className={cn(POS, W, KR, "text-center text-[32px] leading-[32px] min-[600px]:text-[56px] min-[600px]:leading-[56px] min-[600px]:mt-[5.5px]")}
+      style={at([100, 49, 784], [30, 32, 260])}
+    >
       {jp.fund.heading}
     </h2>
-    <div className={`${POS} ${W} ${KR} text-[18px] min-[1100px]:text-[20px] leading-[28px] tracking-[0.01em] space-y-[28px] text-white`} style={at(-35, 164, 1053)}>
+    <div
+      className={`${POS} ${W} ${KR} text-[19px] leading-[26.6px] space-y-[39.6px] min-[600px]:text-[20px] min-[600px]:leading-[28px] min-[600px]:space-y-[28px] tracking-[0.01em] text-white`}
+      style={at([-35, 164, 1053], [20, 128, 280])}
+    >
       <RichText blocks={toBlocks(jp.fund.text)} strongClassName="font-bold" />
     </div>
     <a
       href={jp.fund.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${POS} ${W} ${H} ${KM} flex items-center justify-center h-[65px] bg-[#fbfbfb] text-[20px] min-[1100px]:text-[24px] tracking-[1.2px] text-[#b10000]`}
-      style={at(239, 400, 548, 65)}
+      className={`${POS} ${W} ${H} ${KM} flex items-center justify-center bg-[#fbfbfb] text-[18px] min-[600px]:text-[24px] tracking-[0.05em] text-[#b10000]`}
+      style={at([239, 400, 548, 65], [16, 741, 288, 54])}
     >
       {jp.fund.button}
     </a>
@@ -349,84 +393,93 @@ const Fund = () => (
 );
 
 const Mission = () => (
-  <Section h={911}>
-    <div className={`${POS} ${W} ${H} relative`} style={at(-36, 109, 469, 694)}>
+  <Section h={911} mh={1209}>
+    <div className={cn(POS, W, H)} style={at([-36, 109, 469, 694], [16, 411, 287, 308])}>
       <img src="/legacy/team.png" alt="" className="w-full h-full object-cover object-[60%_50%]" />
-      <p className={`${KM} absolute left-[13px] bottom-[9px] text-[12px] leading-[16.92px] text-[#ebebeb]`}>{jp.photoCredit}</p>
+      <p className={`${KM} ${DESKTOP_ONLY} absolute left-[13px] bottom-[9px] text-[12px] leading-[16.92px] text-[#ebebeb]`}>{jp.photoCredit}</p>
     </div>
-    <h2 className={cn(POS, H56)} style={at(509, 95)}>
+    <h2 className={cn(POS, H56)} style={at([509, 95], [15, 62])}>
       {jp.purpose.heading}
     </h2>
-    <div className={`${POS} ${W} ${BODY18} text-[#ebebeb]`} style={at(510, 182, 451)}>
+    <div
+      className={`${POS} ${W} ${R} text-[18px] leading-[31.5px] space-y-[31.5px] min-[600px]:leading-[32px] min-[600px]:space-y-[32px] text-[#ebebeb]`}
+      style={at([510, 182, 451], [16, 130, 270])}
+    >
       <RichText blocks={toBlocks(jp.purpose.text)} strongClassName={RED_RUN} />
     </div>
-    <h2 className={cn(POS, H56)} style={at(509, 426)}>
-      {jp.team.heading}
+    <h2 className={cn(POS, W, H56, "whitespace-normal")} style={at([509, 426], [14, 753, 290])}>
+      <DesktopLines text={jp.team.heading} />
     </h2>
-    <div className={`${POS} ${W} ${BODY18} text-white`} style={at(509, 580, 469)}>
+    <div
+      className={`${POS} ${W} ${R} text-[17px] leading-[29.75px] space-y-[29.75px] min-[600px]:text-[18px] min-[600px]:leading-[32px] min-[600px]:space-y-[32px] text-white`}
+      style={at([509, 580, 469], [20, 800, 281])}
+    >
       <RichText blocks={toBlocks(jp.team.text)} strongClassName={RED_RUN} />
     </div>
   </Section>
 );
 
-// Logo wall with the exact Wix placement on desktop; a wrapped row on small screens
-const Logos = ({ heading, logos, texts, h, headingX, className }) => (
-  <Section h={h} className={className}>
-    <h2 className={cn(POS, H56)} style={at(headingX, 88)}>
+const TEXT_SIZES = {
+  10: "text-[9px] leading-[12.6px] min-[600px]:text-center min-[600px]:text-[10px] min-[600px]:leading-[14px]",
+  16: "text-[16px] leading-[22.4px]",
+  24: "text-center text-[24px] leading-[33.6px]",
+};
+
+// Logo walls with the exact Wix placement in both layouts
+const Logos = ({ heading, logos, texts, h, mh, headingAt, className }) => (
+  <Section h={h} mh={mh} className={className}>
+    <h2 className={cn(POS, H56)} style={headingAt}>
       {heading}
     </h2>
-    <div className="flex flex-wrap items-center gap-6 min-[1100px]:contents">
-      {logos.map(({ name, src, href, x, y, w, h }) => {
-        const img = <img src={src} alt={name} loading="lazy" className="h-14 w-auto max-w-[40vw] object-contain min-[1100px]:w-full min-[1100px]:h-full min-[1100px]:max-w-none min-[1100px]:object-cover" />;
-        const box = cn(POS, W, H, "block");
-        return href ? (
-          <a key={src} href={href} target="_blank" rel="noopener noreferrer" className={box} style={at(x, y, w, h)}>
-            {img}
-          </a>
-        ) : (
-          <span key={src} className={box} style={at(x, y, w, h)}>
-            {img}
-          </span>
-        );
-      })}
-      {texts.map(({ text, x, y, w, size }) => (
-        <p
-          key={text}
-          className={cn(POS, W, KR, "whitespace-pre tracking-[0.01em] text-[#ebebeb]", size === 10 ? "text-center text-[10px] leading-[14px]" : size === 24 ? "text-center text-[24px] leading-[33.6px]" : "text-[16px] leading-[22.4px]")}
-          style={at(x, y, w)}
-        >
-          {text}
-        </p>
-      ))}
-    </div>
+    {logos.map(({ name, src, href, x, y, w, h, m }) => {
+      const img = <img src={src} alt={name} loading="lazy" className="w-full h-full object-cover" />;
+      const box = cn(POS, W, H, "block");
+      return href ? (
+        <a key={src} href={href} target="_blank" rel="noopener noreferrer" className={box} style={at([x, y, w, h], m)}>
+          {img}
+        </a>
+      ) : (
+        <span key={src} className={box} style={at([x, y, w, h], m)}>
+          {img}
+        </span>
+      );
+    })}
+    {texts.map(({ text, x, y, w, size, m }) => (
+      <p key={text} className={cn(POS, W, KR, "min-[600px]:whitespace-pre tracking-[0.01em] text-[#ebebeb]", TEXT_SIZES[size])} style={at([x, y, w], m)}>
+        {size === 24 ? text : text.replace("\n", " ")}
+      </p>
+    ))}
   </Section>
 );
 
 const Faq = () => {
   const [open, setOpen] = useState(null);
+  // Mobile: the partners' dark bottom strip overlaps 16px into this section, so mobile y values include it
   return (
-    <section id="faq" className="px-4 py-12 min-[1100px]:px-0 min-[1100px]:pt-[57px] min-[1100px]:pb-[60px]">
-      <div className="mx-auto max-w-[980px] min-[1100px]:grid min-[1100px]:grid-cols-[540px_523px] min-[1100px]:-translate-x-[36px]">
-        <div className="relative min-[1100px]:pt-[41px]">
-          <h2 className={H56}>{jp.faq.heading}</h2>
-          <img src="/legacy/ornament.png" alt="" className="absolute left-[200px] top-[30px] w-[60px] min-[1100px]:left-[325px] min-[1100px]:top-[73px] min-[1100px]:w-[88px] h-auto" />
-        </div>
-        <div className="mt-8 min-[1100px]:mt-0">
+    <section id="faq" className="relative pt-[147px] pb-[20px] min-[600px]:pt-[57px] min-[600px]:pb-[60px]">
+      <div className="relative mx-auto w-[320px] min-[600px]:w-[980px]">
+        <h2 className={cn(H56, "absolute left-[15px] -top-[73px] text-[28px] leading-[28px] min-[600px]:left-[-36px] min-[600px]:top-[41px]")}>{jp.faq.heading}</h2>
+        <img
+          src="/legacy/ornament.png"
+          alt=""
+          className="absolute left-[191px] -top-[75px] w-[43px] h-[42px] min-[600px]:left-[289px] min-[600px]:top-[73px] min-[600px]:w-[88px] min-[600px]:h-auto"
+        />
+        <div className="ml-[27px] w-[265px] min-[600px]:ml-[504px] min-[600px]:w-[523px]">
           {jp.faq.items.map(({ question, answer }, i) => (
             <div key={question} className="border-b border-[#b10000]">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-start justify-between gap-4 pt-[40px] pb-[36.5px] text-left cursor-pointer"
+                className="w-full flex items-start justify-between min-[600px]:gap-4 pt-[27px] pb-[26px] min-[600px]:pt-[40px] min-[600px]:pb-[36.5px] text-left cursor-pointer"
                 aria-expanded={open === i}
               >
-                <span className={`${KR} text-[16px] leading-[22.4px] text-[#ebebeb]`}>{question}</span>
+                <span className={`${KR} w-[241px] min-[600px]:w-auto text-[16px] leading-[22.4px] text-[#ebebeb]`}>{question}</span>
                 <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 -mt-[2px]" stroke="#ebebeb" strokeWidth="1">
                   <path d="M12 4v16" className={cn("transition-opacity", open === i && "opacity-0")} />
                   <path d="M4 12h16" />
                 </svg>
               </button>
               {open === i && (
-                <div className={`${KM} -mt-[8.4px] pb-[53px] text-[16px] leading-[21.5px] text-[#ebebeb]`}>
+                <div className={`${KM} -mt-[1.4px] min-[600px]:-mt-[8.4px] pb-[53px] text-[16px] leading-[24px] min-[600px]:leading-[21.5px] text-[#ebebeb]`}>
                   <RichText blocks={toBlocks(answer)} />
                 </div>
               )}
@@ -438,7 +491,346 @@ const Faq = () => {
   );
 };
 
+// ---------------------------------------------------------------------------------------------------------
+// Tablet layout (600–1099px). The old Wix page had none: tablets got the 980px desktop layout shrunk to fit,
+// with unreadable small text. Here it is a fluid layout with the same fonts, colours and content.
+// ---------------------------------------------------------------------------------------------------------
+const TABLET_QUERY = "(min-width: 600px) and (max-width: 1099px)";
+const useMediaQuery = (query) =>
+  useSyncExternalStore(
+    (onChange) => {
+      const list = window.matchMedia(query);
+      list.addEventListener("change", onChange);
+      return () => list.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(query).matches,
+  );
+
+const T_WRAP = "mx-auto w-full max-w-[880px] px-8 min-[768px]:px-12";
+const T_SECTION = "py-16 min-[768px]:py-20";
+const T_H2 = `${KR} text-[40px] min-[768px]:text-[48px] leading-[1.15] tracking-[0.01em] whitespace-pre-line text-balance`;
+const T_BODY = `${R} text-[16px] min-[768px]:text-[17px] leading-[1.7] tracking-[0.01em] space-y-[1.2em]`;
+// Two columns only from 900px: below that the heading column gets too narrow for Japanese headings
+const T_TWO_COLUMNS = "grid gap-8 min-[900px]:grid-cols-[5fr_7fr] min-[900px]:gap-12";
+
+const TabletHeader = () => (
+  <header className={`${T_WRAP} flex items-center gap-6 h-[88px]`}>
+    <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="shrink-0">
+      <img src={smallLogo} alt="Unissued Diplomas" className="w-[34px] h-[44px] object-contain" />
+    </Link>
+    <nav className="hidden min-[900px]:flex gap-8">
+      {jp.nav.map(({ label, to }) => (
+        <a key={to} href={to} onClick={scrollTo(to.split("#")[1])} className={`${HV} text-[14px] text-white whitespace-nowrap hover:text-[#ff6868]`}>
+          {label}
+        </a>
+      ))}
+    </nav>
+    <a
+      href={jp.donate.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${HV} ${RED} ml-auto flex items-center h-10 px-7 text-[15px] tracking-[1.5px] text-white whitespace-nowrap`}
+    >
+      {jp.donate.label}
+    </a>
+    <LanguageMenu className="relative h-10" style={{}} />
+  </header>
+);
+
+const TabletHero = () => {
+  const [line1, line2] = jp.hero.title.split("\n");
+  return (
+    <section className={`${T_WRAP} pt-10 pb-16 min-[768px]:pb-20`}>
+      {/* Stamp placed in em units with the same proportions as on desktop */}
+      <h1 className={`${KR} relative inline-block text-[min(10vw,94px)] leading-[1.15] text-[#ebebeb]`}>
+        <span className="block tracking-[-0.02em]">{line1}</span>
+        <span className="block text-[1.21em] leading-[1.1]">
+          <span className="tracking-[-0.02em]">{line2.slice(0, -1)}</span>
+          {line2.slice(-1)}
+        </span>
+        <img src="/legacy/ornament.png" alt="" className="absolute left-[5.45em] top-[0.87em] w-[0.98em] h-[0.97em]" />
+      </h1>
+      <p className={`${R} mt-8 text-[18px] tracking-[0.05em] text-[#ebebeb]`}>{jp.hero.tagline}</p>
+    </section>
+  );
+};
+
+const TabletText = ({ id, className, heading, headingClass = T_H2, text, textColor = "text-[#ebebeb]" }) => (
+  <section id={id} className={cn(T_SECTION, className)}>
+    <div className={`${T_WRAP} ${T_TWO_COLUMNS}`}>
+      <h2 className={headingClass}>{heading}</h2>
+      <div className={`${T_BODY} ${textColor}`}>
+        <RichText blocks={toBlocks(text)} strongClassName={RED_RUN} />
+      </div>
+    </div>
+  </section>
+);
+
+const T_THUMB = 96;
+
+const TabletGallery = () => {
+  const images = useGalleryImages();
+  const { index, setIndex, go, strip } = useGallery(images.length, T_THUMB + 8, T_THUMB);
+  const [zoomed, setZoomed] = useState(false);
+  return (
+    <section className={`${T_WRAP} ${T_SECTION}`}>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h2 className={T_H2}>{jp.gallery.heading}</h2>
+        <p className={`${HV} flex items-center gap-1 text-[15px] text-[#8a8a8a]`}>
+          <img src="/legacy/zoom-hint.png" alt="" className="w-[28px] h-[25px] object-cover object-left opacity-60" />
+          {jp.gallery.hint}
+        </p>
+      </div>
+      <div className="relative mt-8 px-8">
+        <div className="overflow-hidden">
+          <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${index * 100}%)` }}>
+            {images.map((image) => (
+              <button key={image.name} onClick={() => setZoomed(true)} className="shrink-0 w-full aspect-[840/390] cursor-pointer">
+                <img src={image.src} srcSet={image.srcSet} sizes="100vw" alt={image.name} loading="lazy" className="w-full h-full object-contain" />
+              </button>
+            ))}
+          </div>
+        </div>
+        {index > 0 && (
+          <button onClick={() => go(index - 1)} aria-label="Previous" className="absolute left-0 top-1/2 -translate-y-1/2 cursor-pointer">
+            <Chevron flip />
+          </button>
+        )}
+        {index < images.length - 1 && (
+          <button onClick={() => go(index + 1)} aria-label="Next" className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer">
+            <Chevron />
+          </button>
+        )}
+      </div>
+      <div ref={strip} className="mt-4 overflow-x-auto [scrollbar-width:none]">
+        <div className="flex gap-2">
+          {images.map((image, i) => (
+            <button
+              key={image.name}
+              onClick={() => setIndex(i)}
+              className={cn("relative shrink-0 bg-white cursor-pointer", i === index && "after:absolute after:inset-0 after:bg-white/60")}
+              aria-label={image.name}
+            >
+              <img src={image.thumb} alt="" loading="lazy" className="w-[96px] h-[96px] object-cover" />
+            </button>
+          ))}
+        </div>
+      </div>
+      <a href="#fund" onClick={scrollTo("fund")} className={`${KM} ${RED} mt-10 flex items-center justify-center h-12 text-[16px] tracking-[0.8px] text-[#ebebeb]`}>
+        {jp.gallery.donate}
+      </a>
+      <DiplomaModal isOpen={zoomed} onClose={() => setZoomed(false)} diploma={images[index]} onNext={() => go(index + 1)} onPrev={() => go(index - 1)} />
+    </section>
+  );
+};
+
+const TabletVenues = () => (
+  <section className={`${T_WRAP} ${T_SECTION}`}>
+    <h2 className={`${T_H2} text-center`}>{jp.venues.heading}</h2>
+    {Object.entries(Object.groupBy(jp.venues.items, (v) => v.city)).map(([city, venues]) => (
+      <div key={city} className="mt-14">
+        <h3 className={`${R} text-[40px] min-[768px]:text-[48px] leading-none tracking-[0.01em]`}>{city}</h3>
+        {venues.map(({ name, dates, hours, map }) => (
+          <div key={name} className="mt-8 grid gap-6 min-[768px]:grid-cols-2 min-[768px]:gap-10">
+            <div>
+              <p className={`${KM} whitespace-pre-line text-[22px] leading-[1.3] tracking-[0.01em] text-[#ebebeb]`}>{name}</p>
+              <p className={`${KR} mt-5 inline-block border border-[#b10000] px-4 py-2.5 text-[22px] leading-none tracking-[0.01em] text-[#b30000]`}>{dates}</p>
+              {hours && <p className={`${R} mt-5 whitespace-pre-line text-[17px] leading-[1.5] tracking-[0.01em] text-[#ebebeb]`}>{hours}</p>}
+            </div>
+            <iframe src={mapEmbed(map)} title={name} loading="lazy" className="w-full h-[260px] min-[768px]:h-[280px] border-0 grayscale invert-[0.9]" />
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+);
+
+const TabletFund = () => (
+  <section id="fund" className={`${RED} ${T_SECTION}`}>
+    <div className={T_WRAP}>
+      <h2 className={`${KR} text-center text-balance text-[40px] min-[768px]:text-[48px] leading-[1.2]`}>{jp.fund.heading}</h2>
+      <div className={`${KR} mt-10 text-[18px] leading-[1.6] tracking-[0.01em] space-y-[1.2em] text-white`}>
+        <RichText blocks={toBlocks(jp.fund.text)} strongClassName="font-bold" />
+      </div>
+      <a
+        href={jp.fund.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${KM} mt-12 mx-auto flex items-center justify-center max-w-[460px] h-[60px] bg-[#fbfbfb] text-[20px] tracking-[0.05em] text-[#b10000]`}
+      >
+        {jp.fund.button}
+      </a>
+    </div>
+  </section>
+);
+
+const TabletMission = () => (
+  <section className={T_SECTION}>
+    <div className={`${T_WRAP} grid gap-10 min-[900px]:grid-cols-[5fr_6fr] min-[900px]:gap-12 items-start`}>
+      <div className="relative aspect-[16/10] min-[900px]:aspect-[469/694]">
+        <img src="/legacy/team.png" alt="" className="w-full h-full object-cover object-[60%_50%]" />
+        <p className={`${KM} absolute left-[13px] bottom-[9px] text-[12px] text-[#ebebeb]`}>{jp.photoCredit}</p>
+      </div>
+      <div className="space-y-12">
+        {[
+          [jp.purpose, "text-[#ebebeb]"],
+          [jp.team, "text-white"],
+        ].map(([block, color]) => (
+          <div key={block.heading}>
+            <h2 className={T_H2}>{block.heading}</h2>
+            <div className={`${T_BODY} ${color} mt-6`}>
+              <RichText blocks={toBlocks(block.text)} strongClassName={RED_RUN} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// Logos keep their desktop proportions at 80%, wrapped and centered
+const TabletLogos = ({ heading, logos, texts, className }) => (
+  <section className={cn(T_SECTION, className)}>
+    <div className={T_WRAP}>
+      <h2 className={T_H2}>{heading}</h2>
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-10">
+        {logos.map(({ name, src, href, w, h }) => {
+          const img = <img src={src} alt={name} loading="lazy" className="object-contain" style={{ width: w * 0.8, height: h * 0.8 }} />;
+          return href ? (
+            <a key={src} href={href} target="_blank" rel="noopener noreferrer">
+              {img}
+            </a>
+          ) : (
+            <span key={src}>{img}</span>
+          );
+        })}
+        {texts
+          .filter(({ size }) => size !== 10) // the tiny caption belongs to the UCRDC logo, which already names it
+          .map(({ text, size }) => (
+            <p key={text} className={cn(KR, "whitespace-pre text-center text-[#ebebeb]", size === 24 ? "text-[22px] leading-[1.4]" : "text-[17px]")}>
+              {text}
+            </p>
+          ))}
+      </div>
+    </div>
+  </section>
+);
+
+const TabletFaq = () => {
+  const [open, setOpen] = useState(null);
+  return (
+    <section id="faq" className={T_SECTION}>
+      <div className={`${T_WRAP} grid gap-8 min-[900px]:grid-cols-[2fr_3fr] min-[900px]:gap-12`}>
+        <h2 className={`${T_H2} relative self-start justify-self-start whitespace-nowrap`}>
+          {jp.faq.heading}
+          <img src="/legacy/ornament.png" alt="" className="absolute left-full ml-1 top-[0.35em] w-[1.3em] h-auto" />
+        </h2>
+        <div>
+          {jp.faq.items.map(({ question, answer }, i) => (
+            <div key={question} className="border-b border-[#b10000]">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-start justify-between gap-6 py-7 text-left cursor-pointer"
+                aria-expanded={open === i}
+              >
+                <span className={`${KR} text-[17px] leading-[1.5] text-[#ebebeb]`}>{question}</span>
+                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" stroke="#ebebeb" strokeWidth="1">
+                  <path d="M12 4v16" className={cn("transition-opacity", open === i && "opacity-0")} />
+                  <path d="M4 12h16" />
+                </svg>
+              </button>
+              {open === i && (
+                <div className={`${KM} -mt-2 pb-8 text-[16px] leading-[1.6] text-[#ebebeb]`}>
+                  <RichText blocks={toBlocks(answer)} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const TabletPage = () => (
+  <>
+    <TabletHeader />
+    <TabletHero />
+    <TabletText id="about" heading={jp.about.heading} headingClass={`${KM} text-[34px] min-[768px]:text-[40px] min-[900px]:text-[34px] leading-[1.4] whitespace-pre-line text-white`} text={jp.about.text} />
+    <Banner />
+    <TabletText id="classroom" className="bg-theme-bg-grey" heading={jp.classroom.heading} text={jp.classroom.text} textColor="text-white" />
+    <TabletGallery />
+    <TabletVenues />
+    <TabletFund />
+    <TabletMission />
+    <TabletLogos heading={jp.sponsors.heading} logos={jp.sponsors.logos} texts={jp.sponsors.texts} />
+    <TabletLogos heading={jp.partners.heading} logos={jp.partners.logos} texts={jp.partners.texts} className="bg-theme-bg-grey" />
+    <TabletFaq />
+  </>
+);
+
+// Phones get the 320px mobile layout scaled to the screen, exactly like Wix's <meta name="viewport" content="width=320">
+const usePhoneViewport = () =>
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="viewport"]');
+    if (!meta || window.screen.width >= 600) return;
+    const previous = meta.content;
+    meta.content = "width=320, user-scalable=yes";
+    return () => {
+      meta.content = previous;
+    };
+  }, []);
+
+// The 1:1 copy of the old page: mobile (<600px) and desktop (≥1100px) Wix layouts
+const WixPage = () => (
+  <>
+    <Header />
+    <Hero />
+    <TwoColumns
+      id="about"
+      h={358}
+      mh={528}
+      heading={jp.about.heading}
+      headingClass={`${KM} whitespace-pre-line text-[28px] leading-[38px] min-[600px]:text-[50px] min-[600px]:leading-[75px] text-white`}
+      headingAt={at([0, 66, 416], [15, 41, 225])}
+      text={jp.about.text}
+      textClass={`${BODY16} text-[#ebebeb]`}
+      textAt={at([509, 70, 491], [15, 161, 281])}
+    />
+    <Banner />
+    <TwoColumns
+      id="classroom"
+      h={579}
+      mh={663}
+      className="bg-theme-bg-grey"
+      heading={jp.classroom.heading}
+      headingClass={H56}
+      headingAt={at([0, 140, 284], [16, 21, 153])}
+      text={jp.classroom.text}
+      textClass={`${BODY16} text-white`}
+      textAt={at([510, 146, 485], [16, 75, 282])}
+    />
+    <Gallery />
+    <Venues />
+    <Fund />
+    <Mission />
+    <Logos heading={jp.sponsors.heading} logos={jp.sponsors.logos} texts={jp.sponsors.texts} h={765} mh={833} headingAt={at([-38, 88], [16, 62])} />
+    <Logos
+      heading={jp.partners.heading}
+      logos={jp.partners.logos}
+      texts={jp.partners.texts}
+      h={520}
+      mh={693}
+      headingAt={at([-43, 88], [15, 47])}
+      className="bg-theme-bg-grey"
+    />
+    <Faq />
+  </>
+);
+
 export default function JapanPage() {
+  usePhoneViewport();
+  const tablet = useMediaQuery(TABLET_QUERY);
   return (
     <div className="bg-theme-bg text-[#ebebeb] overflow-x-hidden">
       <title>{jp.metaTitle}</title>
@@ -446,38 +838,7 @@ export default function JapanPage() {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&text=0123456789%2F%3A%28%29%20&display=swap" precedence="default" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" precedence="default" />
       <style href="jp-fonts" precedence="default">{FONTS}</style>
-
-      <Header />
-      <Hero />
-      <TwoColumns
-        id="about"
-        h={358}
-        heading={jp.about.heading}
-        headingClass={`${KM} whitespace-pre-line text-[34px] leading-[1.35] min-[1100px]:text-[50px] min-[1100px]:leading-[75px] text-white`}
-        headingAt={at(0, 66, 416)}
-        text={jp.about.text}
-        textClass={`${BODY16} text-[#ebebeb]`}
-        textAt={at(509, 70, 491)}
-      />
-      <Banner />
-      <TwoColumns
-        id="classroom"
-        h={579}
-        className="bg-theme-bg-grey"
-        heading={jp.classroom.heading}
-        headingClass={H56}
-        headingAt={at(0, 140, 284)}
-        text={jp.classroom.text}
-        textClass={`${BODY16} text-white`}
-        textAt={at(510, 146, 485)}
-      />
-      <Gallery />
-      <Venues />
-      <Fund />
-      <Mission />
-      <Logos heading={jp.sponsors.heading} logos={jp.sponsors.logos} texts={jp.sponsors.texts} h={765} headingX={-38} />
-      <Logos heading={jp.partners.heading} logos={jp.partners.logos} texts={jp.partners.texts} h={520} headingX={-43} className="bg-theme-bg-grey" />
-      <Faq />
+      {tablet ? <TabletPage /> : <WixPage />}
     </div>
   );
 }

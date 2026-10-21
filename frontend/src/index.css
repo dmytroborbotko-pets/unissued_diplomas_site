@@ -3,7 +3,8 @@
 /* KyivType Sans Font Family */
 @font-face {
   font-family: "KyivType Sans";
-  src: url("/font/KyivType-Sans--Regular.otf") format("opentype");
+  /* the old Wix site's builds of the font: their vertical metrics give the same "normal" line height */
+  src: url("/font/KyivType-Sans-Wix-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +12,7 @@
 
 @font-face {
   font-family: "KyivType Sans";
-  src: url("/font/KyivType-Sans--Medium.otf") format("opentype");
+  src: url("/font/KyivType-Sans-Wix-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,9 +20,7 @@
 
 @font-face {
   font-family: "KyivType Sans";
-  src:
-    url("/font/KyivType-Sans--Bold.woff2") format("woff2"),
-    url("/font/KyivType-Sans--Bold2.otf") format("opentype");
+  src: url("/font/KyivType-Sans-Wix-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

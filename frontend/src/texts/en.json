@@ -41,14 +41,64 @@
           {
             "name": "Sydney, UNSW Sydney, Anita B. Lawrence Building",
             "href": "https://www.events.unsw.edu.au/event/unissued-diplomas",
-            "when": "(Feb 12 - 15; 9AM-5PM)"
+            "when": "(Feb 12 - 15; 9AM-5PM)",
+            "w": 219,
+            "mw": 219,
+            "ww": 188,
+            "mww": 188
           },
           {
             "name": "Melbourne, Sir Louis Matheson Library (Level 1)",
             "href": "https://maps.app.goo.gl/EyhL54tJRanJ73Cv5",
-            "when": "(Jun 14 - TBA)"
+            "when": "(Jun 14 - TBA)",
+            "w": 221,
+            "mw": 221,
+            "ww": 117,
+            "mww": 117
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              1,
+              674
+            ],
+            "ex": [
+              [
+                1,
+                710,
+                1,
+                757
+              ],
+              [
+                5,
+                786,
+                5,
+                833
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              3,
+              76
+            ],
+            "ex": [
+              [
+                3,
+                112,
+                3,
+                161
+              ],
+              [
+                3,
+                189,
+                3,
+                238
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "DE",
@@ -57,19 +107,85 @@
           {
             "name": "Hannover, Ernst-August-Platz",
             "href": "https://maps.app.goo.gl/1uYjqJc5ziDP1myt9",
-            "when": "(Feb 25; 12AM-5PM)"
+            "when": "(Feb 25; 12AM-5PM)",
+            "w": 207,
+            "mw": 207,
+            "ww": 166,
+            "mww": 166
           },
           {
             "name": "Hannover, New City Hall",
             "href": "https://maps.app.goo.gl/FXfpgBxrF8D42LDY9",
-            "when": "(Feb 26; 8AM-12AM)"
+            "when": "(Feb 26; 8AM-12AM)",
+            "w": 199,
+            "mw": 199,
+            "ww": 168,
+            "mww": 168
           },
           {
             "name": "Hannover, State Parliament of Lower Saxony",
             "href": "https://maps.app.goo.gl/PEHm7caABaYG2zBW9",
-            "when": "(Feb 26; 12:30AM-5PM)"
+            "when": "(Feb 26; 12:30AM-5PM)",
+            "w": 229,
+            "mw": 229,
+            "ww": 191,
+            "mww": 191
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              1,
+              953
+            ],
+            "ex": [
+              [
+                1,
+                989,
+                1,
+                1036
+              ],
+              [
+                1,
+                1068,
+                1,
+                1098
+              ],
+              [
+                0,
+                1125,
+                0,
+                1172
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              3,
+              1223
+            ],
+            "ex": [
+              [
+                3,
+                1259,
+                3,
+                1306
+              ],
+              [
+                3,
+                1338,
+                3,
+                1367
+              ],
+              [
+                2,
+                1394,
+                2,
+                1441
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "CA",
@@ -78,44 +194,190 @@
           {
             "name": "Waterloo, University of Waterloo",
             "href": "https://maps.app.goo.gl/t37UKYio2SCNjG1x5",
-            "when": "(Mar 15; 9AM-5PM)"
+            "when": "(Mar 15; 9AM-5PM)",
+            "w": 190,
+            "mw": 190,
+            "ww": 162,
+            "mww": 162
           },
           {
             "name": "Toronto, Hart House, University of Toronto",
             "href": "https://maps.app.goo.gl/s1mAt61PttpkGte99",
-            "when": "(Feb 24 - Mar 22)"
+            "when": "(Feb 24 - Mar 22)",
+            "w": 176,
+            "mw": 176,
+            "ww": 143,
+            "mww": 143
           },
           {
             "name": "Ottawa, University of Ottawa",
             "href": "https://maps.app.goo.gl/s1mAt61PttpkGte99",
-            "when": "(Feb 26 - 27)"
+            "when": "(Feb 26 - 27)",
+            "w": 174,
+            "mw": 174,
+            "ww": 104,
+            "mww": 104
           },
           {
             "name": "Vancouver, Kwantlen Politechnic University",
             "href": "https://maps.app.goo.gl/34vXP6hSht4aTJHi8",
-            "when": "(Feb 28 - 29)"
+            "when": "(Feb 28 - 29)",
+            "w": 180,
+            "mw": 180,
+            "ww": 106,
+            "mww": 106
           },
           {
             "name": "London, The University of Western Ontario",
             "href": "https://maps.app.goo.gl/fy66bR5oaCrw1EyaA",
-            "when": "(Feb 26 - Mar 11)"
+            "when": "(Feb 26 - Mar 11)",
+            "w": 211,
+            "mw": 211,
+            "ww": 136,
+            "mww": 136
           },
           {
             "name": "Montréal, Université de Montréal",
             "href": "https://maps.app.goo.gl/nFAUG76ZrgYe9rft7",
-            "when": "(Feb 28 - Mar 5)"
+            "when": "(Feb 28 - Mar 5)",
+            "w": 195,
+            "mw": 195,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Edmonton, University of Alberta",
             "href": "https://maps.app.goo.gl/Yh2dniCiQWtAx3hv6",
-            "when": "(Feb 26 - mid-Mar)"
+            "when": "(Feb 26 - mid-Mar)",
+            "w": 199,
+            "mw": 199,
+            "ww": 157,
+            "mww": 157
           },
           {
             "name": "Toronto, University of Toronto",
             "href": "https://maps.app.goo.gl/zgPy4HQPjR6Ax26HA",
-            "when": "(Mar 4 - 11)"
+            "when": "(Mar 4 - 11)",
+            "w": 180,
+            "mw": 180,
+            "ww": 93,
+            "mww": 93
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              0,
+              1312
+            ],
+            "ex": [
+              [
+                0,
+                1348,
+                0,
+                1392
+              ],
+              [
+                2,
+                1417,
+                2,
+                1461
+              ],
+              [
+                2,
+                1489,
+                2,
+                1534
+              ],
+              [
+                0,
+                1555,
+                0,
+                1599
+              ],
+              [
+                2,
+                1625,
+                2,
+                1668
+              ],
+              [
+                2,
+                1695,
+                2,
+                1738
+              ],
+              [
+                2,
+                1766,
+                2,
+                1810
+              ],
+              [
+                2,
+                1834,
+                2,
+                1878
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              1526
+            ],
+            "ex": [
+              [
+                1,
+                1562,
+                1,
+                1607
+              ],
+              [
+                3,
+                1631,
+                3,
+                1675
+              ],
+              [
+                3,
+                1704,
+                3,
+                1748
+              ],
+              [
+                1,
+                1770,
+                1,
+                1814
+              ],
+              [
+                3,
+                1840,
+                3,
+                1883
+              ],
+              [
+                3,
+                1909,
+                3,
+                1953
+              ],
+              [
+                3,
+                1980,
+                3,
+                2024
+              ],
+              [
+                3,
+                2049,
+                3,
+                2092
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "FI",
@@ -124,9 +386,43 @@
           {
             "name": "Helsinki, University of Helsinki",
             "href": null,
-            "when": "(Feb 24)"
+            "when": "(Feb 24)",
+            "w": 179,
+            "mw": 179,
+            "ww": 70,
+            "mww": 70
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              2,
+              2034
+            ],
+            "ex": [
+              [
+                2,
+                2073,
+                2,
+                2114
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              8643
+            ],
+            "ex": [
+              [
+                1,
+                8682,
+                1,
+                8723
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "SE",
@@ -135,9 +431,43 @@
           {
             "name": "Stockholm, Nansen academy",
             "href": null,
-            "when": "(Feb 22 - 26)"
+            "when": "(Feb 22 - 26)",
+            "w": 160,
+            "mw": 160,
+            "ww": 105,
+            "mww": 105
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              0,
+              2248
+            ],
+            "ex": [
+              [
+                0,
+                2287,
+                0,
+                2328
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              8810
+            ],
+            "ex": [
+              [
+                1,
+                8849,
+                1,
+                8891
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "BE",
@@ -146,19 +476,85 @@
           {
             "name": "Brussels, Station Europe (EU Parlament)",
             "href": "https://maps.app.goo.gl/EpeeuYBX3RFvcfXKA?g_st=it",
-            "when": "(Feb 23 - Mar 1)"
+            "when": "(Feb 23 - Mar 1)",
+            "w": 204,
+            "mw": 204,
+            "ww": 128,
+            "mww": 128
           },
           {
             "name": "Brussels, ELF",
             "href": null,
-            "when": "(Mar 11 - 13)"
+            "when": "(Mar 11 - 13)",
+            "w": 109,
+            "mw": 109,
+            "ww": 99,
+            "mww": 99
           },
           {
             "name": "Brugge, College de Europa",
             "href": "https://maps.app.goo.gl/xRuAzxMq6HxbmvCM9?g_st=it",
-            "when": "(Mar 13 - 16)"
+            "when": "(Mar 13 - 16)",
+            "w": 219,
+            "mw": 219,
+            "ww": 103,
+            "mww": 103
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              0,
+              2421
+            ],
+            "ex": [
+              [
+                0,
+                2457,
+                0,
+                2501
+              ],
+              [
+                4,
+                2525,
+                4,
+                2545
+              ],
+              [
+                4,
+                2568,
+                4,
+                2594
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              8993
+            ],
+            "ex": [
+              [
+                1,
+                9029,
+                1,
+                9073
+              ],
+              [
+                1,
+                9097,
+                1,
+                9118
+              ],
+              [
+                1,
+                9140,
+                1,
+                9167
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "CZ",
@@ -167,19 +563,85 @@
           {
             "name": "Prague, NYU Prague",
             "href": null,
-            "when": "(Apr 3 - 17)"
+            "when": "(Apr 3 - 17)",
+            "w": 170,
+            "mw": 170,
+            "ww": 91,
+            "mww": 91
           },
           {
             "name": "Naceradec, The Cumorah Academy",
             "href": "https://maps.app.goo.gl/MSmCuC3RAVwoDNHe7?g_st=ic",
-            "when": "(Feb 24 - 26)"
+            "when": "(Feb 24 - 26)",
+            "w": 213,
+            "mw": 213,
+            "ww": 105,
+            "mww": 105
           },
           {
             "name": "Pardubice, University of Pardubice",
             "href": "https://maps.google.com/?cid=14600107804571481181&entry=gps",
-            "when": "(May 3 - 26)"
+            "when": "(May 3 - 26)",
+            "w": 198,
+            "mw": 198,
+            "ww": 100,
+            "mww": 100
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              0,
+              2740
+            ],
+            "ex": [
+              [
+                0,
+                2779,
+                0,
+                2805
+              ],
+              [
+                0,
+                2834,
+                0,
+                2882
+              ],
+              [
+                0,
+                2911,
+                0,
+                2958
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              902
+            ],
+            "ex": [
+              [
+                1,
+                941,
+                1,
+                967
+              ],
+              [
+                1,
+                996,
+                1,
+                1043
+              ],
+              [
+                1,
+                1072,
+                1,
+                1120
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "NL",
@@ -188,9 +650,43 @@
           {
             "name": "Hague, city hall (Atrium)",
             "href": "https://maps.app.goo.gl/W31EwZv4GZagUCB38",
-            "when": "(May 6 - 16)"
+            "when": "(May 6 - 16)",
+            "w": 204,
+            "mw": 204,
+            "ww": 98,
+            "mww": 98
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              1,
+              3082
+            ],
+            "ex": [
+              [
+                1,
+                3118,
+                1,
+                3148
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              9426
+            ],
+            "ex": [
+              [
+                1,
+                9462,
+                1,
+                9494
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "FR",
@@ -199,14 +695,64 @@
           {
             "name": "Paris, Maison Internationale, Cité Internationale Universitaire de Paris (+10 locations)",
             "href": "https://www.citescope.fr/evenement/unissued-diplomas-mariupol-2022-ville-martyre/",
-            "when": "(Feb 14 - Mar 3; Mon-Sun 7AM-10PM)"
+            "when": "(Feb 14 - Mar 3; Mon-Sun 7AM-10PM)",
+            "w": null,
+            "mw": null,
+            "ww": 204,
+            "mww": 204
           },
           {
             "name": "Menton, Sciences Po Paris Menton campus",
             "href": "https://maps.app.goo.gl/AUZrnQpgwEsd7YQdA",
-            "when": "(Feb 27 ~)"
+            "when": "(Feb 27 ~)",
+            "w": 216,
+            "mw": 216,
+            "ww": 82,
+            "mww": 82
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              278,
+              671
+            ],
+            "ex": [
+              [
+                281,
+                707,
+                281,
+                786
+              ],
+              [
+                280,
+                831,
+                280,
+                875
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              3581
+            ],
+            "ex": [
+              [
+                2,
+                3617,
+                2,
+                3696
+              ],
+              [
+                1,
+                3741,
+                1,
+                3785
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "UA",
@@ -215,39 +761,169 @@
           {
             "name": "Kyiv, National University of Kyiv-Mohyla Academy",
             "href": "https://maps.app.goo.gl/V3P1QNFQQQRjW9dq5",
-            "when": "(Feb 23- Mar 23; 9AM - 9PM)"
+            "when": "(Feb 23- Mar 23; 9AM - 9PM)",
+            "w": 221,
+            "mw": 221,
+            "ww": 236,
+            "mww": 236
           },
           {
             "name": "Ternopil, Ternopil National Medical University",
             "href": "https://maps.app.goo.gl/MovcY2fyy7diDbCH8",
-            "when": "(Feb 22 - Mar 22)"
+            "when": "(Feb 22 - Mar 22)",
+            "w": 216,
+            "mw": 216,
+            "ww": 142,
+            "mww": 142
           },
           {
             "name": "Chernivtsi, Yuriy Fedkovych Chernivtsi National University",
             "href": "https://maps.app.goo.gl/eG7FEVJzwDNsarQJ7",
-            "when": "(Apr 1 - 16)"
+            "when": "(Apr 1 - 16)",
+            "w": 226,
+            "mw": 226,
+            "ww": 90,
+            "mww": 90
           },
           {
             "name": "Kyiv, Vadym Hetman Kyiv National Economic University",
             "href": "https://maps.app.goo.gl/q5jbLqdE37DXNYX98",
-            "when": "(Feb 26 - Mar 23)"
+            "when": "(Feb 26 - Mar 23)",
+            "w": 206,
+            "mw": 206,
+            "ww": 143,
+            "mww": 143
           },
           {
             "name": "Khmelnytskyi, Khmelnytskyi National University",
             "href": "https://maps.app.goo.gl/zvx5r9H91uG94WfU9",
-            "when": "(Jun 26 - Jul 10)"
+            "when": "(Jun 26 - Jul 10)",
+            "w": 229,
+            "mw": 229,
+            "ww": 134,
+            "mww": 134
           },
           {
             "name": "Uzhhorod, Uzhhorod National University",
             "href": "https://maps.app.goo.gl/T1AJRcN6GpHHGSKq8",
-            "when": "(Sep 3 - 7)"
+            "when": "(Sep 3 - 7)",
+            "w": 172,
+            "mw": 172,
+            "ww": 85,
+            "mww": 85
           },
           {
             "name": "Irshava, Irshava Historical and Local Lore Museum",
             "href": "https://maps.app.goo.gl/hm9wRWqRndBhvhB5A",
-            "when": "(Sep 26 - Oct 31)"
+            "when": "(Sep 26 - Oct 31)",
+            "w": 214,
+            "mw": 214,
+            "ww": 138,
+            "mww": 138
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              278,
+              999
+            ],
+            "ex": [
+              [
+                278,
+                1035,
+                278,
+                1079
+              ],
+              [
+                279,
+                1115,
+                279,
+                1159
+              ],
+              [
+                279,
+                1188,
+                279,
+                1250
+              ],
+              [
+                278,
+                1277,
+                278,
+                1339
+              ],
+              [
+                279,
+                1369,
+                279,
+                1413
+              ],
+              [
+                279,
+                1449,
+                279,
+                1494
+              ],
+              [
+                280,
+                1527,
+                280,
+                1571
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              2,
+              3878
+            ],
+            "ex": [
+              [
+                2,
+                3914,
+                2,
+                3958
+              ],
+              [
+                3,
+                3994,
+                3,
+                4038
+              ],
+              [
+                3,
+                4066,
+                3,
+                4128
+              ],
+              [
+                2,
+                4156,
+                2,
+                4217
+              ],
+              [
+                3,
+                4247,
+                3,
+                4291
+              ],
+              [
+                3,
+                4328,
+                3,
+                4372
+              ],
+              [
+                4,
+                4406,
+                4,
+                4450
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "KR",
@@ -256,14 +932,65 @@
           {
             "name": "Seoul, square near the russian embassy (during the protest of Ukrainian community)",
             "href": "https://www.facebook.com/UkrEmbassyKorea/posts/pfbid02fU9K61ZQULuEiGxhX4CV9n4ucjmErrHFpdHcgbbWKFhthmEwBkfLZyEmLgpwDPSml",
-            "when": "(Feb 24; 2PM - 5:30PM)"
+            "when": "(Feb 24; 2PM - 5:30PM)",
+            "w": null,
+            "mw": null,
+            "ww": 191,
+            "mww": 191
           },
           {
             "name": "Goyang, Gallery Sansu",
             "href": "https://maps.app.goo.gl/CCwi7YSnrdjQoQNh7",
-            "when": "(Jun 29)"
+            "when": "(Jun 29)",
+            "w": 185,
+            "mw": 185,
+            "ww": 73,
+            "mww": 40
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              279,
+              1746
+            ],
+            "ex": [
+              [
+                279,
+                1782,
+                279,
+                1865
+              ],
+              [
+                280,
+                1888,
+                279,
+                1915
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              599,
+              79
+            ],
+            "ex": [
+              [
+                1,
+                663,
+                1,
+                745
+              ],
+              [
+                2,
+                768,
+                1,
+                796
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "NO",
@@ -272,14 +999,64 @@
           {
             "name": "Lillehammer, Nansen academy",
             "href": "https://maps.google.com/maps/place//data=!4m2!3m1!1s0x466a87fde64beae5:0x92b214f2770dee93?entry=s&sa=X&ved=2ahUKEwiN-t7Rw76EAxU4QVUIHcSGDTwQ4kB6BAgSEAA&hl=en-ua",
-            "when": "(Feb 26 - Apr 3)"
+            "when": "(Feb 26 - Apr 3)",
+            "w": 175,
+            "mw": 175,
+            "ww": 129,
+            "mww": 129
           },
           {
             "name": "Tromsø, The Arctic University of Norway",
             "href": "https://maps.app.goo.gl/nTtNGwcyCjqzHjCJ7?g_st=ic",
-            "when": "(Feb 26 - Mar 4)"
+            "when": "(Feb 26 - Mar 4)",
+            "w": 174,
+            "mw": 174,
+            "ww": 134,
+            "mww": 134
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              277,
+              2031
+            ],
+            "ex": [
+              [
+                277,
+                2067,
+                277,
+                2111
+              ],
+              [
+                280,
+                2143,
+                280,
+                2187
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              2587
+            ],
+            "ex": [
+              [
+                1,
+                2623,
+                1,
+                2667
+              ],
+              [
+                4,
+                2698,
+                4,
+                2743
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "JP",
@@ -288,14 +1065,64 @@
           {
             "name": "Tokyo, Tokyo University, Komaba Library",
             "href": "https://www.eaa.c.u-tokyo.ac.jp/events/20240219-0304/",
-            "when": "(Feb 19 - Mar 4; 9AM-5PM; see details)"
+            "when": "(Feb 19 - Mar 4; 9AM-5PM; see details)",
+            "w": 195,
+            "mw": 195,
+            "ww": 217,
+            "mww": 217
           },
           {
             "name": "Tokyo, Temple University, \"The Parliament\" Lounge",
             "href": "https://maps.app.goo.gl/AVtZ6BWCFhhLMN5ZA",
-            "when": "(Feb 22)"
+            "when": "(Feb 22)",
+            "w": 208,
+            "mw": 208,
+            "ww": 70,
+            "mww": 70
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              548,
+              673
+            ],
+            "ex": [
+              [
+                548,
+                709,
+                548,
+                753
+              ],
+              [
+                548,
+                806,
+                548,
+                850
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              3,
+              330
+            ],
+            "ex": [
+              [
+                3,
+                366,
+                3,
+                411
+              ],
+              [
+                3,
+                464,
+                3,
+                508
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "US",
@@ -304,84 +1131,360 @@
           {
             "name": "New York, Ukrainian Institute",
             "href": "https://maps.app.goo.gl/wiNPhzCN1jwVrtHN8",
-            "when": "(Feb 24)"
+            "when": "(Feb 24)",
+            "w": 241,
+            "mw": 241,
+            "ww": 70,
+            "mww": 70
           },
           {
             "name": "Cleveland, Cleveland State University",
             "href": "https://maps.app.goo.gl/bA1tRBMjgB5Kr67p8",
-            "when": "(Mar 1 - Mar 31)"
+            "when": "(Mar 1 - Mar 31)",
+            "w": 220,
+            "mw": 220,
+            "ww": 130,
+            "mww": 130
           },
           {
             "name": "Hanover, Dartmouth College",
             "href": "https://maps.app.goo.gl/FScvgkmHgxtuCq397",
-            "when": "(Mar 3 - Apr 4)"
+            "when": "(Mar 3 - Apr 4)",
+            "w": 238,
+            "mw": 238,
+            "ww": 124,
+            "mww": 124
           },
           {
             "name": "Worcester, MA, Worcester Polytechnic Institute",
             "href": "https://maps.app.goo.gl/cKNbZu7Mo5TrTqtG8",
-            "when": "(Feb 27 - Mar 1)"
+            "when": "(Feb 27 - Mar 1)",
+            "w": 221,
+            "mw": 221,
+            "ww": 128,
+            "mww": 128
           },
           {
             "name": "Stanford, Stanford Law School",
             "href": "https://maps.app.goo.gl/TxKga4gXWp5fyPtm8",
-            "when": "(Feb 22 - Mar 30)"
+            "when": "(Feb 22 - Mar 30)",
+            "w": 194,
+            "mw": 194,
+            "ww": 143,
+            "mww": 143
           },
           {
             "name": "Vermillion, University of South Dakota",
             "href": "https://maps.app.goo.gl/LamTmqFQUZz3k5cn9",
-            "when": "(Feb 24 - Mar 8)"
+            "when": "(Feb 24 - Mar 8)",
+            "w": 251,
+            "mw": 251,
+            "ww": 134,
+            "mww": 134
           },
           {
             "name": "Providence, Brown University",
             "href": "https://maps.app.goo.gl/LamTmqFQUZz3k5cn9",
-            "when": "(Feb 24 - Mar 2)"
+            "when": "(Feb 24 - Mar 2)",
+            "w": 243,
+            "mw": 243,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Toledo, University of Toledo",
             "href": "https://maps.app.goo.gl/Za3SM25VHdiBkUG48",
-            "when": "(Mar 11 - Mar 31)"
+            "when": "(Mar 11 - Mar 31)",
+            "w": 226,
+            "mw": 226,
+            "ww": 137,
+            "mww": 137
           },
           {
             "name": "Annandale-on-Hudson, Bard College",
             "href": "https://maps.app.goo.gl/NhjYqKYJ5RCZG9bE9",
-            "when": "(Feb 24 - Mar 3)"
+            "when": "(Feb 24 - Mar 3)",
+            "w": 234,
+            "mw": 234,
+            "ww": 132,
+            "mww": 132
           },
           {
             "name": "Storrs Mansfield, Babbidge library at UConn",
             "href": "https://maps.app.goo.gl/jeds3gbsDX3tXmzJA",
-            "when": "(Feb 19 - Mar 4)"
+            "when": "(Feb 19 - Mar 4)",
+            "w": 225,
+            "mw": 225,
+            "ww": 130,
+            "mww": 130
           },
           {
             "name": "Annandale-on-Hudson, Fisher Studio Arts Building",
             "href": "https://maps.app.goo.gl/BfdLrkuqS5vTWu7u7",
-            "when": "(Feb 24 - Mar 3)"
+            "when": "(Feb 24 - Mar 3)",
+            "w": 245,
+            "mw": 245,
+            "ww": 132,
+            "mww": 132
           },
           {
             "name": "Boston, Boston University",
             "href": "https://maps.app.goo.gl/2p32KfferSAvcLi3A",
-            "when": "(Feb 26 - Mar 2)"
+            "when": "(Feb 26 - Mar 2)",
+            "w": 214,
+            "mw": 214,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Cambridge, MA, Massachusetts Institute of Technology",
             "href": "https://maps.app.goo.gl/xvbkK83EKE69cbdTA",
-            "when": "(Feb 26 ~)"
+            "when": "(Feb 26 ~)",
+            "w": 222,
+            "mw": 222,
+            "ww": 83,
+            "mww": 83
           },
           {
             "name": "Montezuma, New Mexico, UWC-USA",
             "href": "https://maps.app.goo.gl/nCmNQej9A2pENJVj9",
-            "when": "(Feb 23 - 27)"
+            "when": "(Feb 23 - 27)",
+            "w": 210,
+            "mw": 210,
+            "ww": 103,
+            "mww": 103
           },
           {
             "name": "Vermont, Middlebury College , Davis Family Library Display",
             "href": "https://maps.app.goo.gl/SPyrx2Ev8y8PoD7E9",
-            "when": "(Feb 24 - Mar 5)"
+            "when": "(Feb 24 - Mar 5)",
+            "w": 250,
+            "mw": 250,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Waltham, Brandeis University",
             "href": "https://maps.app.goo.gl/nhZeWin31Mw3xHdU9",
-            "when": "(Feb 29 - Mar 12)"
+            "when": "(Feb 29 - Mar 12)",
+            "w": 245,
+            "mw": 245,
+            "ww": 140,
+            "mww": 140
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              548,
+              977,
+              203
+            ],
+            "ex": [
+              [
+                548,
+                1041,
+                548,
+                1068
+              ],
+              [
+                550,
+                1094,
+                550,
+                1140
+              ],
+              [
+                550,
+                1169,
+                550,
+                1197
+              ],
+              [
+                550,
+                1227,
+                550,
+                1273
+              ],
+              [
+                550,
+                1298,
+                550,
+                1343
+              ],
+              [
+                550,
+                1368,
+                550,
+                1413
+              ],
+              [
+                550,
+                1440,
+                550,
+                1467
+              ],
+              [
+                550,
+                1493,
+                550,
+                1521
+              ],
+              [
+                550,
+                1548,
+                550,
+                1593
+              ],
+              [
+                550,
+                1620,
+                550,
+                1665
+              ],
+              [
+                550,
+                1691,
+                550,
+                1736
+              ],
+              [
+                550,
+                1762,
+                550,
+                1786
+              ],
+              [
+                549,
+                1812,
+                549,
+                1872
+              ],
+              [
+                549,
+                1898,
+                549,
+                1942
+              ],
+              [
+                549,
+                1966,
+                549,
+                2011
+              ],
+              [
+                549,
+                2035,
+                549,
+                2063
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              5562,
+              203
+            ],
+            "ex": [
+              [
+                -1,
+                5626,
+                -1,
+                5652
+              ],
+              [
+                1,
+                5679,
+                1,
+                5724
+              ],
+              [
+                1,
+                5754,
+                1,
+                5781
+              ],
+              [
+                1,
+                5812,
+                1,
+                5857
+              ],
+              [
+                1,
+                5883,
+                1,
+                5928
+              ],
+              [
+                1,
+                5952,
+                1,
+                5998
+              ],
+              [
+                1,
+                6024,
+                1,
+                6052
+              ],
+              [
+                1,
+                6077,
+                1,
+                6105
+              ],
+              [
+                1,
+                6134,
+                1,
+                6179
+              ],
+              [
+                1,
+                6205,
+                1,
+                6251
+              ],
+              [
+                1,
+                6276,
+                1,
+                6321
+              ],
+              [
+                1,
+                6348,
+                1,
+                6374
+              ],
+              [
+                0,
+                6399,
+                0,
+                6460
+              ],
+              [
+                0,
+                6485,
+                0,
+                6530
+              ],
+              [
+                0,
+                6553,
+                0,
+                6598
+              ],
+              [
+                0,
+                6622,
+                0,
+                6651
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "IE",
@@ -390,24 +1493,107 @@
           {
             "name": "Munster, Munster Technological University, Kerry (North campus) Library",
             "href": "https://maps.app.goo.gl/TdwgWikvow71VBVj8",
-            "when": "(Feb 26 - Mar 15;\nMon - Wed 9AM-9PM,\nThu - Fri 9AM-5PM,\nSat - 10AM-2PM)"
+            "when": "(Feb 26 - Mar 15;\nMon - Wed 9AM-9PM,\nThu - Fri 9AM-5PM,\nSat - 10AM-2PM)",
+            "w": 206,
+            "mw": 206,
+            "ww": 179,
+            "mww": 179
           },
           {
             "name": "Cork, MTU Arena",
             "href": "https://maps.app.goo.gl/r4te2sjkGTJ1v8kL9",
-            "when": "(Apr 4 - 19;\nMon - Fri 7AM-10PM,\nSat - 9AM-5PM,\nSun - 9AM-5PM)"
+            "when": "(Apr 4 - 19;\nMon - Fri 7AM-10PM,\nSat - 9AM-5PM,\nSun - 9AM-5PM)",
+            "w": 144,
+            "mw": 144,
+            "ww": 170,
+            "mww": 170
           },
           {
             "name": "The Boole Library, University College Cork, College Rd, University College, Cork",
             "href": "https://maps.app.goo.gl/b9wzJNV6CaNEftTM7",
-            "when": "27 January - 27 February, 2025"
+            "when": "27 January - 27 February, 2025",
+            "whenMobile": "(27 January - 27 February, 2025)",
+            "w": 243,
+            "mw": null,
+            "ww": 208,
+            "mww": 133
           },
           {
             "name": "Glucksman Library\nUniversity of Limerick\nPlassey Park Rd,\nLimerick",
             "href": "https://maps.app.goo.gl/VSqezM2txcenX24TA",
-            "when": "February 17th - March 10th, 2026"
+            "when": "February 17th - March 10th, 2026",
+            "w": 186,
+            "mw": 186,
+            "ww": 227,
+            "mww": 146
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              826,
+              671
+            ],
+            "ex": [
+              [
+                826,
+                707,
+                826,
+                785
+              ],
+              [
+                827,
+                866,
+                827,
+                891
+              ],
+              [
+                827,
+                979,
+                826,
+                1038
+              ],
+              [
+                827,
+                1082,
+                826,
+                1164
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              7058
+            ],
+            "ex": [
+              [
+                -1,
+                7094,
+                -1,
+                7172
+              ],
+              [
+                0,
+                7253,
+                0,
+                7278
+              ],
+              [
+                -1,
+                7359,
+                -1,
+                7419
+              ],
+              [
+                -1,
+                7464,
+                -1,
+                7545
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "GB",
@@ -416,69 +1602,296 @@
           {
             "name": "Belfast, Ulster university",
             "href": "https://maps.app.goo.gl/yuwYi4mNMuLLpfKC6",
-            "when": "(Feb 22 - 26)"
+            "when": "(Feb 22 - 26)",
+            "w": 205,
+            "mw": 205,
+            "ww": 105,
+            "mww": 105
           },
           {
             "name": "St. Andrews, St Andrews University, Main Library",
             "href": null,
-            "when": "(Feb 19 - 25)"
+            "when": "(Feb 19 - 25)",
+            "w": 203,
+            "mw": 203,
+            "ww": 102,
+            "mww": 102
           },
           {
             "name": "Oxford, University of Oxford",
             "href": null,
-            "when": "(Feb 20)"
+            "when": "(Feb 20)",
+            "w": 173,
+            "mw": 173,
+            "ww": 71,
+            "mww": 71
           },
           {
             "name": "London, Goodenough College",
             "href": null,
-            "when": "(Feb 22 - 24)"
+            "when": "(Feb 22 - 24)",
+            "w": 176,
+            "mw": 176,
+            "ww": 105,
+            "mww": 105
           },
           {
             "name": "London, King's College London",
             "href": null,
-            "when": "(Feb 26 - Mar 5)"
+            "when": "(Feb 26 - Mar 5)",
+            "w": 184,
+            "mw": 184,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Aberdeen, University of Aberdeen",
             "href": null,
-            "when": "(Feb 24 - Mar 1)"
+            "when": "(Feb 24 - Mar 1)",
+            "w": 196,
+            "mw": 196,
+            "ww": 129,
+            "mww": 129
           },
           {
             "name": "Egham, Royal Holloway University of London",
             "href": "https://maps.app.goo.gl/TWw6euKegaTF2Avu9?g_st=ic",
-            "when": "(Feb 24 - Mar 2)"
+            "when": "(Feb 24 - Mar 2)",
+            "w": 186,
+            "mw": 186,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "St Donats Castle, UWC Atlantic College",
             "href": null,
-            "when": "(Feb 26 - Mar 4)"
+            "when": "(Feb 26 - Mar 4)",
+            "w": 189,
+            "mw": 189,
+            "ww": 134,
+            "mww": 134
           },
           {
             "name": "Glasgow, University of Strathclyde",
             "href": "https://maps.app.goo.gl/9EE4KENs7xk7M2Xm7?g_st=ic",
-            "when": "(Feb 22 - 24)"
+            "when": "(Feb 22 - 24)",
+            "w": 184,
+            "mw": 184,
+            "ww": 105,
+            "mww": 105
           },
           {
             "name": "Glasgow, University of Strathclyde",
             "href": null,
-            "when": "(Feb 22 - 24)"
+            "when": "(Feb 22 - 24)",
+            "w": 184,
+            "mw": 184,
+            "ww": 105,
+            "mww": 105
           },
           {
             "name": "Nottingham, Nottingham Trent University",
             "href": "https://goo.gl/maps/6wz3br35j9MQe1HJ6",
-            "when": "(Feb 24)"
+            "when": "(Feb 24)",
+            "w": 208,
+            "mw": 208,
+            "ww": 70,
+            "mww": 70
           },
           {
             "name": "Colchester, University of Essex",
             "href": "https://maps.app.goo.gl/AjiBjikiAVyWmpCB9?g_st=ic",
-            "when": "(Feb 23)"
+            "when": "(Feb 23)",
+            "w": 206,
+            "mw": 206,
+            "ww": 69,
+            "mww": 69
           },
           {
             "name": "Brighton, University of Sussex",
             "href": "https://maps.app.goo.gl/229dPF1Lcp9NT2nk9?g_st=it",
-            "when": "(Mar 1 1 - 23)"
+            "when": "(Mar 1 1 - 23)",
+            "w": 188,
+            "mw": 188,
+            "ww": 106,
+            "mww": 106
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              822,
+              1323
+            ],
+            "ex": [
+              [
+                822,
+                1359,
+                822,
+                1386
+              ],
+              [
+                822,
+                1414,
+                822,
+                1455
+              ],
+              [
+                822,
+                1484,
+                822,
+                1525
+              ],
+              [
+                823,
+                1553,
+                823,
+                1594
+              ],
+              [
+                823,
+                1617,
+                823,
+                1659
+              ],
+              [
+                823,
+                1684,
+                823,
+                1725
+              ],
+              [
+                823,
+                1749,
+                823,
+                1793
+              ],
+              [
+                823,
+                1823,
+                823,
+                1864
+              ],
+              [
+                822,
+                1888,
+                822,
+                1932
+              ],
+              [
+                823,
+                1958,
+                823,
+                2000
+              ],
+              [
+                823,
+                2016,
+                823,
+                2060
+              ],
+              [
+                823,
+                2079,
+                823,
+                2123
+              ],
+              [
+                830,
+                2155,
+                830,
+                2199
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              7655,
+              110
+            ],
+            "ex": [
+              [
+                1,
+                7719,
+                1,
+                7746
+              ],
+              [
+                1,
+                7774,
+                1,
+                7815
+              ],
+              [
+                1,
+                7844,
+                1,
+                7885
+              ],
+              [
+                2,
+                7913,
+                2,
+                7954
+              ],
+              [
+                2,
+                7978,
+                2,
+                8019
+              ],
+              [
+                2,
+                8044,
+                2,
+                8086
+              ],
+              [
+                2,
+                8109,
+                2,
+                8153
+              ],
+              [
+                2,
+                8183,
+                2,
+                8224
+              ],
+              [
+                1,
+                8248,
+                1,
+                8292
+              ],
+              [
+                2,
+                8318,
+                2,
+                8360
+              ],
+              [
+                2,
+                8377,
+                2,
+                8421
+              ],
+              [
+                2,
+                8440,
+                2,
+                8484
+              ],
+              [
+                2,
+                8506,
+                2,
+                8550
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "LT",
@@ -487,24 +1900,106 @@
           {
             "name": "Vilnius, Vilnius University",
             "href": "https://maps.app.goo.gl/t6RsfX5NwPr2FDuWA",
-            "when": "(Feb 26 - Mar 10)"
+            "when": "(Feb 26 - Mar 10)",
+            "w": 207,
+            "mw": 207,
+            "ww": 141,
+            "mww": 141
           },
           {
             "name": "Vilnius, Ukrainian Centre",
             "href": "https://maps.app.goo.gl/t6RsfX5NwPr2FDuWA",
-            "when": "(Feb 24 - Mar 29)"
+            "when": "(Feb 24 - Mar 29)",
+            "w": 206,
+            "mw": 206,
+            "ww": 144,
+            "mww": 144
           },
           {
             "name": "Kaunas, Kauno Santaros gymnazija",
             "href": "https://maps.app.goo.gl/Q1Jr29D8NH4SCdkQ7",
-            "when": "(Feb 26 - Mar 3)"
+            "when": "(Feb 26 - Mar 3)",
+            "w": 200,
+            "mw": 200,
+            "ww": 133,
+            "mww": 133
           },
           {
             "name": "Kaunas University of Technology, KTU main Library (2nd floor)",
             "href": "https://maps.app.goo.gl/qoetgK99JExuMZJHA",
-            "when": "(Mar 1 - 17)"
+            "when": "(Mar 1 - 17)",
+            "w": 182,
+            "mw": 182,
+            "ww": 92,
+            "mww": 92
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              277,
+              2291
+            ],
+            "ex": [
+              [
+                277,
+                2327,
+                277,
+                2353
+              ],
+              [
+                277,
+                2389,
+                277,
+                2415
+              ],
+              [
+                277,
+                2453,
+                277,
+                2497
+              ],
+              [
+                277,
+                2527,
+                277,
+                2589
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              2830
+            ],
+            "ex": [
+              [
+                1,
+                2866,
+                1,
+                2893
+              ],
+              [
+                1,
+                2928,
+                1,
+                2955
+              ],
+              [
+                1,
+                2993,
+                1,
+                3037
+              ],
+              [
+                1,
+                3066,
+                1,
+                3128
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "QA",
@@ -513,9 +2008,43 @@
           {
             "name": "Al Rayyan, Georgetown University, Atrium",
             "href": "https://maps.app.goo.gl/YpL2zGqAXTR5uGLw7?g_st=ic",
-            "when": "(Apr 21 - May 4)"
+            "when": "(Apr 21 - May 4)",
+            "w": 190,
+            "mw": 190,
+            "ww": 131,
+            "mww": 131
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              549,
+              2281
+            ],
+            "ex": [
+              [
+                549,
+                2317,
+                549,
+                2364
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              2,
+              3217
+            ],
+            "ex": [
+              [
+                2,
+                3253,
+                2,
+                3302
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "ID",
@@ -524,9 +2053,43 @@
           {
             "name": "Bali, Denpasar, Honorary Consulate of Ukraine in Denpasar",
             "href": "https://maps.app.goo.gl/pA3NkEbKEfW33Ekw8",
-            "when": "(Feb 24)"
+            "when": "(Feb 24)",
+            "w": 206,
+            "mw": 206,
+            "ww": 70,
+            "mww": 70
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              549,
+              2470
+            ],
+            "ex": [
+              [
+                549,
+                2506,
+                549,
+                2571
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              3392
+            ],
+            "ex": [
+              [
+                1,
+                3428,
+                1,
+                3495
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "BG",
@@ -535,9 +2098,43 @@
           {
             "name": "Blagoevgrad, American University in Bulgaria",
             "href": "https://www.events.unsw.edu.au/event/unissued-diplomas",
-            "when": "(Feb 26 - Mar 5; 9AM-5PM)"
+            "when": "(Feb 26 - Mar 5; 9AM-5PM)",
+            "w": 193,
+            "mw": 193,
+            "ww": 179,
+            "mww": 223
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              277,
+              2717
+            ],
+            "ex": [
+              [
+                277,
+                2753,
+                277,
+                2800
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              2183
+            ],
+            "ex": [
+              [
+                1,
+                2219,
+                1,
+                2268
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "TW",
@@ -546,14 +2143,64 @@
           {
             "name": "Taipei, Taipei National University of the Arts",
             "href": "https://fb.me/e/7A6JrIHxb",
-            "when": "(Apr 30 - May 17)"
+            "when": "(Apr 30 - May 17)",
+            "w": 179,
+            "mw": 179,
+            "ww": 141,
+            "mww": 141
           },
           {
             "name": "Hualien, Tzu Chi University",
             "href": "https://maps.app.goo.gl/osSKQVuahbsX6bmm7",
-            "when": "(May 27 - Jun 8)"
+            "when": "(May 27 - Jun 8)",
+            "w": 221,
+            "mw": 221,
+            "ww": 135,
+            "mww": 135
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              550,
+              2700
+            ],
+            "ex": [
+              [
+                550,
+                2736,
+                550,
+                2783
+              ],
+              [
+                550,
+                2809,
+                550,
+                2839
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              2357
+            ],
+            "ex": [
+              [
+                1,
+                2393,
+                1,
+                2440
+              ],
+              [
+                1,
+                2466,
+                1,
+                2496
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "DK",
@@ -562,9 +2209,43 @@
           {
             "name": "Aarhus, Aarhus University",
             "href": "https://maps.app.goo.gl/zKVLkjRi7Uaboe537",
-            "when": "(Feb 22 - Mar 15)"
+            "when": "(Feb 22 - Mar 15)",
+            "w": 216,
+            "mw": 216,
+            "ww": 139,
+            "mww": 139
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              277,
+              2950
+            ],
+            "ex": [
+              [
+                277,
+                2986,
+                277,
+                3015
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              4548
+            ],
+            "ex": [
+              [
+                -1,
+                4584,
+                -1,
+                4616
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "ES",
@@ -573,9 +2254,43 @@
           {
             "name": "Sevilla, Loyola University",
             "href": "https://maps.app.goo.gl/QZvL5wwEAhtSNWAEA",
-            "when": "(Apr 4)"
+            "when": "(Apr 4)",
+            "w": 202,
+            "mw": 202,
+            "ww": 62,
+            "mww": 62
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              277,
+              3130
+            ],
+            "ex": [
+              [
+                277,
+                3166,
+                277,
+                3196
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              9260
+            ],
+            "ex": [
+              [
+                -1,
+                9296,
+                -1,
+                9328
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "SK",
@@ -584,19 +2299,85 @@
           {
             "name": "Bratislava, Ukrajinský Inštitút",
             "href": "https://maps.app.goo.gl/tr1NV9TR9UE5SSgd6",
-            "when": "(Feb 24 - Mar 11)"
+            "when": "(Feb 24 - Mar 11)",
+            "w": 178,
+            "mw": 178,
+            "ww": 136,
+            "mww": 136
           },
           {
             "name": "Bratislava, Námestie Nežnej revolúcie",
             "href": "https://maps.app.goo.gl/iWsWTqj1x2MScUjVA",
-            "when": "(Feb 24)"
+            "when": "(Feb 24)",
+            "w": 231,
+            "mw": 231,
+            "ww": 70,
+            "mww": 70
           },
           {
             "name": "Bratislava, Univerzita Komenského",
             "href": "https://maps.app.goo.gl/PYwxZBanMLw3cRJr5",
-            "when": "(Mar 15 - 28)"
+            "when": "(Mar 15 - 28)",
+            "w": 176,
+            "mw": 176,
+            "ww": 107,
+            "mww": 107
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              548,
+              2968
+            ],
+            "ex": [
+              [
+                548,
+                3004,
+                548,
+                3051
+              ],
+              [
+                548,
+                3076,
+                548,
+                3123
+              ],
+              [
+                548,
+                3152,
+                548,
+                3199
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              6739
+            ],
+            "ex": [
+              [
+                1,
+                6775,
+                1,
+                6822
+              ],
+              [
+                1,
+                6847,
+                1,
+                6895
+              ],
+              [
+                1,
+                6924,
+                1,
+                6971
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "NG",
@@ -605,14 +2386,64 @@
           {
             "name": "Maiduguri, Federal University of Maiduguri and the CATAI HUB Center For Advocacy, Transparency and Accountability Initiative.",
             "href": "https://maps.app.goo.gl/qSoQ4Sx5xf2xTxkq8",
-            "when": "(Feb 23 - Mar 26)"
+            "when": "(Feb 23 - Mar 26)",
+            "w": null,
+            "mw": null,
+            "ww": 143,
+            "mww": 143
           },
           {
             "name": "Maiduguri, Borno State University",
             "href": "https://maps.app.goo.gl/bhwjbz1Epcs6FnuN8",
-            "when": "(Mar 3)"
+            "when": "(Mar 3)",
+            "w": 194,
+            "mw": 194,
+            "ww": 65,
+            "mww": 65
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              830,
+              2345
+            ],
+            "ex": [
+              [
+                830,
+                2381,
+                830,
+                2499
+              ],
+              [
+                832,
+                2526,
+                832,
+                2569
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              4713
+            ],
+            "ex": [
+              [
+                1,
+                4749,
+                1,
+                4867
+              ],
+              [
+                3,
+                4894,
+                3,
+                4937
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "PL",
@@ -621,9 +2452,43 @@
           {
             "name": "Cracow, Jagiellonian University",
             "href": null,
-            "when": "(Mar 14 - 21)"
+            "when": "(Mar 14 - 21)",
+            "w": 171,
+            "mw": 171,
+            "ww": 103,
+            "mww": 103
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              827,
+              2613
+            ],
+            "ex": [
+              [
+                827,
+                2652,
+                827,
+                2696
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              5040
+            ],
+            "ex": [
+              [
+                1,
+                5079,
+                1,
+                5125
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "EE",
@@ -632,9 +2497,43 @@
           {
             "name": "Tallinn, Tallinn University",
             "href": "https://maps.app.goo.gl/pBgHLm1xQMAWgLRV9",
-            "when": "(Feb 24 - Mar 11)"
+            "when": "(Feb 24 - Mar 11)",
+            "w": 203,
+            "mw": 203,
+            "ww": 136,
+            "mww": 136
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              827,
+              2832
+            ],
+            "ex": [
+              [
+                827,
+                2868,
+                827,
+                2898
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              1,
+              5220
+            ],
+            "ex": [
+              [
+                1,
+                5256,
+                1,
+                5288
+              ]
+            ]
+          }
+        }
       },
       {
         "code": "RO",
@@ -643,9 +2542,43 @@
           {
             "name": "Cluj Napoka, Colegiul Academic",
             "href": "https://maps.app.goo.gl/ksPqFnAbj86Y8CNn8",
-            "when": "(Feb 26 - Mar 11)"
+            "when": "(Feb 26 - Mar 11)",
+            "w": 175,
+            "mw": 175,
+            "ww": 136,
+            "mww": 136
           }
-        ]
+        ],
+        "pos": {
+          "d": {
+            "name": [
+              827,
+              3017
+            ],
+            "ex": [
+              [
+                827,
+                3053,
+                827,
+                3100
+              ]
+            ]
+          },
+          "m": {
+            "name": [
+              -1,
+              5386
+            ],
+            "ex": [
+              [
+                -1,
+                5422,
+                -1,
+                5471
+              ]
+            ]
+          }
+        }
       }
     ],
     "columns": [
@@ -684,6 +2617,159 @@
         "PL",
         "EE",
         "RO"
+      ]
+    ],
+    "tops": [
+      [
+        626,
+        905,
+        1264,
+        1986,
+        2200,
+        2373,
+        2692,
+        3034
+      ],
+      [
+        623,
+        951,
+        1698,
+        1983,
+        2243,
+        2669,
+        2902,
+        3082
+      ],
+      [
+        625,
+        929,
+        2233,
+        2422,
+        2652,
+        2920
+      ],
+      [
+        623,
+        1275,
+        2297,
+        2565,
+        2784,
+        2969
+      ]
+    ],
+    "map": true,
+    "mobile": [
+      [
+        "AU",
+        76
+      ],
+      [
+        "JP",
+        330
+      ],
+      [
+        "KR",
+        599
+      ],
+      [
+        "CZ",
+        902
+      ],
+      [
+        "DE",
+        1223
+      ],
+      [
+        "CA",
+        1526
+      ],
+      [
+        "BG",
+        2183
+      ],
+      [
+        "TW",
+        2357
+      ],
+      [
+        "NO",
+        2587
+      ],
+      [
+        "LT",
+        2830
+      ],
+      [
+        "QA",
+        3217
+      ],
+      [
+        "ID",
+        3392
+      ],
+      [
+        "FR",
+        3581
+      ],
+      [
+        "UA",
+        3878
+      ],
+      [
+        "DK",
+        4548
+      ],
+      [
+        "NG",
+        4713
+      ],
+      [
+        "PL",
+        5040
+      ],
+      [
+        "EE",
+        5220
+      ],
+      [
+        "RO",
+        5386
+      ],
+      [
+        "US",
+        5562
+      ],
+      [
+        "SK",
+        6739
+      ],
+      [
+        "IE",
+        7058
+      ],
+      [
+        "GB",
+        7655
+      ],
+      [
+        "FI",
+        8643
+      ],
+      [
+        "SE",
+        8810
+      ],
+      [
+        "BE",
+        8993
+      ],
+      [
+        "ES",
+        9260
+      ],
+      [
+        "NL",
+        9426
       ]
     ]
   },
@@ -1009,7 +3095,7 @@
       }
     },
     "team": {
-      "text": "In 2023, this project was implemented by a team of 50+ young Ukrainian people, based across the globe in cooperation with **[SUSK](https://www.susk.ca/)** and support of the Embassy of Ukraine in Poland, Australia, and Japan. They united in the goal of commemorating the lost lives of Ukrainian students and reminding the world that the full-scale war still rages on."
+      "text": "In 2023, this project was implemented by a team of 50+ young Ukrainian people, based across the globe in cooperation with [SUSK](https://www.susk.ca/) and support of the Embassy of Ukraine in Poland, Australia, and Japan. They united in the goal of commemorating the lost lives of Ukrainian students and reminding the world that the full-scale war still rages on."
     },
     "sponsors": {
       "heading": "SPONSORS",
@@ -1572,6 +3658,276 @@
           }
         ]
       }
-    ]
+    ],
+    "mobile": {}
+  },
+  "mobileMenu": {
+    "home": "Home",
+    "sub": [
+      "About",
+      "Diplomas",
+      "Exhibitions",
+      "Donate",
+      "FAQ"
+    ],
+    "results": "Results of 2023"
+  },
+  "mobileText": {
+    "storiesButton": "Explore more on Memorial"
+  },
+  "layout": {
+    "header": 87,
+    "hero": 780,
+    "about": 404,
+    "note": 227,
+    "hall": 568,
+    "viewer": 795,
+    "attend": 234,
+    "list": 3233,
+    "donate": 633,
+    "mission": 858,
+    "stories": 480,
+    "sponsors": 765,
+    "partners": 529,
+    "faq": 450,
+    "footer": 282,
+    "m": {
+      "header": 73,
+      "hero": 515,
+      "about": 646,
+      "note": 289,
+      "banner": 200,
+      "hall": 784,
+      "viewer": 370,
+      "attend": 253,
+      "list": 9534,
+      "donate": 1007,
+      "mission": 1083,
+      "stories": 490,
+      "sponsors": 837,
+      "partners": 708,
+      "faq": 465,
+      "footer": 250,
+      "titleSize": 40,
+      "tagline": 12,
+      "taglineWidth": 212,
+      "donateButtonsGap": 29,
+      "donateHeading": {}
+    },
+    "y2023": {
+      "d": {
+        "header": 87,
+        "stats": 541,
+        "locations": 888,
+        "activities": 251,
+        "photos": 709,
+        "guests": 465,
+        "team": 347,
+        "sponsors": 765,
+        "partners": 558,
+        "footer": true
+      },
+      "m": {
+        "header": 73,
+        "stats": 994,
+        "locations": 391,
+        "activities": 348,
+        "photos": 236,
+        "guests": 474,
+        "team": 570,
+        "sponsors": 823,
+        "partners": 537,
+        "footer": true
+      }
+    },
+    "heroTitle": [
+      70,
+      438,
+      201,
+      40
+    ],
+    "tileWidths": [
+      290,
+      326,
+      431
+    ],
+    "tagline": [
+      12,
+      199,
+      339
+    ],
+    "storiesTop": 81,
+    "storiesWidth": 948,
+    "partnersGap": 76,
+    "banner": 323,
+    "bannerWidth": 653,
+    "nav": {
+      "fs": 14,
+      "items": [
+        [
+          -369,
+          30,
+          166
+        ],
+        [
+          -175,
+          30,
+          130
+        ],
+        [
+          -6,
+          30,
+          110
+        ],
+        [
+          149,
+          30,
+          31
+        ],
+        [
+          233,
+          30,
+          88
+        ]
+      ]
+    },
+    "ink": {
+      "d": {
+        "heroTitle": [
+          14,
+          0
+        ],
+        "tileVisit": [
+          4,
+          0
+        ],
+        "tileHost": [
+          8,
+          0
+        ],
+        "tileDonate": [
+          3,
+          0
+        ],
+        "aboutHeading": [
+          11,
+          0
+        ],
+        "hallHeading": [
+          11,
+          0
+        ],
+        "attendHeading": [
+          11,
+          1
+        ],
+        "donateHeading": [
+          11,
+          1
+        ],
+        "donateText": [
+          10,
+          0
+        ],
+        "missionHeading": [
+          0,
+          3
+        ],
+        "teamHeading": [
+          1,
+          3
+        ],
+        "teamText": [
+          4,
+          0
+        ],
+        "photoCredit": [
+          2,
+          0
+        ],
+        "partnersHeading": [
+          1,
+          -5
+        ],
+        "storiesButton": [
+          7,
+          0
+        ],
+        "banner": [
+          8,
+          0
+        ]
+      },
+      "m": {
+        "tileVisit": [
+          -6,
+          0
+        ],
+        "tileHost": [
+          -8,
+          0
+        ],
+        "tileDonate": [
+          -4,
+          0
+        ],
+        "rowAbout": [
+          -6,
+          0
+        ],
+        "hallText": [
+          3,
+          0
+        ],
+        "donateText": [
+          6,
+          0
+        ],
+        "teamHeading": [
+          11,
+          -1
+        ],
+        "teamText": [
+          11,
+          5
+        ],
+        "photoCredit": [
+          4,
+          0
+        ],
+        "storiesHeading": [
+          2,
+          0
+        ],
+        "storiesText": [
+          5,
+          0
+        ],
+        "faqItems": [
+          6,
+          0
+        ],
+        "banner": [
+          -4,
+          0
+        ],
+        "donateHeading": [
+          2,
+          0
+        ],
+        "aboutText": [
+          4,
+          0
+        ],
+        "donateButtons": [
+          2,
+          0
+        ],
+        "storiesButton": [
+          11,
+          0
+        ]
+      }
+    }
   }
 }

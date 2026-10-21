@@ -5,6 +5,7 @@ import { JAPAN_PATH } from './constants/languages';
 import Home from './pages/Home';
 
 const JapanPage = lazy(() => import('./pages/JapanPage'));
+const Achievements2023 = lazy(() => import('./pages/Achievements2023'));
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/2023-achievements" element={<Achievements2023 />} />
             {/* The old exhibitions page is replaced by the 2023 results page */}
             <Route path="/exhibitions" element={<Navigate to="/2023-achievements" replace />} />
             <Route path={JAPAN_PATH} element={<JapanPage />} />
