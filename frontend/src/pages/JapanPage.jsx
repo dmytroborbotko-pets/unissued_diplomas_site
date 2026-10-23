@@ -446,7 +446,7 @@ const Logos = ({ heading, logos, texts, h, mh, headingAt, className }) => (
     })}
     {texts.map(({ text, x, y, w, size, m }) => (
       <p key={text} className={cn(POS, W, KR, "min-[600px]:whitespace-pre tracking-[0.01em] text-[#ebebeb]", TEXT_SIZES[size])} style={at([x, y, w], m)}>
-        {size === 24 ? text : text.replace("\n", " ")}
+        {text}
       </p>
     ))}
   </Section>
@@ -720,8 +720,9 @@ const TabletFaq = () => {
   const [open, setOpen] = useState(null);
   return (
     <section id="faq" className={T_SECTION}>
-      <div className={`${T_WRAP} grid gap-8 min-[900px]:grid-cols-[2fr_3fr] min-[900px]:gap-12`}>
-        <h2 className={`${T_H2} relative self-start justify-self-start whitespace-nowrap`}>
+      <div className={`${T_WRAP} grid gap-8 min-[900px]:grid-cols-[auto_minmax(0,1fr)] min-[900px]:gap-12`}>
+        {/* margin = the ornament after the heading, so the column makes room for it */}
+        <h2 className={`${T_H2} relative self-start justify-self-start whitespace-nowrap mr-[1.4em]`}>
           {jp.faq.heading}
           <img src="/legacy/ornament.png" alt="" className="absolute left-full ml-1 top-[0.35em] w-[1.3em] h-auto" />
         </h2>
